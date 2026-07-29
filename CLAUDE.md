@@ -154,6 +154,20 @@ vault 篇名跟 mdBook 路径的映射见 `/tmp/fix_wikilinks_v2.py`(如果还�
 - 图片附件目前只有 AskUserQuestion 篇有 2 张 · 其他章节都是纯文字
 - 部分工具章节里画的 ASCII 图可以未来换成 mermaid
 
+## 踩过的坑
+
+### 首次 GitHub Actions 部署会失败(第一次装仓库时)
+
+**症状**:第一次 push 后 Actions 跑到 `deploy` 阶段报 `HttpError: Not Found · Ensure GitHub Pages has been enabled`。
+
+**原因**:GitHub Pages 需要在仓库 Settings 里开启才能被 `actions/deploy-pages` 用。gh CLI 上开 Pages 的命令是:
+
+```bash
+gh api --method POST /repos/OWNER/REPO/pages -f build_type=workflow
+```
+
+**修法**:第一次 push 后 · 手动开启 Pages(用上面命令 · 或去 GitHub Web UI Settings → Pages → Build source: GitHub Actions)· 然后 `gh workflow run deploy.yml` 手动触发一次。后续 push 就都正常了。
+
 ## 联系
 
 原作者 [@diaozxin007](https://github.com/diaozxin007) · Issue / PR 都欢迎。
