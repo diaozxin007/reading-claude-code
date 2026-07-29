@@ -213,9 +213,9 @@ Cron 家族的描述围绕六件事:**session-only 生命周期 / 7 天上限主
 
 **一次性任务的判断 · 从用户语言反推**
 
-> For "remind me at X" or "at <time>, do Y" requests — fire once then auto-delete. Pin minute/hour/day-of-month/month to specific values
+> For "remind me at X" or "at `<time>`, do Y" requests — fire once then auto-delete. Pin minute/hour/day-of-month/month to specific values
 
-**给出 recurring: false 的具体触发信号** —— 「remind me at X」/「at <time>, do Y」这类语言是一次性场景。**从用户语言反推参数取值**,让 Claude 不用每次都问用户「你要一次还是循环」。
+**给出 recurring: false 的具体触发信号** —— 「remind me at X」/「at `<time>`, do Y」这类语言是一次性场景。**从用户语言反推参数取值**,让 Claude 不用每次都问用户「你要一次还是循环」。
 
 **本地时区语义 · 避免 UTC 换算**
 

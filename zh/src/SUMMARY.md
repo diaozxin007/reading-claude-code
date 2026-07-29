@@ -38,3 +38,4 @@
 ---
 
 [附录 · 工具索引](appendix-index.md)
+[关于](about.md)

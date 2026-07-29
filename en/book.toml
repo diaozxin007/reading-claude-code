@@ -3,7 +3,6 @@ title = "Reading Claude Code, Together"
 description = "A deep dive into the design of Claude Code's tool primitives — what each tool is preventing"
 authors = ["diaozxin007"]
 language = "en"
-multilingual = false
 src = "src"
 
 [rust]
@@ -13,7 +12,6 @@ edition = "2021"
 default-theme = "light"
 preferred-dark-theme = "navy"
 git-repository-url = "https://github.com/diaozxin007/reading-claude-code"
-git-repository-icon = "fa-github"
 edit-url-template = "https://github.com/diaozxin007/reading-claude-code/edit/main/en/src/{path}"
 site-url = "/reading-claude-code/en/"
 

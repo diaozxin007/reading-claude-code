@@ -1,0 +1,36 @@
+{{!--
+  Custom SEO / social sharing meta tags injected into every mdBook page.
+  Values come from book.toml [book] section + a few hardcoded per-site constants.
+--}}
+
+<!-- Open Graph -->
+<meta property="og:title" content="{{ chapter_title }} — {{ book_title }}">
+<meta property="og:description" content="{{ description }}">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="{{ book_title }}">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://diaozxin007.github.io/reading-claude-code/og-cover.png">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ chapter_title }} — {{ book_title }}">
+<meta name="twitter:description" content="{{ description }}">
+<meta name="twitter:image" content="https://diaozxin007.github.io/reading-claude-code/og-cover.png">
+
+<!-- SEO keywords · 中文技术圈常用查询词 -->
+<meta name="keywords" content="Claude Code, Claude Code Tools, AI Agent 工具设计, Anthropic, LLM tool call, AskUserQuestion, Agent 架构, prompt engineering, jooj, AI 协作方法论, mdBook">
+
+<!-- Robots · 允许所有搜索引擎索引 -->
+<meta name="robots" content="index, follow">
+
+<!-- hreflang · 双语站点标注 -->
+<link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/">
+<link rel="alternate" hreflang="en" href="https://diaozxin007.github.io/reading-claude-code/en/">
+<link rel="alternate" hreflang="x-default" href="https://diaozxin007.github.io/reading-claude-code/">
+
+<!-- Canonical URL 用户可以在具体页面 override,这里给站点根 -->
+<link rel="canonical" href="https://diaozxin007.github.io/reading-claude-code/zh/">
+
+<!-- 作者 & 版权信息 -->
+<meta name="author" content="diaozxin007">
+<meta name="publisher" content="Reading Claude Code">

@@ -45,6 +45,9 @@ jobs:
           cp -r en/book _site/en
           # 顶层 index.html 提供语言选择
           cp scripts/index.html _site/index.html
+          # SEO 资产
+          cp scripts/sitemap.xml _site/sitemap.xml
+          cp scripts/robots.txt _site/robots.txt
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

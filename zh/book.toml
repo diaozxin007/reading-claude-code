@@ -3,7 +3,6 @@ title = "一同读 Claude Code"
 description = "一本关于 Claude Code 工具原语设计的深度拆解 —— 每一个 tool 都在防御什么"
 authors = ["diaozxin007"]
 language = "zh"
-multilingual = false
 src = "src"
 
 [rust]
@@ -13,7 +12,6 @@ edition = "2021"
 default-theme = "light"
 preferred-dark-theme = "navy"
 git-repository-url = "https://github.com/diaozxin007/reading-claude-code"
-git-repository-icon = "fa-github"
 edit-url-template = "https://github.com/diaozxin007/reading-claude-code/edit/main/zh/src/{path}"
 site-url = "/reading-claude-code/zh/"
 

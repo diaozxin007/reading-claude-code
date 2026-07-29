@@ -19,12 +19,19 @@ reading-claude-code/
 ├── README.md               (仓库首页 · 双站入口)
 ├── CLAUDE.md               (你正在读的这份)
 ├── .github/workflows/      (GitHub Actions 构建 & 部署配置)
+├── scripts/
+│   ├── index.html          (顶层语言选择页 · 部署时挂在 _site/index.html)
+│   ├── sitemap.xml         (SEO · 部署时挂在 _site/sitemap.xml)
+│   └── robots.txt          (SEO · 部署时挂在 _site/robots.txt)
 ├── zh/                     (中文站 mdBook 项目)
 │   ├── book.toml           (mdBook 主配置)
+│   ├── theme/
+│   │   └── head.hbs        (SEO meta 注入 · OG / hreflang / keywords)
 │   └── src/
 │       ├── SUMMARY.md      (中文目录 · mdBook 靠这个组装书本结构)
 │       ├── preface.md      (前言)
 │       ├── tool-mechanism.md   (Tool 机制 · 起步章)
+│       ├── about.md        (关于 · 作者 + 书面信息)
 │       ├── interaction/    (交互原语 3 篇)
 │       │   ├── ask-user-question.md
 │       │   ├── enter-plan-mode.md
