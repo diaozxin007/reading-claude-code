@@ -1,0 +1,63 @@
+name: Deploy mdBook to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      MDBOOK_VERSION: 0.4.40
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install mdBook
+        run: |
+          curl -L "https://github.com/rust-lang/mdBook/releases/download/v${MDBOOK_VERSION}/mdbook-v${MDBOOK_VERSION}-x86_64-unknown-linux-gnu.tar.gz" | tar -xz
+          echo "$PWD" >> $GITHUB_PATH
+
+      - name: Build zh
+        run: |
+          cd zh && ../mdbook build
+
+      - name: Build en
+        run: |
+          cd en && ../mdbook build
+
+      - name: Assemble site
+        run: |
+          mkdir -p _site
+          # 双站分别放在 zh/ 和 en/ 子目录
+          cp -r zh/book _site/zh
+          cp -r en/book _site/en
+          # 顶层 index.html 提供语言选择
+          cp scripts/index.html _site/index.html
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

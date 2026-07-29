@@ -1,0 +1,13 @@
+# mdBook build output
+zh/book/
+en/book/
+
+# macOS
+.DS_Store
+
+# Editor
+.vscode/
+.idea/
+
+# Node (if we ever add tooling)
+node_modules/
