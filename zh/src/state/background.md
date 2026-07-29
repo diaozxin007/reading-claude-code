@@ -453,3 +453,55 @@ Background 机制的精妙之处 · 不在于「让 AI 能异步」这个功能�
 **没有 Background 机制,Claude Code 是「一次一动作的助手」;有了 Background 机制,Claude Code 是「多线程协作者」**。这个能力,让 Claude 真正能应对**「多个长任务并发 + 边做边聊 + 到点自动干活 + 事件驱动响应」** 的复杂工程场景。
 
 从这个角度看,Background 不是「一个功能」—— 它是让所有工具**从『同步管道』升级为『异步协作系统』** 的隐形骨架。
+
+---
+
+## 与邻居工具的关系
+
+Background 机制不是一个独立 tool,而是**跨 tool 的横切参数**。它跟前 13 个工具的关系不是「并列」,而是「贯穿」:
+
+| 承载工具 | Background 表现 | 默认档位 | 主要作用 |
+|---|---|---|---|
+| **Bash** | `run_in_background: false` 默认 · 显式 opt-in | 前台阻塞 | 支持长任务不卡主循环 |
+| **Agent** | `run_in_background: true` 默认 · 显式 opt-out | 后台异步 | subagent 常态就是长跑 |
+| **Task 家族** | task_id 承载 pid 角色 · TaskStop / TaskOutput | N/A | 提供跨时状态和杀灭入口 |
+| **Cron 家族** | 定时驱动 · 未来时唤醒 | 定时触发 | 时间原语 |
+| **Monitor** | 事件驱动 · 事件流唤醒 | 事件触发 | 事件流原语 |
+
+**"反轮询原则"是 Background 机制的中枢** —— 它同时约束了 Bash / Agent / Monitor 三个 tool 的使用方式:
+- Bash 后台任务完成会通知 · **不要在 sleep 里 poll**
+- Agent 后台任务完成会通知 · **不要用 CronCreate 定期查它**
+- Monitor 流式事件到就通知 · **不要用 tail -f 一次事件后忘了停**
+
+这条原则不写在任何单一 tool 的 description 里 · 只有把 background 作为**机制**来看才能理解为什么它贯穿所有 tool。这也是这一篇必须跨 tool 拆解的核心原因。
+
+**Background 机制与同步机制的分工哲学**:
+- 同步:一次调用 → 结果直接进 context,主循环用完就下一步
+- 异步:一次调用 → 立即返回句柄,任务在后台跑 · 通知机制推送结果 → 结果通过 Read output 文件或 TaskOutput 拉回
+
+前 13 个工具都是**默认同步**:Read / Edit / Write / Grep / Glob / WebFetch / WebSearch / AskUserQuestion / Enter/ExitPlanMode 全都是同步。这暗示 Claude Code 的**默认心智模式是同步**,异步是**特殊场景的显式选择**(除了 Agent 反过来 —— 那是因为 subagent 生命周期跟主循环解耦,同步反而违和)。
+
+---
+
+## 系列尾声
+
+至此,Claude Code tools 研究系列完结。回望 14 篇的地图:
+
+1. **前置篇** —— tool 是什么、Claude 怎么用
+2-4. **交互原语三件套**(Ask / EnterPlanMode / ExitPlanMode) —— AI 和用户怎么对齐
+5. **Grep + Glob** —— 定位
+6. **Read** —— 感知
+7-8. **Edit / Write** —— 精准 / 全量执行
+9. **Bash** —— catch-all 兜底
+10. **Agent** —— 派生 Claude
+11. **Task 家族** —— 外化工作记忆
+12. **WebFetch + WebSearch** —— 触达公网
+13. **Cron 家族** —— 未来时间
+14. **Monitor** —— 事件流
+15. **Background 机制** —— 让所有 tool 从同步升级到异步
+
+整个 tool 生态的骨架是这样搭起来的:**用户对齐 → 定位 → 感知 → 执行 → 兜底 → scaling(subagent / 时间 / 事件流)**。每一层都是「够用 + 安全 + 可组合」的原语,组合起来构成一个完整的协作系统。
+
+15 篇不是为了穷举,而是为了让每一个 tool 都过一遍这套「4 层拆解」的解剖:命名 · 工具级描述 · 字段级描述 · schema 校验。**这个方法可以复用到任何 tool 系统的分析上** —— 不管是 MCP servers、别人写的 skills、或者你自己的下一个 agent 项目。
+
+系列到这里全部拆完。整套沉淀,如果要一个字概括 Claude Code tools 的设计哲学:**克制** —— 每个工具只做一件小事,组合起来才构成协作系统。

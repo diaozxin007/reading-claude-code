@@ -330,6 +330,29 @@ Bash 是 catch-all,理论上 `curl` + 搜索 API 也能干。但直接调有一�
 
 ---
 
+### 与邻居工具的分工
+
+WebFetch + WebSearch 跟前十个工具形成对照:
+
+| 维度 | 三交互原语 | 定位 + 感知 + 执行 | Bash | Agent | Task 家族 | WebFetch / WebSearch |
+|---|---|---|---|---|---|---|
+| 定位 | 协作对齐 | 改代码 | 命令执行 | 派生 Claude | 外化工作记忆 | **触达公网** |
+| 输入源 | 用户 | 磁盘 | 命令 | prompt | 用户 / AI | **URL / 查询词** |
+| 输出规范化 | 结构化 | 文本 / diff | 原始文本 | subagent 结果 | 状态 | **HTML→Markdown / 摘要** |
+| 认证态 | 无 | 用户已登录 | 用户凭据 | fork 主 session | 用户 session | **匿名 · 无凭据** |
+| 主要红利 | 用户对齐 | 精准改代码 | 工程流程 | context 空间 | 对抗遗忘 | **可控信息接口** |
+
+**WebFetch + WebSearch 的双工具模式呼应 Grep + Glob**:
+
+- Grep + Glob:一个按内容找、一个按路径找 · **在项目里找信息**
+- WebFetch + WebSearch:一个按 URL 拉、一个按关键词搜 · **在公网找信息**
+
+两组工具都遵循「一个精确目标、一个模糊探索」的双工具模式,但 WebFetch + WebSearch 面对的是**不可信外部世界**,所以额外多了「MCP 让位、跨域重定向不自动跟、强制列 Sources」这些安全护栏。
+
+**与 Bash 的边界**:Bash 是 catch-all,理论上 `curl` + 搜索 API 也能干这些事,但存在 HTML 解析负担、认证凭据泄漏、API 密钥管理、无引用义务等问题。WebFetch + WebSearch 把这些痛点封装成专用工具,再一次体现「Bash 兜底,专用工具精加工」的分工哲学。
+
+---
+
 ### 小结
 
 WebFetch + WebSearch 的精妙之处,在于把「让 AI 上网」这个泛用需求,拆成两个专用工具,把 4 层设计手段用满。
@@ -350,3 +373,5 @@ WebFetch + WebSearch 的精妙之处,在于把「让 AI 上网」这个泛用需
 - **跨域重定向不自动跟** —— 把安全决策交给 Claude · 防跳转攻击 · 是显式协议不是静默魔法
 
 这些信号在 4 层里各就各位,共同把「让 Claude 触达公网」这个能力,收敛成一个可控、可追溯、可让位的外部信息接口。
+
+下一篇继续拆 [Cron 家族](../state/cron-family.md) —— 从「空间维度」(项目 / 公网)切换到「时间维度」(定时 / 未来触发)。CronCreate / CronDelete / CronList 三件套怎么把「让 AI 定时干活」这件事,做成一个可组合的时间原语。

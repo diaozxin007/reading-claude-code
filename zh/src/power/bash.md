@@ -387,3 +387,5 @@ Bash 独特的地方在于它是**「无边界的兜底」** —— 能力无限
 
 而正如「一个有趣的注解」暴露的:**光靠 prompt 约束是不够的** —— 面对训练数据惯性,每次调用都是 Claude 的自律判断,自律就会有漏。要真的把这些惯性关进笼子,只能靠 hooks / sandbox 拦截这类 runtime 硬约束。这是 Bash 作为 catch-all 通用工具留给整套工具生态的核心洞察。
 
+下一篇继续拆 [Agent](agent.md) —— Claude Code 里最独特的工具:**让 Claude 派另一个 Claude 去干活**。如果说 Bash 让 Claude 突破了「只能改代码」的边界,Agent 让 Claude 突破了「一个 context 的边界」。看看这个「派生 subagent」的能力是怎么设计的。
+

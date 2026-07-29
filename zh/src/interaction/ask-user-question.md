@@ -52,6 +52,7 @@ Claude 会构造一个包含 **两个问题** 的调用：
 **第二个问题** ——
 
 ![凭证存储选择](images/ask-user-question-storage.jpg)
+
 用户在界面上看到的是两张卡片，每张卡片顶部是那个短标签（「认证方式」/「凭证存储」），下面是 3 个 / 2 个选项 + 一个自动追加的「其它」。用户点两下选完，Claude 拿到的返回值大致是：
 
 - 第一个问题 → 用户选了 **JWT（推荐）**
@@ -172,16 +173,20 @@ AskUserQuestion 的字段描述有一个共同套路：**约束 + example**。ex
 
 ---
 
-**与 EnterPlanMode / ExitPlanMode 的分工**：
+### 与邻居工具的分工
 
-- 计划模式里，用 AskUserQuestion 澄清「选哪种方案」（在方案定稿之前）
-- 计划模式里，不要用 AskUserQuestion 问「我的方案 OK 吗」（用 ExitPlanMode）
-- 非计划模式里，用 AskUserQuestion 处理任何需要用户拍板的技术分叉
+AskUserQuestion 是**决策流水线的第一环**,和 EnterPlanMode / ExitPlanMode 分工如下:
 
-三个工具串起来是一条完整的决策流水线：**Ask 澄清 → EnterPlanMode 展开 → ExitPlanMode 拍板**。
+- 计划模式里,用 AskUserQuestion 澄清「选哪种方案」(在方案定稿之前)
+- 计划模式里,不要用 AskUserQuestion 问「我的方案 OK 吗」(用 ExitPlanMode)
+- 非计划模式里,用 AskUserQuestion 处理任何需要用户拍板的技术分叉
+
+三个工具串起来是一条完整的决策流水线:**Ask 澄清 → EnterPlanMode 展开 → ExitPlanMode 拍板**。这条流水线是 Claude Code 里最重要的**交互原语**,把「AI 和用户怎么对齐」这件事拆成三个可组合的动作。
 
 ---
 
-**总结**：AskUserQuestion 的精妙之处，不在于它「让 AI 问用户问题」这个功能本身，而在于它把 4 层设计手段用满 —— 命名传隐式语义、工具级描述限定使用边界、字段级描述塞 few-shot、schema 硬约束物理拦截误用。相当于把「AI 提问」这个泛用能力，收敛成一个可预测、可组合、可维护的交互原语。
+### 小结
 
-下一篇继续拆 **[EnterPlanMode](enter-plan-mode.md)** —— 三工具决策流水线的第二环 · 一个空参数的工具是怎么设计的。
+AskUserQuestion 的精妙之处,不在于它「让 AI 问用户问题」这个功能本身,而在于它把 4 层设计手段用满 —— 命名传隐式语义、工具级描述限定使用边界、字段级描述塞 few-shot、schema 硬约束物理拦截误用。相当于把「AI 提问」这个泛用能力,收敛成一个可预测、可组合、可维护的交互原语。
+
+下一篇继续拆 [EnterPlanMode](enter-plan-mode.md) —— 三工具决策流水线的第二环 · 一个空参数的工具是怎么设计的。

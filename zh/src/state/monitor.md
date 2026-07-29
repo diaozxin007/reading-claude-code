@@ -327,6 +327,46 @@ Monitor 的 schema 中等复杂 —— 关键约束都在 harness / runtime 层:
 
 ---
 
+### 与邻居工具的分工
+
+Monitor 跟前十二个工具形成对照,补齐**等待原语三足鼎立**:
+
+| 维度 | Bash `run_in_background` | CronCreate | Monitor |
+|---|---|---|---|
+| 等什么 | 一次性任务完成 | 时间点到达 | **事件流** |
+| 触发次数 | 1 次(命令 exit) | N 次(每次匹配触发) | **每次事件 1 通知** |
+| 唤醒方式 | 任务 exit 通知 | 时刻触发唤醒 | **每行 stdout / WS text frame 唤醒** |
+| 输入源 | 命令 | cron 表达式 | **命令 + WebSocket** |
+| 典型场景 | 「等 CI 结束」 | 「每 5 分钟检查一次」 | **「有 error log 就报警」** |
+| 保守偏差 | 「等到 exit 就通知」 | 「时刻到就 fire」 | **「过滤到能行动的信号才发」** |
+
+前 12 个工具都是「等一件事」或「同步动作」,Monitor 是「等事件流」 —— 让 Claude 从「主动 poll」的执行者,变成「布下监听哨、外部动就报告」的观察员。
+
+**Monitor 与 Cron 的对比** —— 两者都是「让 Claude 定期被唤醒」,但触发条件根本不同:
+
+- Cron 是**时间驱动**:定时到达就 fire(不管有没有事)
+- Monitor 是**事件驱动**:有事件就 fire(不管过多久)
+
+对应两种「等」的语义:等日历、等外部世界变化。
+
+**Monitor 与 Bash `run_in_background` 的对比** —— 一个是点,一个是线:
+
+- Bash 后台:等**一件事完成**(启动 → 阻塞 → 通知一次 → 结束)
+- Monitor:等**事件流不断到达**(启动 → 阻塞 → 每次事件通知一次 → 直到超时 / 主动停 / 命令 exit)
+
+如果任务是「等 CI 跑完」,用 Bash `run_in_background`;如果任务是「盯着 log 一有 error 就吼」,用 Monitor。
+
+**Monitor 与 Task 家族的对比** —— 都是**跨时状态**,但方向相反:
+
+- Task 家族:**在系统里存着「该做的事」** —— Claude 需要主动 List / Get 才知道
+- Monitor:**在外部世界拉一根事件流** —— 事件到了 Claude 会被推送
+
+前者是 pull,后者是 push。**「反轮询原则」在 Monitor 上体现最明显** —— 明确说了不能用 `tail -f` 或 `while true` 做单次通知,那是浪费 monitor 资源。
+
+**Monitor 在工具生态里的位置**:它把「等待外部世界变化」这个能力,从 Bash 的原始形态(`sleep + poll`)升级成一个**结构化的事件流原语**。让「等」这个动作在 Claude 的工具箱里第一次拥有一等公民地位。
+
+---
+
 ### 小结
 
 Monitor 的精妙之处,不在于它「让 AI 能持续监听」这个功能本身,而在于它的信号分布**极度偏向 tool 描述里的观测方法论**:
@@ -338,4 +378,4 @@ Monitor 的精妙之处,不在于它「让 AI 能持续监听」这个功能本�
 
 Monitor 独特的地方在于它**把「事件流工具的完备性」的重心从参数校验转移到了 prompt 教育**:schema 只锁基本形态,但 tool 描述里塞进了 unix pipe buffering 的老 sysadmin 直觉 + silence-is-not-success 的 SRE 观测哲学 + rate limiting 的对话保护策略。相当于把「Claude 布下一个可靠的事件监听哨」这个泛用能力,收敛成一个**事件驱动、失败可见、防对话淹没、支持两种数据源**的等待原语。
 
-从更广的视角看,Monitor 补齐了 Claude Code 的**异步等待三足鼎立**:Bash `run_in_background` 等一次性完成 · CronCreate 等时刻触发 · Monitor 等事件流。前两个是「等一件事」(点),Monitor 是「等事件流」(线)。让 Claude 从「主动 poll」的执行者,变成「布下监听哨、外部动就报告」的观察员 —— 「等」终于变成一个 first-class 的动作。
+下一篇继续拆 [Background 机制](background.md) —— 系列的最后一篇。前 13 篇拆的都是**单一工具**,这一篇跨过工具边界,看 `run_in_background` 这个横切参数如何贯穿 Bash / Agent / Task 家族 / Monitor,把「异步」升级成 Claude Code 的第一等语义。
