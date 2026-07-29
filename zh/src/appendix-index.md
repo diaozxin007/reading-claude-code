@@ -73,7 +73,7 @@
 
 | 观察 | 章节 |
 |---|---|
-| runtime 硬阻断 > AI 自律 | [设计哲学](philosophy.md) |
+| runtime 硬阻断 > AI 自律 | 分散在多个章节 · 见 [Edit](execution/edit.md) 的 Read 前置约束 |
 | Read 先行的信任链 | [Edit](execution/edit.md) · [Write](execution/write.md) |
 | 空参数 = 状态切换意图 | [EnterPlanMode](interaction/enter-plan-mode.md) · [ExitPlanMode](interaction/exit-plan-mode.md) |
 | Context 隔离 | [Agent](power/agent.md) · [WebFetch](info/web.md) |

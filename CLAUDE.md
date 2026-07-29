@@ -4,7 +4,7 @@
 
 ## 项目定位
 
-**《一同读 Claude Code》** —— 一本关于 Claude Code 工具原语设计的深度拆解。每一个 tool 都在防止什么。
+**《一同读 Claude Code》** —— 一本关于 Claude Code 工具原语设计的深度拆解。每一个 tool 都在防御什么。
 
 - **仓库**:https://github.com/diaozxin007/reading-claude-code
 - **中文在线阅读**:https://diaozxin007.github.io/reading-claude-code/zh/
@@ -24,7 +24,6 @@ reading-claude-code/
 │   └── src/
 │       ├── SUMMARY.md      (中文目录 · mdBook 靠这个组装书本结构)
 │       ├── preface.md      (前言)
-│       ├── philosophy.md   (设计哲学 · 起步章)
 │       ├── tool-mechanism.md   (Tool 机制 · 起步章)
 │       ├── interaction/    (交互原语 3 篇)
 │       │   ├── ask-user-question.md

@@ -1,6 +1,6 @@
 [book]
 title = "一同读 Claude Code"
-description = "一本关于 Claude Code 工具原语设计的深度拆解 —— 每一个 tool 都在防止什么"
+description = "一本关于 Claude Code 工具原语设计的深度拆解 —— 每一个 tool 都在防御什么"
 authors = ["diaozxin007"]
 language = "zh"
 multilingual = false

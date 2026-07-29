@@ -4,7 +4,6 @@
 
 # 起步
 
-- [Claude Code 的工具设计哲学](philosophy.md)
 - [Tool 机制:Claude 怎么用工具](tool-mechanism.md)
 
 # 交互原语
