@@ -48,6 +48,8 @@ jobs:
           # SEO 资产
           cp scripts/sitemap.xml _site/sitemap.xml
           cp scripts/robots.txt _site/robots.txt
+          # IndexNow key file
+          cp scripts/7fc1636ecc8f7ed11fb3c8547168cd8859a13e66c3cf23643f76e3d3dbfb40ed.txt _site/
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
@@ -64,3 +66,46 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+  indexnow:
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Notify IndexNow
+        run: |
+          KEY="7fc1636ecc8f7ed11fb3c8547168cd8859a13e66c3cf23643f76e3d3dbfb40ed"
+          HOST="diaozxin007.github.io"
+          KEY_LOCATION="https://${HOST}/reading-claude-code/${KEY}.txt"
+
+          # 从 sitemap 里提取所有 <loc> URL
+          URLS=$(grep -oE '<loc>[^<]+</loc>' scripts/sitemap.xml | sed 's|<loc>||; s|</loc>||')
+          URL_COUNT=$(echo "$URLS" | wc -l | tr -d ' ')
+          echo "Submitting $URL_COUNT URLs to IndexNow"
+
+          # 构造 JSON payload
+          URL_JSON=$(echo "$URLS" | jq -R -s -c 'split("\n") | map(select(length > 0))')
+          PAYLOAD=$(jq -n \
+            --arg host "$HOST" \
+            --arg key "$KEY" \
+            --arg keyLoc "$KEY_LOCATION" \
+            --argjson urls "$URL_JSON" \
+            '{host: $host, key: $key, keyLocation: $keyLoc, urlList: $urls}')
+
+          # POST 到 IndexNow · 成功码: 200 (accepted) / 202 (accepted queued)
+          HTTP_CODE=$(curl -sSL -o /tmp/indexnow.body -w "%{http_code}" \
+            -X POST "https://api.indexnow.org/indexnow" \
+            -H "Content-Type: application/json; charset=utf-8" \
+            -d "$PAYLOAD")
+
+          echo "IndexNow response: HTTP $HTTP_CODE"
+          cat /tmp/indexnow.body
+          echo ""
+
+          # 200 / 202 视为成功 · 其它退出非零让 workflow 记为失败
+          case "$HTTP_CODE" in
+            200|202) echo "✅ IndexNow accepted";;
+            *) echo "❌ IndexNow rejected"; exit 1;;
+          esac

@@ -197,6 +197,30 @@ gh api --method POST /repos/OWNER/REPO/pages -f build_type=workflow
 
 **修法**:第一次 push 后 · 手动开启 Pages(用上面命令 · 或去 GitHub Web UI Settings → Pages → Build source: GitHub Actions)· 然后 `gh workflow run deploy.yml` 手动触发一次。后续 push 就都正常了。
 
+## SEO / 搜索引擎覆盖
+
+### 索引状态
+
+| 引擎 | 验证方式 | 状态 |
+|---|---|---|
+| **Google Search Console** | HTML meta 标签 · verification code 在 head.hbs / scripts/index.html | ✅ 已验证 + sitemap 已提交 |
+| **Bing Webmaster Tools** | 从 GSC 一键导入 · sitemap 自动共享 | ✅ 已验证 |
+| **IndexNow** | key 文件 `{key}.txt` 挂在站点根 · workflow 每次 push 自动 POST URL 列表 | ✅ 集成到 CI |
+| **百度** | 不做 | ⏸ |
+
+### IndexNow
+
+**IndexNow 是 Bing / Yandex / Seznam 支持的主动通知机制** —— 每次 URL 更新时 POST 一下 URL 列表 · 搜索引擎立刻来抓 · 不用等 sitemap 定期爬。
+
+**当前配置**:
+- **key**:`7fc1636ecc8f7ed11fb3c8547168cd8859a13e66c3cf23643f76e3d3dbfb40ed`
+- **key location**:`https://diaozxin007.github.io/reading-claude-code/{key}.txt`
+- **触发时机**:workflow 里 `deploy` job 完成后 · `indexnow` job 自动跑 · 从 sitemap.xml 提取所有 URL · POST 到 `https://api.indexnow.org/indexnow`
+
+**要新增 URL 到 IndexNow 通知**:改 `scripts/sitemap.xml` 加一条 `<url>` · workflow 自动提取并提交。
+
+**手工触发**:如果需要立刻通知(比如某篇内容有大改) · GitHub Web UI → Actions → 「Deploy mdBook to GitHub Pages」→ Run workflow 就会重新走一遍 build + deploy + indexnow。
+
 ## 联系
 
 原作者 [@diaozxin007](https://github.com/diaozxin007) · Issue / PR 都欢迎。
