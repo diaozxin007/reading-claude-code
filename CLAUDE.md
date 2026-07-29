@@ -108,12 +108,12 @@ vault 篇名跟 mdBook 路径的映射见 `/tmp/fix_wikilinks_v2.py`(如果还�
 
 ## 上游 vault 归档位置
 
-原始起草稿放在 `ORIGINAL_VAULT_PATH_REDACTED/Claude code tools 研究系列/` · 里面有:
+原始起草稿放在原作者的 Obsidian vault 里 · 不公开路径。里面有:
 
 - 16 篇 vault 原始版本(还带 obsidian wikilink)
 - 1 篇 AI 协作方法论复盘(这本书是怎么被 AI 协作写出来的元证据)
 
-如果需要**回查原始起草稿** · 去那个目录。
+如需**回查原始起草稿** · 请联系原作者。
 
 ## 常见任务模板
 
