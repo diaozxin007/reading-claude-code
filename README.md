@@ -1,6 +1,6 @@
 # 一同读 Claude Code
 
-> Reading Claude Code, Together — 一本关于 Claude Code 工具原语设计的深度拆解。每一个 tool 都在防御什么。
+> Reading Claude Code, Together — 一本关于 Claude Code 工具原语设计的深度拆解。每一个 tool 的设计都在防 AI 犯哪些错。
 
 ## 在线阅读
 
