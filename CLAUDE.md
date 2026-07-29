@@ -141,6 +141,29 @@ vault 篇名跟 mdBook 路径的映射见 `/tmp/fix_wikilinks_v2.py`(如果还�
 
 **不要**改 `zh/book/` 里的内容 —— 那是 build 产物 · 已被 `.gitignore` 忽略。
 
+### 从 vault 同步更新(高频)
+
+上游作者的 Obsidian vault 里会不断迭代原稿 · 需要定期同步回来。**流程**:
+
+1. **复制 vault 版本覆盖仓库版本** —— 按篇名到路径的映射 · `cp` 到 `zh/src/{分类}/{tool-name}.md`
+2. **跑 wikilink 转换脚本** —— `python3 /tmp/fix_wikilinks_v2.py`(如果不在,重新写一份 · 见下)
+3. **手工修 3 类残留**:
+   - **AskUserQuestion 篇的两张实际截图** —— vault 用 `![[attachments/xxx.jpg]]` wikilink · 转换脚本会变成 `<!-- TODO: image ... -->` 注释 · 需手工换成 `![认证方式选择](images/ask-user-question-auth.jpg)` 和 `![凭证存储选择](images/ask-user-question-storage.jpg)`
+   - **Read 篇 prompt 详解里的 `![[image.png]]` 字面量** —— 是代码示例 · 转换脚本会污染 · 需手工恢复为原样
+   - **cron-family.md 里 `<time>` 标签** —— vault 版本用裸 `<time>` · mdBook 会警告 unclosed HTML · 需用反引号包成 `` `<time>` ``
+4. **本地 build 验证** —— `cd zh && mdbook build` · 只允许 INFO 级别输出 · 不允许 WARN / ERROR
+5. **commit + push** · Actions 自动 build + 部署
+
+**wikilink 映射表**(fix_wikilinks_v2.py 里的 MAP 字段):
+
+vault 篇名(全角括号)→ mdBook 相对路径,例:
+
+- `Claude code tools 研究系列-开篇（AskUserQuestion）` → `interaction/ask-user-question.md`
+- `Claude code tools 研究系列（六）Edit` → `execution/edit.md`
+- `Claude code tools 研究系列（十四）Background 机制` → `state/background.md`
+
+完整映射见脚本源码。
+
 ### 翻译一篇到英文
 
 1. 复制 `zh/src/{path}/{file}.md` 到 `en/src/{path}/{file}.md`
