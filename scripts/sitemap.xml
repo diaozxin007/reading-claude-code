@@ -1,42 +1,99 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
-
-  <!-- 顶层选择页 -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://diaozxin007.github.io/reading-claude-code/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://diaozxin007.github.io/reading-claude-code/en/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://diaozxin007.github.io/reading-claude-code/"/>
+    <lastmod>2026-07-30</lastmod>
   </url>
-
-  <!-- 中文站 -->
-  <url><loc>https://diaozxin007.github.io/reading-claude-code/zh/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://diaozxin007.github.io/reading-claude-code/zh/preface.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://diaozxin007.github.io/reading-claude-code/zh/tool-mechanism.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://diaozxin007.github.io/reading-claude-code/zh/interaction/ask-user-question.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://diaozxin007.github.io/reading-claude-code/zh/interaction/enter-plan-mode.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://diaozxin007.github.io/reading-claude-code/zh/interaction/exit-plan-mode.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://diaozxin007.github.io/reading-claude-code/zh/execution/grep-glob.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://diaozxin007.github.io/reading-claude-code/zh/execution/read.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://diaozxin007.github.io/reading-claude-code/zh/execution/edit.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://diaozxin007.github.io/reading-claude-code/zh/execution/write.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://diaozxin007.github.io/reading-claude-code/zh/power/bash.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://diaozxin007.github.io/reading-claude-code/zh/power/agent.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://diaozxin007.github.io/reading-claude-code/zh/state/task-family.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://diaozxin007.github.io/reading-claude-code/zh/state/background.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://diaozxin007.github.io/reading-claude-code/zh/state/cron-family.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://diaozxin007.github.io/reading-claude-code/zh/state/monitor.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://diaozxin007.github.io/reading-claude-code/zh/info/web.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://diaozxin007.github.io/reading-claude-code/zh/about.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://diaozxin007.github.io/reading-claude-code/zh/appendix-index.html</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
-
-  <!-- 英文站 -->
-  <url><loc>https://diaozxin007.github.io/reading-claude-code/en/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://diaozxin007.github.io/reading-claude-code/en/preface.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://diaozxin007.github.io/reading-claude-code/en/interaction/ask-user-question.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://diaozxin007.github.io/reading-claude-code/en/about.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-
+  <url>
+    <loc>https://diaozxin007.github.io/reading-claude-code/zh/</loc>
+    <lastmod>2026-07-30</lastmod>
+  </url>
+  <url>
+    <loc>https://diaozxin007.github.io/reading-claude-code/zh/preface.html</loc>
+    <lastmod>2026-07-30</lastmod>
+  </url>
+  <url>
+    <loc>https://diaozxin007.github.io/reading-claude-code/zh/tool-mechanism.html</loc>
+    <lastmod>2026-07-30</lastmod>
+  </url>
+  <url>
+    <loc>https://diaozxin007.github.io/reading-claude-code/zh/interaction/ask-user-question.html</loc>
+    <lastmod>2026-07-30</lastmod>
+  </url>
+  <url>
+    <loc>https://diaozxin007.github.io/reading-claude-code/zh/interaction/enter-plan-mode.html</loc>
+    <lastmod>2026-07-30</lastmod>
+  </url>
+  <url>
+    <loc>https://diaozxin007.github.io/reading-claude-code/zh/interaction/exit-plan-mode.html</loc>
+    <lastmod>2026-07-30</lastmod>
+  </url>
+  <url>
+    <loc>https://diaozxin007.github.io/reading-claude-code/zh/execution/grep-glob.html</loc>
+    <lastmod>2026-07-30</lastmod>
+  </url>
+  <url>
+    <loc>https://diaozxin007.github.io/reading-claude-code/zh/execution/read.html</loc>
+    <lastmod>2026-07-30</lastmod>
+  </url>
+  <url>
+    <loc>https://diaozxin007.github.io/reading-claude-code/zh/execution/edit.html</loc>
+    <lastmod>2026-07-30</lastmod>
+  </url>
+  <url>
+    <loc>https://diaozxin007.github.io/reading-claude-code/zh/execution/write.html</loc>
+    <lastmod>2026-07-30</lastmod>
+  </url>
+  <url>
+    <loc>https://diaozxin007.github.io/reading-claude-code/zh/power/bash.html</loc>
+    <lastmod>2026-07-30</lastmod>
+  </url>
+  <url>
+    <loc>https://diaozxin007.github.io/reading-claude-code/zh/power/agent.html</loc>
+    <lastmod>2026-07-30</lastmod>
+  </url>
+  <url>
+    <loc>https://diaozxin007.github.io/reading-claude-code/zh/state/task-family.html</loc>
+    <lastmod>2026-07-30</lastmod>
+  </url>
+  <url>
+    <loc>https://diaozxin007.github.io/reading-claude-code/zh/state/background.html</loc>
+    <lastmod>2026-07-30</lastmod>
+  </url>
+  <url>
+    <loc>https://diaozxin007.github.io/reading-claude-code/zh/state/cron-family.html</loc>
+    <lastmod>2026-07-30</lastmod>
+  </url>
+  <url>
+    <loc>https://diaozxin007.github.io/reading-claude-code/zh/state/monitor.html</loc>
+    <lastmod>2026-07-30</lastmod>
+  </url>
+  <url>
+    <loc>https://diaozxin007.github.io/reading-claude-code/zh/info/web.html</loc>
+    <lastmod>2026-07-30</lastmod>
+  </url>
+  <url>
+    <loc>https://diaozxin007.github.io/reading-claude-code/zh/about.html</loc>
+    <lastmod>2026-07-30</lastmod>
+  </url>
+  <url>
+    <loc>https://diaozxin007.github.io/reading-claude-code/zh/appendix-index.html</loc>
+    <lastmod>2026-07-30</lastmod>
+  </url>
+  <url>
+    <loc>https://diaozxin007.github.io/reading-claude-code/en/</loc>
+    <lastmod>2026-07-30</lastmod>
+  </url>
+  <url>
+    <loc>https://diaozxin007.github.io/reading-claude-code/en/preface.html</loc>
+    <lastmod>2026-07-30</lastmod>
+  </url>
+  <url>
+    <loc>https://diaozxin007.github.io/reading-claude-code/en/interaction/ask-user-question.html</loc>
+    <lastmod>2026-07-30</lastmod>
+  </url>
+  <url>
+    <loc>https://diaozxin007.github.io/reading-claude-code/en/about.html</loc>
+    <lastmod>2026-07-30</lastmod>
+  </url>
 </urlset>
