@@ -292,9 +292,7 @@ Bash 的 schema 层校验极简:
 1. **工具描述里的一大段自然语言约束**(专用工具优先 / 引号 / 避免 cd / 反轮询 / git 安全协议 / PR 流程 / HEREDOC)—— 全靠 prompt 劝
 2. **harness runtime 层的执行边界**(sandbox 拦截 / timeout kill / permission prompt / 后台任务生命周期)—— 靠环境兜底
 
-对比 Edit / Read 的 schema:Edit 有唯一性检查 / Read 前置状态机;Read 强制绝对路径;都是**可以用 schema + runtime 状态机拦下来**的具体约束。Bash 干不到,因为 Bash 的入参就是「一根字符串,里面能塞任何命令」—— schema 校验根本没法穷举「哪些命令是危险的」。
-
-这解释了为什么 Bash 的工具描述那么长 —— **能力越无边界,越依赖 prompt 层的自然语言约束**。硬约束扛不住的,只能靠软约束反复劝。
+对比 Edit / Read 的 schema:Edit 有唯一性检查 / Read 前置状态机;Read 强制绝对路径;都是**可以用 schema + runtime 状态机拦下来**的具体约束。Bash 的入参就是「一根字符串,里面能塞任何命令」—— schema 校验没法穷举「哪些命令是危险的」,所以工具描述被迫承担了绝大部分约束。
 
 ---
 
@@ -361,29 +359,20 @@ Bash 跟前七个工具形成完整对照:
 | 风险面 | 低 | 低 | 低 | 中 | 中高 | **高** |
 | 约束风格 | 交互规则 | 参数约束 | 前置约束 | 唯一性 + Read | Read + 目录 | **prompt 层大量硬约束** |
 
-**Bash 在整套工具生态里的独特位置**:前七个工具都是「有边界的原语」 —— 能力有限、风险可控、语义明确。Bash 是**「无边界的兜底」** —— 能力无限、风险最高、语义完全靠 Claude 拿捏。
-
-正因为 Bash 无边界,它承担了两个别的工具承担不了的角色:
-
-- **执行验证** —— 改完代码要跑测试才知道对不对
-- **推进工程流程** —— commit / push / PR / deploy 都要靠它
-
-如果说前七个工具让 Claude 能「精确操作文件」,那 Bash 让 Claude 能「真正参与到工程流程里」 —— 从只会改代码的 AI,升级为能推进项目从修改到交付的协作者。
-
-Bash 也是「其它工具改完之后需要真实执行验证」的承接者。系列作者常见的工作流是:Glob 定位 → Grep 精确找函数 → Read 打开文件 → Edit 精准替换 → **Bash 跑测试确认** → Bash git commit → Bash git push。前面五个工具是「改一个文件」的原语,只有 Bash 能把改动**送到真实世界**去检验和交付。
+前七个工具都是「操作文件」的原语,Bash 是唯一能把改动**送到真实世界**去检验和交付的工具 —— 跑测试、commit、push、PR、deploy 都要靠它。典型工作流是 `Glob → Grep → Read → Edit → Bash 跑测试 → Bash commit → Bash push`,前五步在改文件系统,Bash 负责闭环到工程流程。
 
 ---
 
 ### 小结
 
-Bash 独特的地方在于它是**「无边界的兜底」** —— 能力无限、风险最高、语义完全靠 Claude 拿捏。它的信号分布**极度偏向工具级描述**:
+Bash 的信号分布**极度偏向工具级描述**:
 
 - **命名** —— 一个词,`Bash` 明确"交给真实 shell 解析",不叫 `Exec` 避免误以为可传结构化 argv。字段级出现一个 `dangerouslyDisableSandbox`,前缀直接刻在名字里当劝退
-- **工具级描述** —— **本工具最长的一层**。核心定位一句 + 反例白名单(cat/head/tail/sed/awk/echo)+ 通用注意事项(引号 / 避免 cd / 反轮询 / find 陷阱)+ git 安全协议(amend / add -A / commit 时机)+ PR 创建流程(所有 commit / 70 字符 / 返回 URL)+ HEREDOC 规范 —— 全靠 prompt 劝
+- **工具级描述** —— **本工具最长的一层**。核心定位一句 + 反例白名单(cat/head/tail/sed/awk/echo)+ 通用注意事项(引号 / 避免 cd / 反轮询 / find 陷阱)+ git 安全协议(amend / add -A / commit 时机)+ PR 创建流程(所有 commit / 70 字符 / 返回 URL)+ HEREDOC 规范
 - **字段级描述** —— 5 字段,每个背后都是非平凡设计(description 双通道表达 / run_in_background 非阻塞异步 / dangerously 命名劝退)
-- **schema 校验** —— 极简,只有 timeout 上限、bool、string 这类基本 type 约束。**真正的约束都不在 schema 里**,一半在工具描述里劝、一半在 harness runtime 兜底(sandbox / timeout kill / permission prompt)
+- **schema 校验** —— 极简,只有 timeout 上限、bool、string 这类基本 type 约束。真正的约束一半在工具描述里劝、一半在 harness runtime 兜底
 
-这个分布跟 Edit / Read 形成鲜明反差 —— Edit / Read 是「靠 runtime 状态机拦」,Bash 是「靠自然语言劝」。原因很简单:**Bash 的入参是一根字符串,里面能塞任何命令,schema 校验根本没法穷举**。**能力越无边界,越依赖 prompt 层的自然语言约束**。
+这个分布跟 Edit / Read 形成鲜明反差 —— Edit / Read 是「靠 runtime 状态机拦」,Bash 是「靠自然语言劝」。而正如「一个有趣的注解」暴露的:**光靠 prompt 约束是不够的** —— 面对训练数据惯性,每次调用都是 Claude 的自律判断,自律就会有漏。要真的把这些惯性关进笼子,只能靠 hooks / sandbox 拦截这类 runtime 硬约束。这是 Bash 作为 catch-all 通用工具留给整套工具生态的核心洞察。
 
 而正如「一个有趣的注解」暴露的:**光靠 prompt 约束是不够的** —— 面对训练数据惯性,每次调用都是 Claude 的自律判断,自律就会有漏。要真的把这些惯性关进笼子,只能靠 hooks / sandbox 拦截这类 runtime 硬约束。这是 Bash 作为 catch-all 通用工具留给整套工具生态的核心洞察。
 
