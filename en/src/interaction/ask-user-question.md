@@ -1,191 +1,192 @@
-# AskUserQuestion
+I previously studied the design of Claude Code and built a bare-bones version in Java — open-sourced at [jooj](https://github.com/diaozxin007/jooj). Claude Code's tools are all exquisitely designed, so I want to examine them one by one. Let's learn together.
 
-I've spent some time reverse-engineering the design of [Claude Code](https://www.anthropic.com/claude-code) and even wrote a stripped-down Java clone — open source at [jooj](https://github.com/diaozxin007/jooj). One thing that keeps striking me: **every tool Claude Code ships with is carefully designed.** So I'm starting a series to unpack them one by one.
+> Start this series with the [Prerequisite article](../tool-mechanism.md) — it explains what a tool is and how Claude uses them. This article is the first specific tool teardown in the series, structured around the 4-layer skeleton proposed in the prerequisite.
 
-This first post is about **AskUserQuestion** — one of the most commonly seen tools, and one whose design is easy to underestimate.
+## AskUserQuestion
 
-## What AskUserQuestion Actually Is
+One of the most commonly seen tools.
 
-AskUserQuestion is Claude Code's built-in **structured question tool**. Instead of Claude emitting a plain-text question and waiting for the user to type back, this tool renders the question as an **interactive selection panel** — the user sees a set of predefined options (as cards), not a wall of text.
+### Purpose
 
-The core problem it solves is **efficient alignment between AI and user**:
+AskUserQuestion is Claude Code's built-in **structured questioning tool**. Instead of having Claude output a question string and wait for a reply, it renders the question as an interactive selection panel — the user sees a set of preset options (in card form), not a wall of plain text.
 
-1. **Lowers user effort** — clicking an option is faster than typing a reply
-2. **Structured input** — Claude gets an unambiguous enum value, no natural-language parsing needed
-3. **Converges ambiguity** — the preset options force a choice among concrete alternatives instead of a vague "you decide"
-4. **Escape hatch** — the system always appends an implicit "Other" option so users are never boxed in
+The core problem it solves is "efficient alignment between AI and user":
 
-## A Concrete Example
+1. **Lowers user effort** — from "type an answer" to "click an option," drastically shortening response time
+2. **Structured input** — Claude receives explicit enum values, no need to parse natural language
+3. **Converges ambiguity** — guides users to choose between well-defined options through presets, avoiding vague "you decide" responses
+4. **Escape hatch guaranteed** — the system always auto-appends an "Other" option allowing custom text input, preventing "none of these fit and I'm stuck"
 
-Before diving into triggers, implementation, and prompt details, let's ground everything with a real scenario. Compare "life without AskUserQuestion" vs "life with it."
+### A Concrete Example
 
-**Scenario:** the user tells Claude **"help me add user login to this app."**
+Before diving into trigger conditions and technical implementation, let's look at a concrete scenario to feel the difference between "without AskUserQuestion" vs "with AskUserQuestion."
 
-That request is severely under-specified — no decision on auth method, no decision on where to store the credential. Claude can't just guess (the team might have conventions), and it can't infer from the code either (it's a new feature with no precedent).
+**Scenario**: The user tells Claude **"Add user login to this app."**
 
-### The Anti-Pattern: What Happens Without AskUserQuestion
+This requirement is highly incomplete — authentication method unspecified, credential storage unspecified. Claude can neither guess wildly (the user might have team standards) nor infer from existing code (new feature, no precedent).
 
-Claude can only throw the question back as a plain-text prompt, something like:
+#### Anti-pattern: Without AskUserQuestion
 
-> "Which auth method do you want? I'd suggest JWT, but session cookies or OAuth also work. Also, where should we store the credential — httpOnly cookie or localStorage?"
+Claude can only throw the question back in free-form text, something like:
 
-The user immediately hits several problems:
+> "What authentication method would you like? I'd suggest JWT, but you could also use session cookies or OAuth. Also, where should credentials be stored — httpOnly cookie or localStorage?"
 
-1. **High cognitive load** — one paragraph packs in 2 decisions and 5 options; the user has to parse the question before answering
-2. **High answer cost** — they either type a reply ("JWT + httpOnly") or spend two hours Googling "JWT vs session cookies" before coming back
-3. **High parsing cost for Claude** — a reply like "let's go with JWT, and the cookie one" forces Claude to figure out which option the user actually picked, with room for misinterpretation
-4. **Recommendation drowns in text** — Claude says "I'd suggest JWT" but it's blended into the paragraph, easy to miss
-5. **No fallback** — if the user wants an option Claude didn't list (e.g. magic email links), they have to break out with a separate explanation or accept being funneled into a three-way choice
+The user faces several problems:
 
-**The core pain:** free-text form turns "collaborative alignment" into an expensive natural-language round-trip.
+1. **High cognitive load** — a wall of text packing 2 decisions + 5 options, requiring the user to parse the questions before answering
+2. **High answer cost** — either type out a reply ("JWT + httpOnly") or spend two hours researching "JWT vs session cookies" before coming back
+3. **High parsing cost for Claude** — receiving "just JWT, the cookie thing" and having to reverse-engineer which option the user actually picked, possibly getting it wrong
+4. **Recommendation buried in text** — Claude says "I'd suggest JWT" but it's mixed in with other options, easily overlooked
+5. **No fallback** — if the user wants an approach Claude didn't mention (like passwordless magic links), they either write a whole explanation or get locked into Claude's three choices
 
-### The Fix: How AskUserQuestion Solves It
+**Core pain point**: This plain-text form turns "collaborative alignment" into an expensive natural-language round-trip.
 
-Claude constructs a single call containing **two questions**. The user sees two cards like this:
+#### How AskUserQuestion Solves This
 
-**Question 1** — Auth method
+Claude constructs a call containing **two questions**:
 
-![Auth method selection card](images/ask-user-question-auth.jpg)
+**Question 1** —
 
-**Question 2** — Credential storage
+![Auth method selection](images/ask-user-question-auth.jpg)
 
-![Credential storage selection card](images/ask-user-question-storage.jpg)
+**Question 2** —
 
-Each card has a short chip label at the top ("Auth method" / "Token storage"), followed by 3 / 2 options, plus an automatically appended "Other". Two clicks and Claude receives roughly:
+![Credential storage selection](images/ask-user-question-storage.jpg)
 
-- Question 1 → user picked **JWT (Recommended)**
-- Question 2 → user picked **httpOnly cookie (Recommended)**
+What the user sees on screen are two cards, each with a short tag at the top ("Auth method" / "Token storage"), followed by 3 or 2 options + an auto-appended "Other." Two clicks and done. Claude receives return values roughly like:
 
-**Decision time compressed from minutes to seconds.** That's the point of AskUserQuestion — not "let the AI ask a question," but "make every clarification in the collaboration cheap."
+- Question 1 → user selected **JWT (Recommended)**
+- Question 2 → user selected **httpOnly cookie (Recommended)**
 
-### Side-by-Side: Each Pain Point Solved
+**Decision time compressed from minutes to seconds**. This is why AskUserQuestion exists — not "letting AI ask questions," but "making every clarification in the collaboration low-cost."
+
+#### Side-by-Side: Each Pain Point Solved
 
 | Anti-pattern pain | AskUserQuestion's fix |
 |---|---|
 | High cognitive load | Split into 2 independent cards, one decision at a time |
 | High answer cost | Click instead of type; trade-offs sit right under each option |
-| High parsing cost for Claude | Return value is an explicit label — no NL parsing needed |
-| Recommendation drowns in text | "(Recommended)" suffix + first position — impossible to miss |
-| No fallback | "Other" is auto-appended; a custom answer is always one field away |
+| High parsing cost for Claude | Return value is explicit option text, no NL parsing needed |
+| Recommendation buried in text | "(Recommended)" suffix + first position — impossible to miss |
+| No fallback | "Other" auto-appended; custom input always available as escape hatch |
 
-Every design decision below traces back to exactly one of these pains. Keep this mapping in mind — you'll see each constraint in the tool description addressing a specific row in this table.
+This comparison is essentially the raison d'etre for every design point in AskUserQuestion — each one maps to a specific pain point that free-text conversation cannot solve. With this intuition in mind, as you read the trigger conditions, technical implementation, and prompt details below, you'll find that every constraint maps back to one of these specific pain points.
 
-## When to Fire It
+### Trigger Conditions
 
-The tool description spells out the boundary: **only when you're blocked, and only when the decision is genuinely the user's.**
+The tool's official description explicitly states the trigger boundary: **Use only when you are blocked on a decision that genuinely belongs to the user.**
 
-**Three "yes, ask" situations:**
+Three scenarios where you **should ask**:
 
-- **Can't infer from the request** — the requirement itself is vague (e.g. "add login" with no auth method specified)
-- **Can't infer from the code** — there's no existing pattern to mimic
-- **No sensible default** — the choice involves taste, business rules, or architectural forks that AI shouldn't decide unilaterally
+- **Cannot infer from the request** — the requirement itself is ambiguous (e.g., "add login" without specifying OAuth vs JWT)
+- **Cannot infer from code** — no existing precedent in the codebase to follow
+- **No sensible default** — involves taste / business rules / architectural forks that AI shouldn't decide
 
-**Three "no, don't ask" situations:**
+Three scenarios where you **should NOT ask**:
 
-- **The answer is in the code** — spend time reading, don't interrupt the user
-- **Only one obviously reasonable path** — just do it, explain in the commit message
-- **In plan mode asking "is my plan OK?"** — that's ExitPlanMode's job, using Ask here is a duplication
+- **Answer is readable from code** — spend time reading code instead of interrupting the user
+- **Only one obviously reasonable approach** — just do it and explain in the commit message
+- **In plan mode asking "is the plan OK?"** — that's ExitPlanMode's job; using Ask here is redundant
 
-A canonical anti-pattern: **avoid meta-questions like "does this plan look good?" or "can I proceed?"**. ExitPlanMode already exists to request approval — using Ask for the same purpose is pure redundancy.
+A classic anti-pattern: **Avoid meta-questions like "Is this plan OK? / Can I proceed?"** ExitPlanMode itself IS "requesting approval." Using Ask for this is pure duplication.
 
-## Schema Design
+### Technical Implementation
 
-Reverse-engineering from the tool's input schema, the core structure looks like this:
+#### 1 - Naming
 
-Claude passes in a **list of questions** (1 to 4). Each question object has four parts:
+`AskUserQuestion`
 
-- **question** — the full question text, ending with a `?`
-- **header** — a very short chip label displayed at the top of the card (max 12 chars)
-- **multiSelect** — boolean; whether multiple options can be selected (default false)
-- **options** — a list of 2 to 4 options
+#### 2 - Tool-Level Description
 
-Each option object has three fields:
+AskUserQuestion's description revolves around three things: **when to use / when not to use / division of labor with neighbors.**
 
-- **label** — the display text the user sees (1 to 5 words)
-- **description** — an explanation of what the option means / the trade-off
-- **preview** — optional; when the difference between options needs visual comparison (mockups, code snippets), this content is rendered when the option is focused
-
-A few key design choices:
-
-1. **1–4 questions per call** — supports batched decisions (like "auth method + token storage" in one call), but prevents Claude from bombarding the user with 10 questions at once
-2. **2–4 options per question** — forces Claude to pre-categorize, converging N possibilities into a small set of clickable choices instead of dumping a long list
-3. **"Other" is implicit** — auto-appended by the UI, Claude doesn't hand-list it. This guarantees "options Claude thought of ≠ complete space" doesn't trap the user
-4. **Recommendation mechanism** — if Claude has a preference, put it first + append "(Recommended)" to the label. The user spots it at a glance
-5. **Return value shape** — keyed by question text, mapped to the selected label; a separate `annotations` field carries user notes for preview-based options
-
-**The preview field** is a subtle-but-powerful escalation — when options differ visually (two UI mockups, two code styles), embedding the visual in `preview` lets the UI render it live as the option gets focus. Perfect for "which API shape" or "which layout" questions.
-
-**Division of labor with EnterPlanMode / ExitPlanMode:**
-
-- In plan mode: use AskUserQuestion to clarify "which approach" (before finalizing)
-- In plan mode: do NOT use AskUserQuestion to ask "is my plan ready?" (use ExitPlanMode)
-- Outside plan mode: use AskUserQuestion for any technical fork that needs user judgment
-
-The three tools form a complete decision pipeline: **Ask clarifies → EnterPlanMode expands → ExitPlanMode commits.**
-
-## Prompt Breakdown
-
-Every sentence in the tool description encodes a behavior constraint. Let's decompose them.
-
-**Constraint 1: Strict applicability boundary (opening sentence)**
+**Opening sentence: Strict applicability boundary**
 
 > Use this tool only when you are blocked on a decision that is genuinely the user's to make: one you cannot resolve from the request, the code, or sensible defaults.
 
-This trains Claude to **not interrupt** — when uncertain, the first move should be to check the code and try sensible defaults, not throw a question at the user.
+This trains Claude to "not proactively interrupt" — when encountering uncertainty, the first reaction should be **check the code first, use sensible defaults first**, not throw questions at the user. "blocked" + "genuinely the user's" are two high-bar qualifiers; if either condition isn't met, this tool shouldn't be used.
 
-**Constraint 2: Making the "Other" escape hatch transparent**
+**Transparency of the "Other" escape hatch**
 
 > Users will always be able to select "Other" to provide custom text input
 
-Instead of hiding "Other" from Claude and letting it invent a custom option, the tool description states outright: "Other is auto-added; you don't list it." This prevents Claude from wasting one of its 2–4 option slots on a hand-rolled "custom" entry.
+The system doesn't hide this option and pretend Claude doesn't know — it **explicitly tells Claude "'Other' is auto-added, you don't need to list it."** This prevents Claude from wasting one of its limited option slots manually writing "Custom."
 
-**Constraint 3: multiSelect semantics**
-
-> Use multiSelect: true to allow multiple answers to be selected for a question
-
-Use cases: pick multiple feature flags / multiple environments / multiple files to modify. Defaulting to `false` protects users from decision paralysis.
-
-**Constraint 4: How to express a recommendation**
-
-> If you recommend a specific option, make that the first option in the list and add "(Recommended)" at the end of the label
-
-Interesting design point: **the recommendation isn't a separate field — it's encoded via convention (position + suffix).** The benefits:
-
-- Keeps the schema simple; no `recommended: true` boolean field
-- The UI just renders the label; no special-case handling
-- Claude's endorsement must be **visible in the label** — impossible to hide in metadata, the user sees it immediately
-
-**Constraint 5: Temporal ordering with plan mode**
+**Temporal relationship with plan mode**
 
 > Plan mode note: To switch into plan mode, use EnterPlanMode (not this tool). Once in plan mode, use this tool to clarify requirements or choose between approaches BEFORE finalizing your plan. Do NOT use this tool to ask "Is my plan ready?", "Should I proceed?", or otherwise reference "the plan" in questions — the user cannot see the plan until you call ExitPlanMode for approval.
 
-This is the most instructive passage — it locks in the **temporal ordering** of the workflow:
+This is the most pedagogically valuable part — it makes the entire workflow's **temporal ordering** explicit:
 
-1. In plan mode: use Ask to clarify approach forks (e.g. "A or B?")
-2. Once clarified: use EnterPlanMode to draft a full plan
-3. **Finally**: use ExitPlanMode to request approval — **do NOT** loop back to Ask with "OK to proceed?"
+1. In plan mode, use Ask first to clarify approach forks (e.g., "choose A or B")
+2. Once clarified, use EnterPlanMode to write a complete plan
+3. **Final step**: use ExitPlanMode to request approval — **do NOT** use Ask to say "OK?"
 
-Especially note the last clause — **"the user cannot see the plan until you call ExitPlanMode for approval"** — this is the *real reason* you shouldn't ask "is my plan OK?" in plan mode. It's not just redundancy: the user literally has nothing to approve until ExitPlanMode fires.
+The last clause — "the user cannot see the plan until you call ExitPlanMode" — is the **real reason** for "don't ask 'is the plan OK?' in plan mode": it's not about redundancy, it's that **the user has nothing to approve yet**.
 
-Three tools, each with a distinct role: **Ask (clarify) / EnterPlanMode (expand) / ExitPlanMode (commit)**. The constraint fundamentally prevents Claude from looping back into Ask to serve as its own approval mechanism.
+The value of embedding this in the tool-level description: **Every time Claude considers using AskUserQuestion, it reads "the relationship with plan mode"** — the collaboration contract between tools is written into a single tool's description, rather than expecting the model to cross-reference multiple tools on its own.
 
-**Constraint 6: The `header` chip is mandatory (enforced at the schema layer)**
+#### 3 - Field-Level Descriptions
+
+AskUserQuestion's field descriptions share a common pattern: **constraint + example**. Examples are appended at the end of descriptions, essentially giving each field its own built-in few-shot.
+
+**`question` field description**
+
+> The complete question to ask the user. Should be clear, specific, and end with a question mark. Example: "Which library should we use for date formatting?"
+
+The key is that final **Example** — it's a **few-shot embedded in the schema**. Technically a declarative sentence would pass validation, but the example tells the model "this is what a proper question looks like." "Must end with a question mark" is trained into Claude's intuition via this example, not enforced by regex.
+
+**`header` field description**
 
 > Very short label displayed as a chip/tag (max 12 chars). Examples: "Auth method", "Library", "Approach".
 
-A UX constraint — the UI renders each question as a card with a chip at the top. The chip uses `header`, not the full question text. This forces Claude to condense a long question ("Which authentication method should we use for the login flow?") into a tight chip ("Auth method").
+All three examples are **1-2 word English noun phrases**. This tells Claude: this isn't a condensed question, it's a **topic noun**. Seeing the examples, you know to write "Auth method" rather than "Which auth to use."
 
-**Constraint 7: Questions must end with a question mark**
+**`label` field description**
 
-> Should be clear, specific, and end with a question mark.
+> The display text for this option that the user will see and select. Should be concise (1-5 words) and clearly describe the choice.
 
-Looks trivial, but it shapes the UI's tone — a question form vs a statement form triggers a completely different psychological response. Indirectly, this forces Claude to phrase the content as a **genuine query**, not a disguised instruction.
+The length constraint is communicated through description (1-5 words) rather than maxLength — because "words" and "characters" don't align consistently across languages. This is a scenario where **description beats hard constraints**.
+
+**How recommendations are expressed**
+
+> If you recommend a specific option, make that the first option in the list and add "(Recommended)" at the end of the label
+
+A counterfactual design: if Option had an `isRecommended: boolean` field, Claude could hide its preference in metadata and only surface it during rendering. The current design refuses this approach, requiring recommendations to be written into the label text itself (first position + `(Recommended)` suffix).
+
+The difference: **metadata allows "taking no visible stance while secretly favoring"**; writing into user-visible text forces Claude to own an explicit position. The schema turns "should AI take a stance?" — a soft question — into the hard choice of "if you take a stance, write it into the label." This is **not schema validation; it's a behavioral contract in the description**.
+
+#### 4 - Schema Validation Rules
+
+The first three layers are natural-language persuasion; this layer is **hard enforcement**. AskUserQuestion uses several key numbers:
+
+| Constraint | Value | Intent |
+|---|---|---|
+| `questions` count | 1-4 | Block "rapid-fire questioning," force Claude to batch-converge decisions |
+| `options` count | 2-4 | Lower bound rejects "single-option theater," upper bound rejects "long list dumping" |
+| `header` length | <= 12 chars | Force concept compression into topic nouns |
+| `multiSelect` default | false | Single-select is the best-practice default; multi-select requires explicit declaration |
+
+The key point: **exceeding these numbers gets the tool call physically rejected by schema validation** — the model literally cannot produce it. All the "should" statements in layers 2 and 3 get backstopped by the type system at this layer — when the two conflict, schema is the last line of defense.
+
+For example: the tool-level description says "force Claude to categorize, don't list long menus," the field-level description says "concise 1-5 words" for labels, and the validation rules backstop with `maxItems: 4`. Three layers in progression: macro intent -> field-level hint -> hard enforcement.
 
 ---
 
-## Takeaway
+### Division of Labor with Neighbor Tools
 
-The elegance of AskUserQuestion isn't in the surface feature "let the AI ask users questions." It's in how the schema constraints + prompt constraints together lock down **when to ask / how to ask / how it's rendered / how it composes with other tools**. It takes the general-purpose capability "AI asking questions" and refines it into a **predictable, composable, maintainable interaction primitive**.
+AskUserQuestion is the **first link in the decision pipeline**, with EnterPlanMode / ExitPlanMode dividing responsibilities as follows:
 
-Next post I'll unpack the next tool in the series. If you enjoyed this deep dive, follow along — and let me know in the comments which Claude Code tool you'd most like to see dissected next.
+- In plan mode, use AskUserQuestion to clarify "which approach to take" (before the plan is finalized)
+- In plan mode, do NOT use AskUserQuestion to ask "is my plan OK?" (use ExitPlanMode)
+- Outside plan mode, use AskUserQuestion for any technical fork requiring user decision
 
+The three tools chain into a complete decision pipeline: **Ask to clarify -> EnterPlanMode to elaborate -> ExitPlanMode to approve**. This pipeline is Claude Code's most important **interaction primitive**, decomposing "how AI and user align" into three composable actions.
+
+---
+
+### Summary
+
+The elegance of AskUserQuestion lies not in the functionality of "letting AI ask users questions" itself, but in how it fully leverages all 4 design layers — naming carries implicit semantics, tool-level description defines usage boundaries, field-level descriptions embed few-shot examples, and schema hard-constraints physically block misuse. It effectively converges the general-purpose capability of "AI asking questions" into a predictable, composable, and maintainable interaction primitive.
+
+Next up: tearing down [EnterPlanMode](enter-plan-mode.md) — the second link in the three-tool decision pipeline, and how a zero-parameter tool is designed.
