@@ -114,6 +114,7 @@ fix_file() {
   sedi "s|<!-- SEO:HREFLANG -->|${hreflang_self}\n${hreflang_alt}\n${hreflang_x}|" "$file"
   sedi "s|<!-- SEO:OG_DESCRIPTION -->|${og_desc_tag}\n${meta_desc_tag}|" "$file"
   sedi "s|<!-- SEO:TWITTER_DESCRIPTION -->|${tw_desc_tag}|" "$file"
+  sedi "s|<!-- SEO:OG_URL -->|<meta property=\"og:url\" content=\"${canonical_url}\">|" "$file"
 
   # --- Remove mdBook's default global <meta name="description"> (duplicates our per-page one) ---
   sedi '/^<meta name="description" content="A deep dive into the design of Claude Code/d' "$file"

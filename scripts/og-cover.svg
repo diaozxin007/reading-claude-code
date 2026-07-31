@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#D97757"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- Subtle grid pattern -->
+  <g opacity="0.03" stroke="#ffffff" stroke-width="1">
+    <line x1="0" y1="0" x2="0" y2="630"/><line x1="60" y1="0" x2="60" y2="630"/>
+    <line x1="120" y1="0" x2="120" y2="630"/><line x1="180" y1="0" x2="180" y2="630"/>
+    <line x1="240" y1="0" x2="240" y2="630"/><line x1="300" y1="0" x2="300" y2="630"/>
+    <line x1="360" y1="0" x2="360" y2="630"/><line x1="420" y1="0" x2="420" y2="630"/>
+    <line x1="480" y1="0" x2="480" y2="630"/><line x1="540" y1="0" x2="540" y2="630"/>
+    <line x1="600" y1="0" x2="600" y2="630"/><line x1="660" y1="0" x2="660" y2="630"/>
+    <line x1="720" y1="0" x2="720" y2="630"/><line x1="780" y1="0" x2="780" y2="630"/>
+    <line x1="840" y1="0" x2="840" y2="630"/><line x1="900" y1="0" x2="900" y2="630"/>
+    <line x1="960" y1="0" x2="960" y2="630"/><line x1="1020" y1="0" x2="1020" y2="630"/>
+    <line x1="1080" y1="0" x2="1080" y2="630"/><line x1="1140" y1="0" x2="1140" y2="630"/>
+    <line x1="0" y1="60" x2="1200" y2="60"/><line x1="0" y1="120" x2="1200" y2="120"/>
+    <line x1="0" y1="180" x2="1200" y2="180"/><line x1="0" y1="240" x2="1200" y2="240"/>
+    <line x1="0" y1="300" x2="1200" y2="300"/><line x1="0" y1="360" x2="1200" y2="360"/>
+    <line x1="0" y1="420" x2="1200" y2="420"/><line x1="0" y1="480" x2="1200" y2="480"/>
+    <line x1="0" y1="540" x2="1200" y2="540"/>
+  </g>
+
+  <!-- Claude Logo (simplified sparkle mark) -->
+  <g transform="translate(100, 200)">
+    <!-- Outer circle -->
+    <circle cx="80" cy="80" r="70" fill="none" stroke="#D97757" stroke-width="3" opacity="0.6"/>
+    <!-- Inner stylized "C" shape representing Claude -->
+    <path d="M 110 45 A 45 45 0 1 0 110 115" fill="none" stroke="#D97757" stroke-width="6" stroke-linecap="round"/>
+    <!-- Sparkle dots -->
+    <circle cx="120" cy="40" r="4" fill="#f59e0b"/>
+    <circle cx="130" cy="55" r="3" fill="#f59e0b" opacity="0.7"/>
+    <circle cx="125" cy="105" r="3" fill="#f59e0b" opacity="0.7"/>
+    <circle cx="120" cy="120" r="4" fill="#f59e0b"/>
+  </g>
+
+  <!-- Title -->
+  <text x="300" y="235" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="56" font-weight="800" fill="url(#accent)">Reading Claude Code</text>
+
+  <!-- Subtitle Chinese -->
+  <text x="300" y="290" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="28" fill="#94a3b8">一同读 Claude Code</text>
+
+  <!-- Tagline -->
+  <text x="300" y="345" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="20" fill="#64748b">Deep dive into Claude Code's tool primitives</text>
+  <text x="300" y="375" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="20" fill="#64748b">每一个 tool 的设计都在防 AI 犯哪些错</text>
+
+  <!-- Bottom accent line -->
+  <rect x="80" y="540" width="1040" height="3" rx="2" fill="url(#accent)" opacity="0.5"/>
+
+  <!-- Footer -->
+  <text x="80" y="580" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="16" fill="#475569">github.com/diaozxin007/reading-claude-code</text>
+  <text x="1120" y="580" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="16" fill="#475569" text-anchor="end">16 chapters · zh + en</text>
+
+  <!-- Tool name badges -->
+  <g transform="translate(300, 420)">
+    <rect x="0" y="0" width="120" height="32" rx="6" fill="rgba(217,119,87,0.15)" stroke="#D97757" stroke-width="1"/>
+    <text x="60" y="21" font-family="monospace" font-size="13" fill="#D97757" text-anchor="middle">AskUserQuestion</text>
+
+    <rect x="135" y="0" width="60" height="32" rx="6" fill="rgba(217,119,87,0.15)" stroke="#D97757" stroke-width="1"/>
+    <text x="165" y="21" font-family="monospace" font-size="13" fill="#D97757" text-anchor="middle">Edit</text>
+
+    <rect x="210" y="0" width="60" height="32" rx="6" fill="rgba(217,119,87,0.15)" stroke="#D97757" stroke-width="1"/>
+    <text x="240" y="21" font-family="monospace" font-size="13" fill="#D97757" text-anchor="middle">Bash</text>
+
+    <rect x="285" y="0" width="65" height="32" rx="6" fill="rgba(217,119,87,0.15)" stroke="#D97757" stroke-width="1"/>
+    <text x="317" y="21" font-family="monospace" font-size="13" fill="#D97757" text-anchor="middle">Agent</text>
+
+    <rect x="365" y="0" width="75" height="32" rx="6" fill="rgba(217,119,87,0.15)" stroke="#D97757" stroke-width="1"/>
+    <text x="402" y="21" font-family="monospace" font-size="13" fill="#D97757" text-anchor="middle">Monitor</text>
+
+    <rect x="455" y="0" width="50" height="32" rx="6" fill="rgba(217,119,87,0.15)" stroke="#D97757" stroke-width="1"/>
+    <text x="480" y="21" font-family="monospace" font-size="13" fill="#D97757" text-anchor="middle">Read</text>
+
+    <rect x="520" y="0" width="55" height="32" rx="6" fill="rgba(217,119,87,0.15)" stroke="#D97757" stroke-width="1"/>
+    <text x="547" y="21" font-family="monospace" font-size="13" fill="#D97757" text-anchor="middle">+ 10</text>
+  </g>
+</svg>
