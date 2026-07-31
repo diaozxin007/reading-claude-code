@@ -6,7 +6,7 @@
 #   2. <link rel="alternate" hreflang="..."> pointing to the zh↔en pair
 #   3. <meta name="description"> / og:description / twitter:description
 #
-# Usage: bash scripts/fix-seo.sh
+# Usage: bash scripts/fix-seo.sh [site_dir]
 # Run AFTER `mdbook build` and site assembly into _site/
 
 set -euo pipefail
@@ -31,20 +31,29 @@ if ! command -v jq &>/dev/null; then
   exit 1
 fi
 
+# Portable sed in-place: GNU sed uses -i (no arg), BSD sed uses -i ''
+sedi() {
+  if sed --version 2>/dev/null | grep -q GNU; then
+    sed -i "$@"
+  else
+    sed -i '' "$@"
+  fi
+}
+
 fix_file() {
   local file="$1"
   # e.g. file = _site/en/interaction/ask-user-question.html
   # Strip SITE_DIR prefix to get relative path: en/interaction/ask-user-question.html
-  local rel_path="${file#"$SITE_DIR/"}"
+  local rel_path="${file#${SITE_DIR}/}"
 
   # Determine language: en or zh
   local lang="${rel_path%%/*}"
   if [[ "$lang" != "en" && "$lang" != "zh" ]]; then
-    return  # Skip files not under en/ or zh/
+    return 0  # Skip files not under en/ or zh/
   fi
 
   # Path within language dir: interaction/ask-user-question.html
-  local page_path="${rel_path#"$lang/"}"
+  local page_path="${rel_path#${lang}/}"
 
   # Compute alternate language
   local alt_lang
@@ -58,10 +67,10 @@ fix_file() {
   local canonical_url="${BASE_URL}/${lang}/${page_path}"
   local canonical_tag="<link rel=\"canonical\" href=\"${canonical_url}\">"
 
-  # --- 2. Hreflang tags ---
+  # --- 2. Hreflang tags (one per line) ---
   local self_url="${BASE_URL}/${lang}/${page_path}"
   local alt_url="${BASE_URL}/${alt_lang}/${page_path}"
-  local hreflang_self hreflang_alt
+  local hreflang_self hreflang_alt hreflang_x
 
   if [[ "$lang" == "en" ]]; then
     hreflang_self="<link rel=\"alternate\" hreflang=\"en\" href=\"${self_url}\">"
@@ -70,24 +79,23 @@ fix_file() {
     hreflang_self="<link rel=\"alternate\" hreflang=\"zh-CN\" href=\"${self_url}\">"
     hreflang_alt="<link rel=\"alternate\" hreflang=\"en\" href=\"${alt_url}\">"
   fi
-  local hreflang_x="<link rel=\"alternate\" hreflang=\"x-default\" href=\"${BASE_URL}/en/${page_path}\">"
-  local hreflang_block="${hreflang_self}\n${hreflang_alt}\n${hreflang_x}"
+  hreflang_x="<link rel=\"alternate\" hreflang=\"x-default\" href=\"${BASE_URL}/en/${page_path}\">"
 
   # --- 3. Per-page description ---
   local description
   description=$(jq -r --arg lang "$lang" --arg page "$page_path" \
-    '.[$lang][$page] // empty' "$DESCRIPTIONS_FILE")
+    '.[$lang][$page] // empty' "$DESCRIPTIONS_FILE") || true
 
   # Fallback to book-level description if not in map
   if [[ -z "$description" ]]; then
     if [[ "$lang" == "en" ]]; then
-      description="A deep dive into the design of Claude Code's tool primitives — what each tool is preventing"
+      description="A deep dive into the design of Claude Code tool primitives"
     else
-      description="一本关于 Claude Code 工具原语设计的深度拆解 —— 每一个 tool 的设计都在防 AI 犯哪些错"
+      description="关于 Claude Code 工具原语设计的深度拆解"
     fi
   fi
 
-  # Escape for sed (handle & and /)
+  # Escape special chars for sed replacement (& \ /)
   local desc_escaped
   desc_escaped=$(printf '%s' "$description" | sed 's/[&/\]/\\&/g')
 
@@ -95,13 +103,11 @@ fix_file() {
   local tw_desc_tag="<meta name=\"twitter:description\" content=\"${desc_escaped}\">"
   local meta_desc_tag="<meta name=\"description\" content=\"${desc_escaped}\">"
 
-  # --- Apply replacements ---
-  sed -i'' \
-    -e "s|<!-- SEO:CANONICAL -->|${canonical_tag}|" \
-    -e "s|<!-- SEO:HREFLANG -->|${hreflang_block}|" \
-    -e "s|<!-- SEO:OG_DESCRIPTION -->|${og_desc_tag}\n${meta_desc_tag}|" \
-    -e "s|<!-- SEO:TWITTER_DESCRIPTION -->|${tw_desc_tag}|" \
-    "$file"
+  # --- Apply replacements (one sed call per placeholder to avoid \n issues) ---
+  sedi "s|<!-- SEO:CANONICAL -->|${canonical_tag}|" "$file"
+  sedi "s|<!-- SEO:HREFLANG -->|${hreflang_self}\n${hreflang_alt}\n${hreflang_x}|" "$file"
+  sedi "s|<!-- SEO:OG_DESCRIPTION -->|${og_desc_tag}\n${meta_desc_tag}|" "$file"
+  sedi "s|<!-- SEO:TWITTER_DESCRIPTION -->|${tw_desc_tag}|" "$file"
 }
 
 # --- Main ---
@@ -110,7 +116,7 @@ echo "🔧 Fixing SEO meta tags in $SITE_DIR ..."
 count=0
 while IFS= read -r -d '' htmlfile; do
   fix_file "$htmlfile"
-  ((count++))
+  count=$((count + 1))
 done < <(find "$SITE_DIR/en" "$SITE_DIR/zh" -name "*.html" -print0 2>/dev/null)
 
 echo "✅ Fixed $count HTML files."
