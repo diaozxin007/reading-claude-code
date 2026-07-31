@@ -1,0 +1,42 @@
+{
+  "en": {
+    "preface.html": "Preface — Reading Claude Code, Together",
+    "tool-mechanism.html": "Claude Code Tool Mechanism Deep Dive — Reading Claude Code, Together",
+    "interaction/ask-user-question.html": "Claude Code AskUserQuestion Deep Dive — Reading Claude Code, Together",
+    "interaction/enter-plan-mode.html": "Claude Code EnterPlanMode Deep Dive — Reading Claude Code, Together",
+    "interaction/exit-plan-mode.html": "Claude Code ExitPlanMode Deep Dive — Reading Claude Code, Together",
+    "execution/grep-glob.html": "Claude Code Grep and Glob Tools Deep Dive — Reading Claude Code, Together",
+    "execution/read.html": "Claude Code Read Tool Deep Dive — Reading Claude Code, Together",
+    "execution/edit.html": "Claude Code Edit Tool Deep Dive — Reading Claude Code, Together",
+    "execution/write.html": "Claude Code Write Tool Deep Dive — Reading Claude Code, Together",
+    "power/bash.html": "Claude Code Bash Tool Deep Dive — Reading Claude Code, Together",
+    "power/agent.html": "Claude Code Agent Tool Deep Dive — Reading Claude Code, Together",
+    "state/task-family.html": "Claude Code Task Family Deep Dive — Reading Claude Code, Together",
+    "state/background.html": "Claude Code Background Mechanism Deep Dive — Reading Claude Code, Together",
+    "state/cron-family.html": "Claude Code Cron Family Deep Dive — Reading Claude Code, Together",
+    "state/monitor.html": "Claude Code Monitor Tool Deep Dive — Reading Claude Code, Together",
+    "info/web.html": "Claude Code WebFetch and WebSearch Deep Dive — Reading Claude Code, Together",
+    "appendix-index.html": "Tool Index — Reading Claude Code, Together",
+    "about.html": "About — Reading Claude Code, Together"
+  },
+  "zh": {
+    "preface.html": "前言 — 一同读 Claude Code",
+    "tool-mechanism.html": "Claude Code Tool 机制深度拆解 — 一同读 Claude Code",
+    "interaction/ask-user-question.html": "Claude Code AskUserQuestion 深度拆解 — 一同读 Claude Code",
+    "interaction/enter-plan-mode.html": "Claude Code EnterPlanMode 深度拆解 — 一同读 Claude Code",
+    "interaction/exit-plan-mode.html": "Claude Code ExitPlanMode 深度拆解 — 一同读 Claude Code",
+    "execution/grep-glob.html": "Claude Code Grep + Glob 深度拆解 — 一同读 Claude Code",
+    "execution/read.html": "Claude Code Read 深度拆解 — 一同读 Claude Code",
+    "execution/edit.html": "Claude Code Edit 深度拆解 — 一同读 Claude Code",
+    "execution/write.html": "Claude Code Write 深度拆解 — 一同读 Claude Code",
+    "power/bash.html": "Claude Code Bash 深度拆解 — 一同读 Claude Code",
+    "power/agent.html": "Claude Code Agent 深度拆解 — 一同读 Claude Code",
+    "state/task-family.html": "Claude Code Task 家族深度拆解 — 一同读 Claude Code",
+    "state/background.html": "Claude Code Background 机制深度拆解 — 一同读 Claude Code",
+    "state/cron-family.html": "Claude Code Cron 家族深度拆解 — 一同读 Claude Code",
+    "state/monitor.html": "Claude Code Monitor 深度拆解 — 一同读 Claude Code",
+    "info/web.html": "Claude Code WebFetch + WebSearch 深度拆解 — 一同读 Claude Code",
+    "appendix-index.html": "工具索引 — 一同读 Claude Code",
+    "about.html": "关于 — 一同读 Claude Code"
+  }
+}

@@ -14,6 +14,7 @@ set -euo pipefail
 SITE_DIR="${1:-_site}"
 BASE_URL="https://diaozxin007.github.io/reading-claude-code"
 DESCRIPTIONS_FILE="scripts/descriptions.json"
+TITLES_FILE="scripts/titles.json"
 
 if [[ ! -d "$SITE_DIR" ]]; then
   echo "❌ Site directory '$SITE_DIR' not found. Run mdbook build first."
@@ -22,6 +23,11 @@ fi
 
 if [[ ! -f "$DESCRIPTIONS_FILE" ]]; then
   echo "❌ Descriptions file '$DESCRIPTIONS_FILE' not found."
+  exit 1
+fi
+
+if [[ ! -f "$TITLES_FILE" ]]; then
+  echo "❌ Titles file '$TITLES_FILE' not found."
   exit 1
 fi
 
@@ -112,6 +118,20 @@ fix_file() {
   # --- Remove mdBook's default global <meta name="description"> (duplicates our per-page one) ---
   sedi '/^<meta name="description" content="A deep dive into the design of Claude Code/d' "$file"
   sedi '/^<meta name="description" content="一本关于 Claude Code 工具原语设计的深度拆解/d' "$file"
+
+  # --- Replace <title> with SEO-optimized per-page title ---
+  local title
+  title=$(jq -r --arg lang "$lang" --arg page "$page_path" \
+    '.[$lang][$page] // empty' "$TITLES_FILE") || true
+
+  if [[ -n "$title" ]]; then
+    local title_escaped
+    title_escaped=$(printf '%s' "$title" | sed 's/[&/\]/\\&/g')
+    sedi "s|<title>.*</title>|<title>${title_escaped}</title>|" "$file"
+    # Also update og:title to match
+    sedi "s|<meta property=\"og:title\" content=\"[^\"]*\"|<meta property=\"og:title\" content=\"${title_escaped}\"|" "$file"
+    sedi "s|<meta name=\"twitter:title\" content=\"[^\"]*\"|<meta name=\"twitter:title\" content=\"${title_escaped}\"|" "$file"
+  fi
 }
 
 # --- Main ---
