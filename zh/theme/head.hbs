@@ -1,11 +1,15 @@
 {{!--
   Custom SEO / social sharing meta tags injected into every mdBook page.
-  Values come from book.toml [book] section + a few hardcoded per-site constants.
+  Chinese site version.
+
+  NOTE: Canonical, hreflang, and per-page description are injected by
+  scripts/fix-seo.sh post-build. Placeholders below are replaced with
+  correct per-page values.
 --}}
 
 <!-- Open Graph -->
 <meta property="og:title" content="{{ chapter_title }} — {{ book_title }}">
-<meta property="og:description" content="{{ description }}">
+<!-- SEO:OG_DESCRIPTION -->
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="{{ book_title }}">
 <meta property="og:locale" content="zh_CN">
@@ -14,7 +18,7 @@
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{{ chapter_title }} — {{ book_title }}">
-<meta name="twitter:description" content="{{ description }}">
+<!-- SEO:TWITTER_DESCRIPTION -->
 <meta name="twitter:image" content="https://diaozxin007.github.io/reading-claude-code/og-cover.png">
 
 <!-- SEO keywords · 中文技术圈常用查询词 -->
@@ -23,13 +27,9 @@
 <!-- Robots · 允许所有搜索引擎索引 -->
 <meta name="robots" content="index, follow">
 
-<!-- hreflang · 双语站点标注 -->
-<link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/">
-<link rel="alternate" hreflang="en" href="https://diaozxin007.github.io/reading-claude-code/en/">
-<link rel="alternate" hreflang="x-default" href="https://diaozxin007.github.io/reading-claude-code/">
+<!-- SEO:HREFLANG -->
 
-<!-- Canonical URL 用户可以在具体页面 override,这里给站点根 -->
-<link rel="canonical" href="https://diaozxin007.github.io/reading-claude-code/zh/">
+<!-- SEO:CANONICAL -->
 
 <!-- 作者 & 版权信息 -->
 <meta name="author" content="diaozxin007">

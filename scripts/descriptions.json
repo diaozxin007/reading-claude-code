@@ -1,0 +1,42 @@
+{
+  "en": {
+    "preface.html": "Why study Claude Code's tool design? This preface explains the motivation, the 4-layer analysis skeleton, and how to read this book.",
+    "tool-mechanism.html": "How Claude uses tools: the tool_use / tool_result round-trip, JSON Schema contracts, and the 4-layer design skeleton that shapes every Claude Code tool.",
+    "interaction/ask-user-question.html": "Claude Code AskUserQuestion deep dive: structured card-based questioning that compresses decision time from minutes to seconds — replacing expensive natural-language round-trips.",
+    "interaction/enter-plan-mode.html": "Claude Code EnterPlanMode explained: a zero-parameter tool that physically disables file editing, forcing Claude into read-only exploration before committing to an approach.",
+    "interaction/exit-plan-mode.html": "Claude Code ExitPlanMode analysis: the approval gate that completes the Ask → Plan → Approve pipeline — why plan approval needs its own dedicated tool.",
+    "execution/grep-glob.html": "Claude Code Grep and Glob tools: how ripgrep-powered search and glob-based file discovery give Claude precise coordinate-locating before reading or editing.",
+    "execution/read.html": "Claude Code Read tool internals: line-numbered output, offset/limit pagination, multi-format support — the perception primitive that feeds Claude's understanding.",
+    "execution/edit.html": "Claude Code Edit tool deep dive: exact string replacement, Read-first enforcement, uniqueness constraints — every rule prevents AI from making destructive file changes.",
+    "execution/write.html": "Claude Code Write tool explained: full-file overwrite as the complement to Edit — when to use destructive replacement vs surgical editing.",
+    "power/bash.html": "Claude Code Bash tool analysis: the most powerful and dangerous tool needs the longest prompt — capability catch-all, git safety protocol, dedicated-tool-first discipline.",
+    "power/agent.html": "Claude Code Agent tool: how Claude spawns subagents to compress information and isolate context — the meta-tool that scales Claude Code from one AI to a team.",
+    "state/task-family.html": "Claude Code Task family (TaskCreate/Update/List/Get/Stop/Output): externalized working memory that gives Claude persistent state across long-running sessions.",
+    "state/background.html": "Claude Code Background mechanism: parameterization over toolification — how run_in_background turns synchronous tools async without adding new tools to the surface area.",
+    "state/cron-family.html": "Claude Code Cron family (CronCreate/Delete/List): scheduling future work with anti-thundering-herd design and session-scoped lifecycle.",
+    "state/monitor.html": "Claude Code Monitor tool: event-stream watching with stdout-as-notification — real-time log tailing, file watching, and CI polling without sleep loops.",
+    "info/web.html": "Claude Code WebFetch and WebSearch: breaking beyond local boundaries with AI-processed web content — why Bash + curl isn't enough.",
+    "appendix-index.html": "Claude Code tool index: lookup tables organized by problem-to-solve and by design philosophy — a quick reference for all 17 tools.",
+    "about.html": "About Reading Claude Code Together — the open-source book dissecting Claude Code's tool primitives."
+  },
+  "zh": {
+    "preface.html": "为什么要研究 Claude Code 的工具设计？前言说明动机、4 层分析骨架、以及本书的阅读方式。",
+    "tool-mechanism.html": "Claude 怎么用工具：tool_use / tool_result 往返、JSON Schema 契约、以及贯穿所有工具的 4 层设计骨架。",
+    "interaction/ask-user-question.html": "Claude Code AskUserQuestion 拆解：结构化卡片提问，把决策时间从几分钟压到几秒 —— 替代昂贵的自然语言往返。",
+    "interaction/enter-plan-mode.html": "Claude Code EnterPlanMode 拆解：一个零参数工具如何物理禁用文件编辑，逼 Claude 在动手前先做只读探索。",
+    "interaction/exit-plan-mode.html": "Claude Code ExitPlanMode 拆解：Ask → Plan → Approve 流水线的最后一环 —— 为什么方案审批需要独立工具。",
+    "execution/grep-glob.html": "Claude Code Grep + Glob 拆解：ripgrep 驱动的搜索 + glob 文件发现，给 Claude 精确的坐标定位能力。",
+    "execution/read.html": "Claude Code Read 拆解：行号输出、offset/limit 分页、多格式支持 —— 喂养 Claude 理解力的感知原语。",
+    "execution/edit.html": "Claude Code Edit 拆解：精确字符串替换、必须先 Read、唯一性约束 —— 每条规则都在防 AI 做破坏性文件改动。",
+    "execution/write.html": "Claude Code Write 拆解：全量覆盖作为 Edit 的互补 —— 什么时候该用破坏性替换 vs 精准编辑。",
+    "power/bash.html": "Claude Code Bash 拆解：最强也最危险的工具需要最长的 prompt —— 能力兜底、git 安全协议、专用工具优先纪律。",
+    "power/agent.html": "Claude Code Agent 拆解：Claude 怎么派生子代理压缩信息、隔离上下文 —— 把 Claude Code 从单 AI 扩展为团队的元工具。",
+    "state/task-family.html": "Claude Code Task 家族（TaskCreate/Update/List/Get/Stop/Output）拆解：外化工作记忆，给 Claude 持久状态。",
+    "state/background.html": "Claude Code Background 机制拆解：参数化而非工具化 —— run_in_background 如何把同步工具变异步，不增加接口面。",
+    "state/cron-family.html": "Claude Code Cron 家族（CronCreate/Delete/List）拆解：未来时间调度 + 防惊群设计 + 会话级生命周期。",
+    "state/monitor.html": "Claude Code Monitor 拆解：事件流监听 + stdout 即通知 —— 实时日志 tail、文件监控、CI 轮询，无需 sleep 循环。",
+    "info/web.html": "Claude Code WebFetch + WebSearch 拆解：AI 处理的网页内容突破本地边界 —— 为什么 Bash + curl 不够用。",
+    "appendix-index.html": "Claude Code 工具索引：按「解决什么问题」和「设计哲学」两张查找表 —— 17 个工具的速查参考。",
+    "about.html": "关于《一同读 Claude Code》—— 拆解 Claude Code 工具原语设计的开源书。"
+  }
+}

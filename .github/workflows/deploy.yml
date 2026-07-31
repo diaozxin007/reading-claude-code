@@ -51,6 +51,9 @@ jobs:
           # IndexNow key file
           cp scripts/7fc1636ecc8f7ed11fb3c8547168cd8859a13e66c3cf23643f76e3d3dbfb40ed.txt _site/
 
+      - name: Fix SEO meta tags (canonical, hreflang, per-page description)
+        run: bash scripts/fix-seo.sh
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

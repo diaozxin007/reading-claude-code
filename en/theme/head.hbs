@@ -1,11 +1,15 @@
 {{!--
   Custom SEO / social sharing meta tags injected into every mdBook page.
   English site version.
+
+  NOTE: Canonical, hreflang, and per-page description are injected by
+  scripts/fix-seo.sh post-build. Placeholders below are replaced with
+  correct per-page values.
 --}}
 
 <!-- Open Graph -->
 <meta property="og:title" content="{{ chapter_title }} — {{ book_title }}">
-<meta property="og:description" content="{{ description }}">
+<!-- SEO:OG_DESCRIPTION -->
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="{{ book_title }}">
 <meta property="og:locale" content="en_US">
@@ -14,22 +18,18 @@
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{{ chapter_title }} — {{ book_title }}">
-<meta name="twitter:description" content="{{ description }}">
+<!-- SEO:TWITTER_DESCRIPTION -->
 <meta name="twitter:image" content="https://diaozxin007.github.io/reading-claude-code/og-cover.png">
 
-<!-- SEO keywords -->
+<!-- SEO keywords (per-page injection by fix-seo.sh if available) -->
 <meta name="keywords" content="Claude Code, Claude Code Tools, AI agent tool design, Anthropic, LLM tool call, AskUserQuestion, agent architecture, prompt engineering, jooj, AI collaboration methodology, mdBook">
 
 <!-- Robots · index all -->
 <meta name="robots" content="index, follow">
 
-<!-- hreflang · dual-language site -->
-<link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/">
-<link rel="alternate" hreflang="en" href="https://diaozxin007.github.io/reading-claude-code/en/">
-<link rel="alternate" hreflang="x-default" href="https://diaozxin007.github.io/reading-claude-code/">
+<!-- SEO:HREFLANG -->
 
-<!-- Canonical URL for English site -->
-<link rel="canonical" href="https://diaozxin007.github.io/reading-claude-code/en/">
+<!-- SEO:CANONICAL -->
 
 <!-- Author & publisher -->
 <meta name="author" content="diaozxin007">

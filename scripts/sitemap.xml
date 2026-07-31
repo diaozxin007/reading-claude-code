@@ -1,99 +1,241 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <!-- Landing page -->
   <url>
     <loc>https://diaozxin007.github.io/reading-claude-code/</loc>
-    <lastmod>2026-07-30</lastmod>
+    <lastmod>2026-07-31</lastmod>
   </url>
+
+  <!-- ===== Chinese (zh) ===== -->
   <url>
     <loc>https://diaozxin007.github.io/reading-claude-code/zh/</loc>
-    <lastmod>2026-07-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://diaozxin007.github.io/reading-claude-code/en/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/"/>
+    <lastmod>2026-07-31</lastmod>
   </url>
   <url>
     <loc>https://diaozxin007.github.io/reading-claude-code/zh/preface.html</loc>
-    <lastmod>2026-07-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://diaozxin007.github.io/reading-claude-code/en/preface.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/preface.html"/>
+    <lastmod>2026-07-31</lastmod>
   </url>
   <url>
     <loc>https://diaozxin007.github.io/reading-claude-code/zh/tool-mechanism.html</loc>
-    <lastmod>2026-07-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://diaozxin007.github.io/reading-claude-code/en/tool-mechanism.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/tool-mechanism.html"/>
+    <lastmod>2026-07-31</lastmod>
   </url>
   <url>
     <loc>https://diaozxin007.github.io/reading-claude-code/zh/interaction/ask-user-question.html</loc>
-    <lastmod>2026-07-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://diaozxin007.github.io/reading-claude-code/en/interaction/ask-user-question.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/interaction/ask-user-question.html"/>
+    <lastmod>2026-07-31</lastmod>
   </url>
   <url>
     <loc>https://diaozxin007.github.io/reading-claude-code/zh/interaction/enter-plan-mode.html</loc>
-    <lastmod>2026-07-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://diaozxin007.github.io/reading-claude-code/en/interaction/enter-plan-mode.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/interaction/enter-plan-mode.html"/>
+    <lastmod>2026-07-31</lastmod>
   </url>
   <url>
     <loc>https://diaozxin007.github.io/reading-claude-code/zh/interaction/exit-plan-mode.html</loc>
-    <lastmod>2026-07-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://diaozxin007.github.io/reading-claude-code/en/interaction/exit-plan-mode.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/interaction/exit-plan-mode.html"/>
+    <lastmod>2026-07-31</lastmod>
   </url>
   <url>
     <loc>https://diaozxin007.github.io/reading-claude-code/zh/execution/grep-glob.html</loc>
-    <lastmod>2026-07-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://diaozxin007.github.io/reading-claude-code/en/execution/grep-glob.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/execution/grep-glob.html"/>
+    <lastmod>2026-07-31</lastmod>
   </url>
   <url>
     <loc>https://diaozxin007.github.io/reading-claude-code/zh/execution/read.html</loc>
-    <lastmod>2026-07-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://diaozxin007.github.io/reading-claude-code/en/execution/read.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/execution/read.html"/>
+    <lastmod>2026-07-31</lastmod>
   </url>
   <url>
     <loc>https://diaozxin007.github.io/reading-claude-code/zh/execution/edit.html</loc>
-    <lastmod>2026-07-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://diaozxin007.github.io/reading-claude-code/en/execution/edit.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/execution/edit.html"/>
+    <lastmod>2026-07-31</lastmod>
   </url>
   <url>
     <loc>https://diaozxin007.github.io/reading-claude-code/zh/execution/write.html</loc>
-    <lastmod>2026-07-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://diaozxin007.github.io/reading-claude-code/en/execution/write.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/execution/write.html"/>
+    <lastmod>2026-07-31</lastmod>
   </url>
   <url>
     <loc>https://diaozxin007.github.io/reading-claude-code/zh/power/bash.html</loc>
-    <lastmod>2026-07-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://diaozxin007.github.io/reading-claude-code/en/power/bash.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/power/bash.html"/>
+    <lastmod>2026-07-31</lastmod>
   </url>
   <url>
     <loc>https://diaozxin007.github.io/reading-claude-code/zh/power/agent.html</loc>
-    <lastmod>2026-07-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://diaozxin007.github.io/reading-claude-code/en/power/agent.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/power/agent.html"/>
+    <lastmod>2026-07-31</lastmod>
   </url>
   <url>
     <loc>https://diaozxin007.github.io/reading-claude-code/zh/state/task-family.html</loc>
-    <lastmod>2026-07-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://diaozxin007.github.io/reading-claude-code/en/state/task-family.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/state/task-family.html"/>
+    <lastmod>2026-07-31</lastmod>
   </url>
   <url>
     <loc>https://diaozxin007.github.io/reading-claude-code/zh/state/background.html</loc>
-    <lastmod>2026-07-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://diaozxin007.github.io/reading-claude-code/en/state/background.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/state/background.html"/>
+    <lastmod>2026-07-31</lastmod>
   </url>
   <url>
     <loc>https://diaozxin007.github.io/reading-claude-code/zh/state/cron-family.html</loc>
-    <lastmod>2026-07-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://diaozxin007.github.io/reading-claude-code/en/state/cron-family.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/state/cron-family.html"/>
+    <lastmod>2026-07-31</lastmod>
   </url>
   <url>
     <loc>https://diaozxin007.github.io/reading-claude-code/zh/state/monitor.html</loc>
-    <lastmod>2026-07-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://diaozxin007.github.io/reading-claude-code/en/state/monitor.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/state/monitor.html"/>
+    <lastmod>2026-07-31</lastmod>
   </url>
   <url>
     <loc>https://diaozxin007.github.io/reading-claude-code/zh/info/web.html</loc>
-    <lastmod>2026-07-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://diaozxin007.github.io/reading-claude-code/en/info/web.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/info/web.html"/>
+    <lastmod>2026-07-31</lastmod>
   </url>
   <url>
     <loc>https://diaozxin007.github.io/reading-claude-code/zh/about.html</loc>
-    <lastmod>2026-07-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://diaozxin007.github.io/reading-claude-code/en/about.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/about.html"/>
+    <lastmod>2026-07-31</lastmod>
   </url>
   <url>
     <loc>https://diaozxin007.github.io/reading-claude-code/zh/appendix-index.html</loc>
-    <lastmod>2026-07-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://diaozxin007.github.io/reading-claude-code/en/appendix-index.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/appendix-index.html"/>
+    <lastmod>2026-07-31</lastmod>
   </url>
+
+  <!-- ===== English (en) ===== -->
   <url>
     <loc>https://diaozxin007.github.io/reading-claude-code/en/</loc>
-    <lastmod>2026-07-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://diaozxin007.github.io/reading-claude-code/en/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/"/>
+    <lastmod>2026-07-31</lastmod>
   </url>
   <url>
     <loc>https://diaozxin007.github.io/reading-claude-code/en/preface.html</loc>
-    <lastmod>2026-07-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://diaozxin007.github.io/reading-claude-code/en/preface.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/preface.html"/>
+    <lastmod>2026-07-31</lastmod>
+  </url>
+  <url>
+    <loc>https://diaozxin007.github.io/reading-claude-code/en/tool-mechanism.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://diaozxin007.github.io/reading-claude-code/en/tool-mechanism.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/tool-mechanism.html"/>
+    <lastmod>2026-07-31</lastmod>
   </url>
   <url>
     <loc>https://diaozxin007.github.io/reading-claude-code/en/interaction/ask-user-question.html</loc>
-    <lastmod>2026-07-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://diaozxin007.github.io/reading-claude-code/en/interaction/ask-user-question.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/interaction/ask-user-question.html"/>
+    <lastmod>2026-07-31</lastmod>
+  </url>
+  <url>
+    <loc>https://diaozxin007.github.io/reading-claude-code/en/interaction/enter-plan-mode.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://diaozxin007.github.io/reading-claude-code/en/interaction/enter-plan-mode.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/interaction/enter-plan-mode.html"/>
+    <lastmod>2026-07-31</lastmod>
+  </url>
+  <url>
+    <loc>https://diaozxin007.github.io/reading-claude-code/en/interaction/exit-plan-mode.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://diaozxin007.github.io/reading-claude-code/en/interaction/exit-plan-mode.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/interaction/exit-plan-mode.html"/>
+    <lastmod>2026-07-31</lastmod>
+  </url>
+  <url>
+    <loc>https://diaozxin007.github.io/reading-claude-code/en/execution/grep-glob.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://diaozxin007.github.io/reading-claude-code/en/execution/grep-glob.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/execution/grep-glob.html"/>
+    <lastmod>2026-07-31</lastmod>
+  </url>
+  <url>
+    <loc>https://diaozxin007.github.io/reading-claude-code/en/execution/read.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://diaozxin007.github.io/reading-claude-code/en/execution/read.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/execution/read.html"/>
+    <lastmod>2026-07-31</lastmod>
+  </url>
+  <url>
+    <loc>https://diaozxin007.github.io/reading-claude-code/en/execution/edit.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://diaozxin007.github.io/reading-claude-code/en/execution/edit.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/execution/edit.html"/>
+    <lastmod>2026-07-31</lastmod>
+  </url>
+  <url>
+    <loc>https://diaozxin007.github.io/reading-claude-code/en/execution/write.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://diaozxin007.github.io/reading-claude-code/en/execution/write.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/execution/write.html"/>
+    <lastmod>2026-07-31</lastmod>
+  </url>
+  <url>
+    <loc>https://diaozxin007.github.io/reading-claude-code/en/power/bash.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://diaozxin007.github.io/reading-claude-code/en/power/bash.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/power/bash.html"/>
+    <lastmod>2026-07-31</lastmod>
+  </url>
+  <url>
+    <loc>https://diaozxin007.github.io/reading-claude-code/en/power/agent.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://diaozxin007.github.io/reading-claude-code/en/power/agent.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/power/agent.html"/>
+    <lastmod>2026-07-31</lastmod>
+  </url>
+  <url>
+    <loc>https://diaozxin007.github.io/reading-claude-code/en/state/task-family.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://diaozxin007.github.io/reading-claude-code/en/state/task-family.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/state/task-family.html"/>
+    <lastmod>2026-07-31</lastmod>
+  </url>
+  <url>
+    <loc>https://diaozxin007.github.io/reading-claude-code/en/state/background.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://diaozxin007.github.io/reading-claude-code/en/state/background.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/state/background.html"/>
+    <lastmod>2026-07-31</lastmod>
+  </url>
+  <url>
+    <loc>https://diaozxin007.github.io/reading-claude-code/en/state/cron-family.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://diaozxin007.github.io/reading-claude-code/en/state/cron-family.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/state/cron-family.html"/>
+    <lastmod>2026-07-31</lastmod>
+  </url>
+  <url>
+    <loc>https://diaozxin007.github.io/reading-claude-code/en/state/monitor.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://diaozxin007.github.io/reading-claude-code/en/state/monitor.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/state/monitor.html"/>
+    <lastmod>2026-07-31</lastmod>
+  </url>
+  <url>
+    <loc>https://diaozxin007.github.io/reading-claude-code/en/info/web.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://diaozxin007.github.io/reading-claude-code/en/info/web.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/info/web.html"/>
+    <lastmod>2026-07-31</lastmod>
   </url>
   <url>
     <loc>https://diaozxin007.github.io/reading-claude-code/en/about.html</loc>
-    <lastmod>2026-07-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://diaozxin007.github.io/reading-claude-code/en/about.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/about.html"/>
+    <lastmod>2026-07-31</lastmod>
+  </url>
+  <url>
+    <loc>https://diaozxin007.github.io/reading-claude-code/en/appendix-index.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://diaozxin007.github.io/reading-claude-code/en/appendix-index.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/appendix-index.html"/>
+    <lastmod>2026-07-31</lastmod>
   </url>
 </urlset>
