@@ -22,6 +22,7 @@ reading-claude-code/
 ├── scripts/
 │   ├── index.html          (顶层语言选择页 · 部署时挂在 _site/index.html)
 │   ├── sitemap.xml         (SEO · 部署时挂在 _site/sitemap.xml)
+│   ├── submit-indexnow.sh  (部署后从 sitemap 提取 URL 并通知 IndexNow)
 │   └── robots.txt          (SEO · 部署时挂在 _site/robots.txt)
 ├── zh/                     (中文站 mdBook 项目)
 │   ├── book.toml           (mdBook 主配置)
@@ -221,6 +222,10 @@ gh api --method POST /repos/OWNER/REPO/pages -f build_type=workflow
 - **触发时机**:workflow 里 `deploy` job 完成后 · `indexnow` job 自动跑 · 从 sitemap.xml 提取所有 URL · POST 到 `https://api.indexnow.org/indexnow`
 
 **要新增 URL 到 IndexNow 通知**:改 `scripts/sitemap.xml` 加一条 `<url>` · workflow 自动提取并提交。
+
+**脚本**:`scripts/submit-indexnow.sh` · workflow 在部署成功后调用。脚本从 sitemap 提取 URL，并从 `scripts/<key>.txt` 读取 key，避免在 workflow 里重复配置。
+
+**本地验证**:`scripts/submit-indexnow.sh --dry-run` · 只生成并显示 payload，不发起网络请求。
 
 **手工触发**:如果需要立刻通知(比如某篇内容有大改) · GitHub Web UI → Actions → 「Deploy mdBook to GitHub Pages」→ Run workflow 就会重新走一遍 build + deploy + indexnow。
 
