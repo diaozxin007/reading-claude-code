@@ -203,6 +203,12 @@ gh api --method POST /repos/OWNER/REPO/pages -f build_type=workflow
 
 ## SEO / 搜索引擎覆盖
 
+### 访问统计
+
+- **Google Analytics 4**:`G-F1KM7QGPTS`
+- 中英文 mdBook 页面分别由 `zh/theme/head.hbs` 和 `en/theme/head.hbs` 注入。
+- 顶层语言选择页由 `scripts/index.html` 注入。
+
 ### 索引状态
 
 | 引擎 | 验证方式 | 状态 |
