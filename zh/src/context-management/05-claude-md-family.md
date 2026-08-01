@@ -17,11 +17,17 @@
 
 这些问题的答案不是分散在 6 处的 · 而是收敛在同一个装配函数 · 同一个数据结构里。 本篇把这个装配过程摊开。
 
-## 反直觉:CLAUDE.md 不进 system prompt
+## 越稳定的内容越靠前 · CLAUDE.md 放进 messages
+
+这里背后是一条统一的装配原则：**越稳定、越通用的内容，越适合放在前面的 system prompt；越容易变化、越贴近当前用户和项目的内容，越适合通过 message 往后追加。** 这样后面的内容发生变化时，只会影响靠后的 cache，前面已经缓存的 tools 和 system prompt 仍然可以复用。
 
 如果只看现象 · 你会以为 CLAUDE.md 是**给模型立规矩**的地方 —— 立规矩的东西自然该在 system prompt 里 · 跟 "你是 Claude Code" 之类的核心 identity 挂在一起。
 
-**实际不是**。 CLAUDE.md 走的是另一条通道:**注入进 messages 数组的第 0 条 user 消息 · 用 `<system-reminder>` 包起来 · 标 `isMeta: true`**。 具体形态:
+**实际不是**。 CLAUDE.md 走的是另一条通道:**注入进 messages 数组的第 0 条 user 消息 · 用 `<system-reminder>` 包起来 · 标 `isMeta: true`**。
+
+这里先解释后文反复出现的缩写：`<system-reminder>`（下文简称 **SR**）是程序附加的一层提示包装。它放在 message 里，用户界面通常不显示，但模型可以看到。这里先把它理解成“程序悄悄补给模型的背景信息”即可；它还有哪些用途，统一留到 [07 · Meta 机制 · 从 system-reminder 到 20+ 种通道](07-meta-mechanisms.md) 再讲。
+
+具体形态:
 
 ```
 messages 数组 · 第 0 条(prepend):
@@ -326,4 +332,4 @@ CLAUDE.md 家族不是一个文件 · 是一个**加载栈**:
 - [03 · Prompt Cache 是骨架 · 为什么其他机制长成那样](03-prompt-cache.md) · 为什么走 messages 段而不是 system
 - [04 · Compaction 六兄弟 · 从手动到无处不在的压缩](04-compaction.md) · post-compact 重挂 vs 不重挂
 - [07 · Meta 机制 · 从 system-reminder 到 20+ 种通道](07-meta-mechanisms.md) · SR 通道类型学 · CLAUDE.md 是其中一种 SR 用途
-- AI Agent 实战/Week06_Memory_Compact_SystemPrompt/学习笔记_s09 · Memory 系统的存 / 选 / 抽 / 固(仅参考)
+- 学习笔记_s09 · Memory 系统的存 / 选 / 抽 / 固(仅参考)

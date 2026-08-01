@@ -255,9 +255,9 @@ Anthropic 在 2025 年 9 月的博客 [Effective context engineering for AI agen
 - Simon Willison(2026-02-20)· Thariq Shihipar quote —— [claude-code tag](https://simonwillison.net/tags/claude-code/)
 - Claude Code 文档:[code.claude.com/docs/en](https://code.claude.com/docs/en)(注:`docs.anthropic.com/en/docs/claude-code/*` 已 301 到这里)
 - Claude Code 源码(泄露 v2.1.220)· 本地路径
-- 本系列 discovery 完整报告:读书笔记/Claude Code Context 管理研究系列/00 · Discovery 报告 · 4 大策略与 20+ 机制清单
+- 本系列 discovery 完整报告:00 · Discovery 报告 · 4 大策略与 20+ 机制清单
 - Vault 内相关笔记:
-  - AI Agent 实战/Week06_Memory_Compact_SystemPrompt/深度学习_System_Prompt · System prompt / prompt cache 底层
-  - AI Agent 实战/Week06_Memory_Compact_SystemPrompt/学习笔记_s08 · Context Compact L1-L4
-  - 读书笔记/Claude code tools 研究系列/Claude code tools 研究系列（九）Agent · Agent tool 独立 context
-  - 读书笔记/Claude code tools 研究系列/Claude code tools 研究系列（五）Read · readFileState / empty file
+  - 深度学习_System_Prompt · System prompt / prompt cache 底层
+  - 学习笔记_s08 · Context Compact L1-L4
+  - Claude code tools 研究系列（九）Agent · Agent tool 独立 context
+  - Claude code tools 研究系列（五）Read · readFileState / empty file

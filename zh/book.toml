@@ -1,6 +1,6 @@
 [book]
 title = "一同读 Claude Code"
-description = "一本关于 Claude Code 工具原语设计的深度拆解 —— 每一个 tool 的设计都在防 AI 犯哪些错"
+description = "从 Tools、Agent Loop、Context 到 Memory，系统拆解 Claude Code 的内部机制与工程取舍"
 authors = ["diaozxin007"]
 language = "zh"
 src = "src"

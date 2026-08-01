@@ -179,7 +179,7 @@ Claude Code 对这个错误有**三级恢复**:
 - **max_tokens 三级恢复** —— escalate → 注入 continue → 抛出
 - **8 层恢复叠加** —— 保证 loop 尽可能自愈
 
-下一篇 [08 · Interrupt · 用户中断的处理](08-interrupt.md) 讲 loop 的另一头 —— 有些错误 loop 无法自愈 · 但用户可以**主动中断**。 用户按 Ctrl-C 之后 · 已经在流式返回的 LLM 请求怎么办、执行中的 tool 怎么办、messages 数组怎么保持结构合规。
+下一篇 08 · Interrupt · 用户中断的处理 讲 loop 的另一头 —— 有些错误 loop 无法自愈 · 但用户可以**主动中断**。 用户按 Ctrl-C 之后 · 已经在流式返回的 LLM 请求怎么办、执行中的 tool 怎么办、messages 数组怎么保持结构合规。
 
 ---
 
@@ -195,7 +195,7 @@ Claude Code 对这个错误有**三级恢复**:
 **相关篇**:
 - [04 · 从回答完了到 stop_reason 的 7 种含义](04-stop-reason.md) · max_tokens / refusal 触发的 recovery
 - [05 · QueryEngine 主循环 · 状态机全景](05-query-engine.md) · recovery 作为 transition 一等公民
-- [08 · Interrupt · 用户中断的处理](08-interrupt.md) · 下一篇 · 无法自愈时用户手动介入
+- 08 · Interrupt · 用户中断的处理 · 下一篇 · 无法自愈时用户手动介入
 - [04 · Compaction 六兄弟](../context-management/04-compaction.md) · reactive-compact 详解
 
 **Anthropic 官方**:

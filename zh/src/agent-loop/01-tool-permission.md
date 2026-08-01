@@ -38,7 +38,7 @@ tools 段是一个数组 · 每个元素声明一个工具。 一个工具声明
 
 LLM 靠什么决定要不要调某个 tool?**完全靠 description**。 你 description 写得越清楚 · LLM 判断得越准。 一个工具 description 差 · LLM 会用错场景 · 或者忽略这个工具。
 
-tool 定义本身的深入拆解 —— 4 层契约、JSON Schema 具体约束、Claude Code 里怎么组织多个 tool、MCP 动态注册 —— 见 [tools 研究系列前置篇](../tool-mechanism.md)。 本篇只需要知道:tools 段是一批**给 LLM 的工具菜单** · 定好之后每次调 LLM 都发一份。
+tool 定义本身的深入拆解 —— 4 层契约、JSON Schema 具体约束、Claude Code 里怎么组织多个 tool、MCP 动态注册 —— 见 tools 研究系列前置篇。 本篇只需要知道:tools 段是一批**给 LLM 的工具菜单** · 定好之后每次调 LLM 都发一份。
 
 ## LLM 输出 tool_use · 到工具执行 · 中间还有一步
 
@@ -132,7 +132,7 @@ loop 继续 · 工具真的执行
 
 **副作用**:批准阻塞期间 · **LLM 的 API 调用没在进行** —— 因为 loop 卡在批准这一步 · 还没到下一次 call_llm。 也就是说 · 用户思考的时间 **不计入 API 成本** —— 这是权限系统的一个隐形优点。
 
-## 3 个批准来源同时 race
+## 3 个批准来源同时判断 · 谁先返回就采用谁
 
 上面说"UI 层拿到用户点击 · resolve Promise" —— 但真实设计更巧妙:**批准的 resolve 可以来自 3 个不同来源**:
 
@@ -140,7 +140,7 @@ loop 继续 · 工具真的执行
 2. **PermissionRequest hook**(用户或团队在 `settings.json` 里配了自动批准 hook · 走命令行 / HTTP 触发)
 3. **AI classifier**(Claude Code 内置的分类器 · 判断这个操作是否明显安全)
 
-**3 个来源同时竞速** —— 谁先算出结论 · 谁就 resolve Promise · 剩下的两个作废。
+这 3 个来源会**同时开始判断**。这就是这里的 `race`（竞速）：谁最先给出结果，就采用谁的结果并结束等待；另外两个来源随后返回的结果不再生效。
 
 为什么这么设计?
 
@@ -148,7 +148,7 @@ loop 继续 · 工具真的执行
 - Hook 中等(几百毫秒到几秒)· 灵活可编程
 - Classifier 最快(几十毫秒 AI 推理)· 但可能保守拒绝
 
-**如果串行判断** —— 先等 hook · 再等 classifier · 最后问用户 —— 会浪费串行时间。 让三者并发 · 任一先答完 · 用户体验最快。
+**如果依次判断** —— 先等 hook · 再等 classifier · 最后问用户 —— 总等待时间可能是三者耗时之和。让三者同时判断，只需等待最快的一个，因此批准流程响应更快。
 
 **但并发就要防止 double-resolve** —— 如果 Promise 被 resolve 两次 · 会崩溃。 Claude Code 用一个叫 `ResolveOnce` 的机制 · 三者中第一个到达的**声明认领**(claim)· 之后其他两个尝试认领都会被拒绝。 保证 Promise 只被 resolve 一次。
 
@@ -179,7 +179,7 @@ Claude Code 的默认行为是:subagent 起手时 · **清空主对话的 sessio
 - **3 个批准来源同时 race** —— 用户 / hook / classifier · 谁快谁赢 · `ResolveOnce` 兜底防止 double-resolve
 - **subagent 权限不继承** —— 保守的安全默认
 
-下一篇 [02 · Hooks · loop 上的插入点](02-hooks.md) 讲**批准之后**:一个 tool_use 到工具真的执行之间 · 除了权限批准 · 还有一个更通用的机制 —— hooks —— 允许用户在 loop 的 26 个不同点上插自定义逻辑。 权限批准是 hooks 的一种特化;hooks 是"用户想在 loop 里插自定义逻辑" 的通用答案。
+下一篇 02 · Hooks · loop 上的插入点 讲**批准之后**:一个 tool_use 到工具真的执行之间 · 除了权限批准 · 还有一个更通用的机制 —— hooks —— 允许用户在 loop 的 26 个不同点上插自定义逻辑。 权限批准是 hooks 的一种特化;hooks 是"用户想在 loop 里插自定义逻辑" 的通用答案。
 
 ---
 
@@ -195,7 +195,7 @@ Claude Code 的默认行为是:subagent 起手时 · **清空主对话的 sessio
 - `src/tools/AgentTool/runAgent.ts` · subagent 权限清空
 
 **相关系列**:
-- [Tool 机制](../tool-mechanism.md) · tool 定义的 4 层契约、JSON Schema、系统提示词组织
+- Claude code tools 研究系列-前置篇（tool 机制） · tool 定义的 4 层契约、JSON Schema、系统提示词组织
 - [02 · 从一条消息到消息数组的三条不变量](../context-management/02-message-invariants.md) · tool_use 在消息数组里的位置和约束
 
 **Anthropic 官方**:

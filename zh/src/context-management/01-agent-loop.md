@@ -172,9 +172,10 @@ LLM → harness:{ text: '已改完 · 原因是 X · 我改成了 Y' }
 一次 LLM 调用的完整输入 · 拼起来的样子:
 
 ┌────────────────────────────────────────────┐
-│ tools 段:所有可用工具的 schema             │  ~20-30 KB
-│    (Read / Edit / Write / Bash / Agent /    │
-│     TaskCreate / …40 多个 tool …)           │
+│ tools 段:当前已提供给模型的工具 schema      │  ~20-30 KB
+│    内置工具(Read / Edit / Bash / Agent …)   │
+│    + 已加载的 MCP 工具 schema               │
+│    + 用来按需查找 MCP 工具的 ToolSearch     │
 ├────────────────────────────────────────────┤
 │ system prompt 段:                          │  ~15-25 KB
 │    主 prompt · 工具使用说明 ·               │
@@ -183,6 +184,9 @@ LLM → harness:{ text: '已改完 · 原因是 X · 我改成了 Y' }
 ├────────────────────────────────────────────┤
 │ messages 段:                               │  增长
 │    [prepend user msg:CLAUDE.md · 日期]     │  ~2-10 KB
+│    [Skill 名称和简介 · system-reminder]     │
+│    [已调用 Skill 的 SKILL.md · tool_result] │
+│    [MCP server instructions · system-reminder]│
 │    第 1 轮:user 消息 + assistant 回复      │
 │    第 1 轮的 tool_use / tool_result 对      │
 │    第 2 轮:user 消息 + assistant 回复      │
@@ -193,6 +197,12 @@ LLM → harness:{ text: '已改完 · 原因是 X · 我改成了 Y' }
 
 三段全部 token 加起来 ≤ 200K
 ```
+
+所以 **MCP 和 Skill 并没有消失，只是分散在不同位置**：
+
+- **MCP 工具 schema** 在 `tools` 段。数量很多时，部分工具会延迟加载；模型先通过 `ToolSearch` 找到它们，再把需要的 schema 加入可用工具集合。
+- **MCP server 的使用说明**不放进固定的 system prompt，而是通过 `system-reminder` 增量加入 `messages` 段。
+- **Skill 列表**只包含名称和简介，通过 `system-reminder` 加入 `messages` 段；只有真正调用某个 Skill 时，它的 `SKILL.md` 正文才会通过 `tool_result` 进入 context。
 
 **tools + system prompt 段基本不变** · 一直占 30-50 KB。也就是说 · **messages 段能用的空间实际是 ~150-170K**。真到 messages 段用满 150K · 就该 compact 了。
 

@@ -23,15 +23,14 @@ Claude Code 表面看,就是一堆平平无奇的 tool call —— Read / Edit /
 
 ## 这本书讲什么
 
-按 Claude Code 官方 `<functions>` block 里能看到的工具,一共拆 16 个:
+全书从四条线拆解 Claude Code：
 
-- **交互原语**(3) —— AskUserQuestion / EnterPlanMode / ExitPlanMode:AI 和用户怎么对齐
-- **执行原语**(4) —— Grep + Glob / Read / Edit / Write:定位、感知、修改文件
-- **通用能力**(2) —— Bash / Agent:无边界兜底、派生 subagent
-- **状态与调度**(4) —— Task 家族 / Background / Cron / Monitor:跨越时间与并发
-- **信息访问**(1) —— WebFetch + WebSearch:突破本地边界
+- **Tools** —— 具体能力如何通过 schema、prompt 和 runtime 约束交给模型
+- **Agent Loop** —— 模型调用、工具执行、状态迁移、恢复和中断如何组成自动循环
+- **Context** —— 每次调用的信息如何装配、缓存、压缩和按需加载
+- **Memory** —— 哪些信息能够跨 session 留下来，并在下一次对话中重新生效
 
-前面还有一章「起步」——「Tool 机制」讲清楚 Claude 是怎么用工具的 · 为后续章节铺垫心智模型。
+四部分分别回答“能做什么”“事情怎么发生”“信息怎么组织”和“哪些信息能够留下”。
 
 ## 这本书**不**讲什么
 
@@ -45,7 +44,7 @@ Claude Code 表面看,就是一堆平平无奇的 tool call —— Read / Edit /
 
 **跳读**:每一章可以独立读。想直接看某个具体工具怎么设计的 · 直接翻过去。
 
-**每章的六段式结构**:
+第一部分的工具章节采用六段式结构:
 
 1. **作用** —— 这个工具解决什么问题
 2. **一个具体例子** —— 用真实场景说清"没有这工具会怎样 vs 用了怎样"

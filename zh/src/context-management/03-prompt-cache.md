@@ -264,4 +264,4 @@ Prompt cache 底座**不是普适真理** —— 它只在特定条件下成立�
 
 **Vault 内相关笔记**:
 - [00 · 开篇 · Claude Code 的 200K 账本](00-intro.md) · 4 策略 × 20+ 机制总账
-- AI Agent 实战/Week06_Memory_Compact_SystemPrompt/深度学习_System_Prompt · Prompt cache API 层通用原理(TTL 阈值 / 读写成本 / chat template 等 · 与本篇互补)
+- 深度学习_System_Prompt · Prompt cache API 层通用原理(TTL 阈值 / 读写成本 / chat template 等 · 与本篇互补)

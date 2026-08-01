@@ -4,7 +4,7 @@
 
 ## 项目定位
 
-**《一同读 Claude Code》** —— 一本关于 Claude Code 工具原语设计的深度拆解。每一个 tool 的设计都在防 AI 犯哪些错。
+**《一同读 Claude Code》** —— 从 Tools、Agent Loop、Context 到 Memory，系统拆解 Claude Code 的内部机制与工程取舍。
 
 - **仓库**:https://github.com/diaozxin007/reading-claude-code
 - **中文在线阅读**:https://diaozxin007.github.io/reading-claude-code/zh/
@@ -52,6 +52,9 @@ reading-claude-code/
 │       │   └── monitor.md
 │       ├── info/           (信息访问 1 篇)
 │       │   └── web.md
+│       ├── agent-loop/     (Agent Loop 执行流 · 11 篇)
+│       ├── context-management/ (Context 信息流 · 9 篇)
+│       ├── memory/         (跨 session 记忆 · 9 篇)
 │       └── appendix-index.md   (附录 · 工具索引)
 ├── en/                     (英文站 · 结构同 zh/ · 但内容多数还未翻译)
 └── .gitignore              (忽略 zh/book/ 和 en/book/ mdBook 构建产物)
@@ -179,7 +182,7 @@ vault 篇名(全角括号)→ mdBook 相对路径,例:
 
 ## 已知限制
 
-- 英文站目前只有骨架,内容多数还未翻译
+- 英文站目前只发布第一部分；Agent Loop、Context、Memory 尚未翻译
 - 图片附件目前只有 AskUserQuestion 篇有 2 张 · 其他章节都是纯文字
 - 部分工具章节里画的 ASCII 图可以未来换成 mermaid
 

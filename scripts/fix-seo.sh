@@ -76,6 +76,7 @@ fix_file() {
   # --- 2. Hreflang tags (one per line) ---
   local self_url="${BASE_URL}/${lang}/${page_path}"
   local alt_url="${BASE_URL}/${alt_lang}/${page_path}"
+  local alt_file="${SITE_DIR}/${alt_lang}/${page_path}"
   local hreflang_self hreflang_alt hreflang_x
 
   if [[ "$lang" == "en" ]]; then
@@ -85,7 +86,13 @@ fix_file() {
     hreflang_self="<link rel=\"alternate\" hreflang=\"zh-CN\" href=\"${self_url}\">"
     hreflang_alt="<link rel=\"alternate\" hreflang=\"en\" href=\"${alt_url}\">"
   fi
-  hreflang_x="<link rel=\"alternate\" hreflang=\"x-default\" href=\"${BASE_URL}/en/${page_path}\">"
+  if [[ -f "$alt_file" ]]; then
+    hreflang_x="<link rel=\"alternate\" hreflang=\"x-default\" href=\"${BASE_URL}/en/${page_path}\">"
+  else
+    # 尚未翻译的中文章节不应指向不存在的英文页面。
+    hreflang_alt=""
+    hreflang_x="<link rel=\"alternate\" hreflang=\"x-default\" href=\"${self_url}\">"
+  fi
 
   # --- 3. Per-page description ---
   local description
@@ -97,7 +104,7 @@ fix_file() {
     if [[ "$lang" == "en" ]]; then
       description="A deep dive into the design of Claude Code tool primitives"
     else
-      description="关于 Claude Code 工具原语设计的深度拆解"
+      description="从 Tools、Agent Loop、Context 到 Memory，系统拆解 Claude Code 的内部机制与工程取舍"
     fi
   fi
 
@@ -117,8 +124,9 @@ fix_file() {
   sedi "s|<!-- SEO:OG_URL -->|<meta property=\"og:url\" content=\"${canonical_url}\">|" "$file"
 
   # --- Remove mdBook's default global <meta name="description"> (duplicates our per-page one) ---
-  sedi '/^<meta name="description" content="A deep dive into the design of Claude Code/d' "$file"
-  sedi '/^<meta name="description" content="一本关于 Claude Code 工具原语设计的深度拆解/d' "$file"
+  sedi '/^[[:space:]]*<meta name="description" content="A deep dive into the design of Claude Code/d' "$file"
+  sedi '/^[[:space:]]*<meta name="description" content="一本关于 Claude Code 工具原语设计的深度拆解/d' "$file"
+  sedi '/^[[:space:]]*<meta name="description" content="从 Tools、Agent Loop、Context 到 Memory/d' "$file"
 
   # --- Replace <title> with SEO-optimized per-page title ---
   local title

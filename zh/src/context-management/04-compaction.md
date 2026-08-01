@@ -63,6 +63,8 @@ Claude Code 里 · 你可能听说过 `/compact` · 但如果只知道这一个 
 
 `/compact` 是最典型的入口 —— 用户主动按下 · 可以带 `[custom instructions]`(比如 "重点保留数据库 schema 部分")。
 
+**这一步有专门的 prompt。** `/compact` 并不是把这条命令原样发给模型，而是由程序另外发起一次“总结当前对话”的 LLM 请求：system prompt 告诉模型它的任务是总结对话，具体的压缩 prompt 则规定下面的 9 段 XML 输出结构。用户附带的 `[custom instructions]` 也会加入这次请求，用来控制总结重点。
+
 ### 反直觉:用的是主模型 · 不是 Haiku
 
 大多数人的假设:总结是**次要任务** · 应该用便宜的 Haiku 或者背景模型。

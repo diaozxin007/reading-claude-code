@@ -21,9 +21,9 @@
 
 ### 定位
 
-《一同读 Claude Code》 —— 从 Claude Code 官方 `<functions>` block 里 16 个核心工具入手 · 一层层拆解设计哲学。
+《一同读 Claude Code》从 16 个核心工具出发，继续深入 Agent Loop、Context 管理和跨会话 Memory，一层层拆解 Claude Code 的内部机制与设计哲学。
 
-不是 Claude Code 使用手册 · 不是 AI Prompt 工程教程 · 而是**工具设计的深度阅读**。
+它不是 Claude Code 使用手册，也不是通用 Prompt 工程教程，而是一次面向工程设计的深度阅读。
 
 ### 写作过程
 
@@ -33,7 +33,7 @@
 2. 所有 tool description 的引用**必须贴英文原文** —— 事实核对纪律
 3. 每次 review 发现的问题反哺方法论 · 沉淀成下一篇的加速器
 
-从零到 16 篇正文 + 前言 + 附录 · 前后耗时约两天。方法论质量 = AI 生产力上限。
+全书从 Tools 扩展到 Agent Loop、Context 与 Memory，写作方法也从工具六段式逐步演化为按机制主线组织的系列研究。
 
 ### 技术栈
 

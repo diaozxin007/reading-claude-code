@@ -333,4 +333,4 @@ Task 家族里还有一个叫 `workflow` 的工具 —— 但在当前 build 里
 - [03 · Prompt Cache 是骨架 · 为什么其他机制长成那样](03-prompt-cache.md) · fork placeholder 的 cache 视角解释
 - [09 · Sidechain · 从子代理到 agentId 分流](../agent-loop/09-sidechain.md) · 姊妹系列 · 执行流视角
 - [01 · 从 tool 声明到执行前的批准](../agent-loop/01-tool-permission.md) · sub-agent 权限系统清空
-- 读书笔记/Claude code tools 研究系列/Claude code tools 研究系列（九）Agent · Agent tool 早期笔记
+- Claude code tools 研究系列（九）Agent · Agent tool 早期笔记

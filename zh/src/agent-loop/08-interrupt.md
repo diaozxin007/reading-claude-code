@@ -152,7 +152,7 @@ Claude Code 处理:**只有主线程 loop 被中断时才清理** —— sub-age
 
 **为什么**:sub-agent 是主线程 loop 内部起的 · 它跟主线程 loop 共享同一个 MCP server 连接。 sub-agent 中断了 —— 但主线程 loop 可能还要继续用 MCP · 不该把连接清理掉。
 
-**这个细节体现了 sub-agent 跟主线程的边界处理** —— 见 [09 · Sidechain · 子代理 loop](09-sidechain.md)。 主线程和 sub-agent **共享 queryLoop** · 但**分流**一些主线程独有的行为(用 `if (!toolUseContext.agentId)` 判断)。 MCP 清理就是其中之一。
+**这个细节体现了 sub-agent 跟主线程的边界处理** —— 见 09 · Sidechain · 子代理 loop。 主线程和 sub-agent **共享 queryLoop** · 但**分流**一些主线程独有的行为(用 `if (!toolUseContext.agentId)` 判断)。 MCP 清理就是其中之一。
 
 ## Interrupt 是 "loop 中间无人参与" 的第二重例外
 
@@ -178,7 +178,7 @@ Claude Code 处理:**只有主线程 loop 被中断时才清理** —— sub-age
 - **Chicago MCP 清理只主线程跑** —— sub-agent 中断不影响共享 MCP 连接
 - **Interrupt 是 "loop 无人参与" 的第二重例外** —— 权限批准 / interrupt / maxTurns 三者互补
 
-下一篇 [09 · Sidechain · 子代理 loop](09-sidechain.md) 讲 Claude Code 的最后一个大机制 —— sub-agent 是怎么走同一个 queryLoop 却在 12 处主线程行为上分流的、`.claude/subagents/<agentId>.jsonl` 独立文件、agentId 的分流规则。
+下一篇 09 · Sidechain · 子代理 loop 讲 Claude Code 的最后一个大机制 —— sub-agent 是怎么走同一个 queryLoop 却在 12 处主线程行为上分流的、`.claude/subagents/<agentId>.jsonl` 独立文件、agentId 的分流规则。
 
 ---
 
@@ -196,5 +196,5 @@ Claude Code 处理:**只有主线程 loop 被中断时才清理** —— sub-age
 - [01 · 从 tool 声明到执行前的批准](01-tool-permission.md) · 第一重例外 · 权限批准
 - [03 · 从读文件到并行调度](03-parallel-scheduling.md) · `ensureToolResultPairing` 的另一半修补场景
 - [04 · 从回答完了到 stop_reason 的 7 种含义](04-stop-reason.md) · maxTurns 保险
-- [09 · Sidechain · 子代理 loop](09-sidechain.md) · 下一篇 · sub-agent 中断的特殊处理
+- 09 · Sidechain · 子代理 loop · 下一篇 · sub-agent 中断的特殊处理
 - [02 · 从一条消息到消息数组的三条不变量](../context-management/02-message-invariants.md) · 配对不变量硬约束

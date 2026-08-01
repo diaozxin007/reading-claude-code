@@ -448,77 +448,7 @@ SR 强大 · 但不是万能。 列几个 SR **不做**的事情:
 
 **SR 是一根管道 · 不是一个决策器**。 决策在别处(触发条件的判断在各功能模块)· 决策结果通过这根管道**送达 LLM**。
 
-## 12 · Context 系列到此收束
-
-到这里 · Claude Code 的 context 管理讲完了:
-
-- **00** 200K 账本 · 4 大策略 × 20+ 机制的全景矩阵 · 8 处官方文档 vs 源码不符
-- **01** Agent Loop · LLM 无状态 · harness 每次重发历史 · messages 数组只增不减
-- **02** 消息数组的三条硬不变量 · role 交替 · tool_use / tool_result 配对 · isMeta 通道
-- **03** Prompt Cache 是底座 · 4 断点分配 · 静态 / 动态段 sentinel 分界 · 6 个反直觉案例
-- **04** Compaction 六兄弟 · `/compact` `/clear` `/rewind` + auto + micro + reactive · 不同 trigger 共同心法
-- **05** CLAUDE.md 家族 · 4 层加载 · @import · rules · MEMORY.md · Todo v2
-- **06** Sub-agent 隔离 · Agent · fork · worktree · SendMessage · `.output` 陷阱
-- **07**(本篇) Meta 机制 · SR 类型学 · env memoize · Read 隐性事 · Skill / MCP ToolSearch
-
-## 7 条读者带走的核心洞察
-
-Context 系列 8 篇讲完 · 如果只让读者记住 7 件事:
-
-**1 · Cache 是骨架 · 一切设计的底座**
-
-Prompt cache 不是 Claude Code 的"某个功能" —— 是所有其他设计**被逼着长成那样**的原因。 4 大策略 · 20+ 机制 · 追根到底都跪着一个共同底座 —— **不能 bust 大 cache**。 这个约束不显式写在文档里 · 但每一条源码决策都能追到它。
-
-**2 · 静态 / 动态段用显式 sentinel · 不用启发式**
-
-Cache 边界必须是**编码时决定的常量**(`__SYSTEM_PROMPT_DYNAMIC_BOUNDARY__`)—— 不是运行时启发式判断。 因为一次误判就 bust 全 cache —— 而 cache write 成本 1.25 倍 —— 一次误判要几十次 cache hit 才能回本。 **显式 · 保守 · 可预测** —— 比"聪明的启发式"更值。
-
-**3 · CLAUDE.md 走 messages · 不进 system**
-
-CLAUDE.md 语义上是"给 agent 的固定指令" —— 直觉应该进 system prompt。 但因为它**会变**(用户改 / 项目切 / @import 展开 / 热重载)—— 一变就 bust 大 cache。 走 messages 段 · 变化只 bust 消息段的小 cache —— **一次"用较小 cache 换较大 cache"的等价交换**。
-
-**4 · Cache 静态 ≠ 语义静态**
-
-Claude Code 追求的是 **cache 静态**(内容一 byte 不变)—— 不是**语义静态**(概念上不变)。 CLAUDE.md · MCP instructions · Skill body 语义上都是静态说明 —— 但因为生成时机异步 / 会变 · 它们进 cache 会付大代价。 SR 通道 · 增量注入 · fork placeholder · env memoize —— 都是"顺着 cache 静态而非语义静态在做取舍"的具体体现。
-
-**5 · SR 通道是元指令总线**
-
-`<system-reminder>` 不是一个"错误消息" —— 是 harness 跟 LLM 通信的**元指令总线**。 20+ 种触发 · 6 大类型 —— 全部走这一根通道:CLAUDE.md 打包走这条、cadence 提醒走这条、日期变化走这条、Skill listing 走这条 —— 甚至 MCP 晚连接的动态说明也走这条。 **一根通道 · 无中央控制表 · 每个功能自己往上塞** —— 是一种**分散但收敛**的设计。
-
-**6 · 配对不变量是硬约束 · 一切修补机制围绕它**
-
-messages 数组的第一条不变量:**每个 tool_use 必须有 tool_result 配对**。 破了 · API 直接 400 报错。 这条不变量催生了 Claude Code 里一整套修补机制 —— interrupt 后合成 tool_result 补配对 · compact 前先剪掉未完成的工具 · rewind 只能选 user 消息回退 —— **所有涉及历史裁剪的机制底下 · 都是这一条不变量在幕后约束**。
-
-**7 · 横切关注 · 无中央控制 · 但有铁的不变量**
-
-Claude Code 里没有一个"ContextManager 类" —— 没有中央的上下文控制中心。 每个功能自己守 cache · 自己维护自己那份状态 · 自己决定什么时候塞 SR。 但整个系统**收敛**在几条**铁的不变量**上:cache 三铁律 · messages 数组三不变量 · SR role 交替。 **分散但收敛** —— 一种"每个人守自己那一块 · 但守的规则一致" 的架构 —— 比中央控制更 scalable · 也比"各干各的" 更可靠。
-
-## Loop 系列 + Context 系列的合体图景
-
-姊妹系列 [Loop 09](../agent-loop/09-sidechain.md) 讲的是**执行流视角** —— loop 怎么转 · 状态机怎么迁移 · 错误怎么恢复 · sub-agent 怎么递归。
-
-本系列 Context 讲的是 **信息流视角** —— messages 数组怎么装配 · cache 怎么保 · CLAUDE.md 怎么注入 · SR 怎么调度。
-
-**Loop 讲清了"事情怎么发生"** —— 骨架撑起来 · loop 转起来 · stop_reason 决定继续还是退出。
-**Context 讲清了"信息怎么组织"** —— 骨架上挂什么 · 每一次 API call 具体发什么。
-
-**两个系列合起来 · 才是 Claude Code 的完整机制图景**。
-
-- 单独看 loop —— 你懂了"AI 怎么自主推进" · 但不懂"AI 每一步看到的输入是什么"
-- 单独看 context —— 你懂了"输入怎么组织" · 但不懂"输入组织出来之后干嘛用"
-- 合起来看 —— 你懂了 Claude Code 的**内在逻辑** —— 输入怎么进来 · loop 怎么转起来 · cache 怎么保住 · 结果怎么出去
-
-想真正**用好** Claude Code —— 或者拿它的设计去**造别的 agent** —— 这两条视角缺一不可。
-
-## 收官一句话
-
-**Claude Code 不是一个"套壳 LLM 的 agent"** —— 是一个**cache-first 的信息组织系统**。
-
-每一处 context 设计的形态 —— CLAUDE.md 走 SR 而不进 system · fork 用 placeholder 抹平差异 · env memoize · 日期用 SR 单发 · Skill delta 增量 · MCP ToolSearch 服务端 defer —— **都能追溯到"不能 bust 大 cache"这个约束**。
-
-反过来 —— 如果你在设计一个 agent · 但**不理解 prompt cache** —— 你可能会做出"正确但昂贵"的设计。 Claude Code 团队之所以做出这么多**看起来反直觉**的选择 —— 是因为他们**先看清了 cache 的账** —— 再倒着推每一处功能长什么样。
-
-**先算账 · 再设计** —— 这就是 Context 系列 8 篇要留给读者的最后一句话。
+下一篇 [08 · 收尾 · 从 200K 账本到 Cache-first 信息系统](08-conclusion.md) 单独收束整个系列 · 提炼 7 条核心洞察，并把 Context 与 Loop 两条线重新拼回完整图景。
 
 ---
 
@@ -555,7 +485,7 @@ Claude Code 里没有一个"ContextManager 类" —— 没有中央的上下文�
 - [04 · Compaction 六兄弟](04-compaction.md) · post-compact 相关的 SR
 - [05 · CLAUDE.md 家族](05-claude-md-family.md) · CLAUDE.md 打包 SR
 - [06 · Sub-agent 隔离 · 从独立 context 到 .output 陷阱](06-sub-agent.md) · sub-agent 里的 SR
-- [09 · Sidechain · 从子代理到 agentId 分流](../agent-loop/09-sidechain.md) · 姊妹系列收官篇 · 执行流视角
+- [10 · 收尾 · 从自动循环到通用 Agent Loop](../agent-loop/10-conclusion.md) · 姊妹系列收官篇 · 执行流视角
 - [06 · Streaming · 从 SSE 事件到逐字显示](../agent-loop/06-streaming.md) · 34 行 store 的分散设计
-- AI Agent 实战/Week06_Memory_Compact_SystemPrompt/深度学习_System_Prompt · Prompt cache API 层通用原理
-- AI Agent 实战/Week10_Skills_MCP_协议/Hermes子系统深读_压缩与记忆 · Hermes 压缩 vs Claude Code 压缩对照
+- 深度学习_System_Prompt · Prompt cache API 层通用原理
+- Hermes子系统深读_压缩与记忆 · Hermes 压缩 vs Claude Code 压缩对照

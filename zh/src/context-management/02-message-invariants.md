@@ -66,7 +66,7 @@ tools 列表里 · 每个工具形如:
 
 LLM 收到 tools 列表 · 才知道当前 session 能调什么。 一个不在 tools 列表里的工具 · LLM 不会调 —— 训练时它学过 "只调 tools 里列出来的"。
 
-**Tools 是 API 请求的第三段** —— 和 system prompt 一样 · 一个 session 内相对稳定 · 每次调 LLM 都发一遍。 后续 loop 系列会讲到 tools 的实际内容(有哪些工具、怎么组织、动态注册)。 tool 定义本身的深入拆解 —— 4 层契约、JSON Schema 约束、Claude 怎么读工具描述 —— 见 读书笔记/Claude code tools 研究系列/Claude code tools 研究系列-前置篇（tool 机制）。
+**Tools 是 API 请求的第三段** —— 和 system prompt 一样 · 一个 session 内相对稳定 · 每次调 LLM 都发一遍。 后续 loop 系列会讲到 tools 的实际内容(有哪些工具、怎么组织、动态注册)。 tool 定义本身的深入拆解 —— 4 层契约、JSON Schema 约束、Claude 怎么读工具描述 —— 见 Claude code tools 研究系列-前置篇（tool 机制）。
 
 本篇之后 · 我们把 tools 当作**已经声明好的**背景 · 专注 messages 数组本身。
 

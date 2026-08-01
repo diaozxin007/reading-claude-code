@@ -57,7 +57,7 @@ while (true) {
 一次 iteration = 一次 API 调用 + 一次 tool 批处理。 具体做的事:
 
 1. **构建请求** —— 装配 messages 数组 · 加载 tools · system prompt
-2. **调 LLM** —— streaming · 逐个事件消费(见 [06](06-streaming.md))
+2. **调 LLM** —— streaming · 逐个事件消费(见 06)
 3. **判断停止原因** —— 从 content 找 tool_use / 检查 stop_reason(见 [04](04-stop-reason.md))
 4. **执行工具** —— 权限批准 → hooks → 并行调度(见 [01](01-tool-permission.md) / [02](02-hooks.md) / [03](03-parallel-scheduling.md))
 5. **决定下一次 transition** —— 根据本轮结果 · 更新 state.transition.reason
@@ -80,7 +80,9 @@ while (true) {
 
 **Terminal 类型也有 10+ 种** —— 每一种表示"loop 因为某个具体原因结束了"。 SDK 消费者拿到 Terminal 后 · 根据类型给用户不同的 UX。
 
-## Recovery 是**并列的**分支 · 不是嵌套
+## 出错后回到主循环 · 不在 `try/catch` 里层层重试
+
+这和 [工具出错时的处理方式](03-parallel-scheduling.md#Tool-崩了怎么办) 是同一种设计思想：**把错误转换成可以继续处理的状态或数据，而不是让异常直接打断 loop**。工具错误会变成 `tool_result` 交给 LLM；主循环需要恢复时，则会变成 `transition`，交给下一轮处理。
 
 朴素设计里 · recovery 通常长这样:
 
@@ -97,7 +99,7 @@ except MaxTokens:
 
 **Claude Code 不是这么写的**。
 
-Claude Code 的所有 recovery **都是 transition** —— 也就是**下一次 iteration 的分支**。 而不是当前 iteration 里的 try-except。
+Claude Code 遇到需要恢复的情况时，不会在当前这一轮里用 `try-except` 立即重试，而是先记录下一步该做什么，再进入下一轮主循环，由下一轮执行相应的恢复操作。
 
 ```
 本轮结束(某种失败)
@@ -127,7 +129,9 @@ compact 完 · 继续这一 iteration 的调 LLM 步骤
 
 源码注释里明确说 · `state.transition` 是**测试断言用的**。 一段代码执行完 · 断言 `state.transition.reason === 'reactive_compact_retry'` · 就知道有没有走到那个分支。 比 grep 错误消息稳定得多。
 
-## 错误"withhold" —— loop 的核心哲学
+## 暂不向外报告错误（withhold）—— loop 的核心哲学
+
+`withhold` 的意思是**暂时扣住、不向外传递**。这里指 loop 遇到错误后，先不通知 SDK 调用方，而是在内部尝试恢复；只有恢复失败，才把最终错误报告出去。
 
 这个设计还有一个更深的目标 —— **对 SDK 调用方隐藏中间错误**。
 
@@ -137,11 +141,11 @@ Claude Code 里有一段直白的注释:某些 SDK 调用方(比如 cowork、des
 
 **这就是 loop 是 "recovery engine" · 不是 "error handler"** —— error 是**loop 内部**的信号 · 不是**loop 外部**的输出。
 
-## 一个反直觉:sub-agent 走**同一个** queryLoop
+## 一个反直觉：主代理和子代理复用**同一套** `queryLoop` 代码
 
 写 sub-agent 系统的直觉是 —— sub-agent 该有自己的 loop 逻辑、自己的状态机。
 
-**Claude Code 反其道**:sub-agent 走**同一个** `queryLoop` · 只是 `toolUseContext.agentId` 不同。
+**Claude Code 反其道**：主代理和 sub-agent 都调用同一套 `queryLoop` 实现，只是各自独立运行，并通过 `toolUseContext.agentId` 区分身份。这里的“同一个”是指**复用同一套代码**，不是共用同一个正在运行的 loop 实例。
 
 代价:大约十几处 `if (!toolUseContext.agentId)` 判断散在 loop 各处 · 用来区分"main thread 才该做的事" —— MemoryPrefetch、手机 UI 摘要、MCP 清理、Stop hook 的锁等等。
 
@@ -149,7 +153,7 @@ Claude Code 里有一段直白的注释:某些 SDK 调用方(比如 cowork、des
 
 **共享 loop · 用 flag 分流** —— 这是一个典型的**共享代码 vs 分叉代码**取舍。 Sub-agent 的独立 context / worktree 隔离 / 沙箱执行 · 都由 loop 外的 `AgentTool.tsx` 来处理;loop 本身**不知道**自己是不是 sub-agent · 只是走同样的 iteration。
 
-详见 [09 · Sidechain · 子代理 loop](09-sidechain.md)。
+详见 09 · Sidechain · 子代理 loop。
 
 ## 主循环全景
 
@@ -203,11 +207,11 @@ Claude Code 里有一段直白的注释:某些 SDK 调用方(比如 cowork、des
 - **`QueryEngine.ts` 不是主循环** —— 是 SDK 适配层。 主循环在 `src/query.ts` 的 `queryLoop`
 - **主循环是状态机 · 不是简单 while** —— 7 种 `state.transition.reason` · 10+ 种 Terminal
 - **Recovery 是并列 transition · 不是嵌套 try** —— 恢复可以链式、可以测试
-- **错误 withhold** —— loop 对 SDK 调用方隐藏能自己恢复的中间错误 · 只抛真的无法救的
+- **暂不向外报告错误（withhold）** —— loop 对 SDK 调用方隐藏能自己恢复的中间错误 · 只抛真的无法救的
 - **loop 是 recovery engine · 不是 error handler**
-- **sub-agent 走同一个 queryLoop** —— `agentId` flag 分流 · 共享代码用 flag 分叉
+- **主代理和 sub-agent 复用同一套 `queryLoop` 代码** —— 各自独立运行 · 通过 `agentId` flag 分流
 
-下一篇 [06 · Streaming · SSE 事件流 · Ink 消费](06-streaming.md) 讲主循环里"调 LLM"这一步的**细节** —— Anthropic API 用 SSE 分片流式返回结果 · 6 种事件类型怎么合并成完整消息、UI 层怎么增量渲染。
+下一篇 06 · Streaming · SSE 事件流 · Ink 消费 讲主循环里"调 LLM"这一步的**细节** —— Anthropic API 用 SSE 分片流式返回结果 · 6 种事件类型怎么合并成完整消息、UI 层怎么增量渲染。
 
 ---
 
@@ -225,9 +229,9 @@ Claude Code 里有一段直白的注释:某些 SDK 调用方(比如 cowork、des
 - [02 · Hooks · loop 上的可编程干预点](02-hooks.md) · iteration 中的 hook
 - [03 · 从读文件到并行调度](03-parallel-scheduling.md) · iteration 中的 tool 执行
 - [04 · 从回答完了到 stop_reason 的 7 种含义](04-stop-reason.md) · iteration 中的停止判断
-- [06 · Streaming · SSE 事件流 · Ink 消费](06-streaming.md) · 下一篇 · iteration 中"调 LLM"的细节
+- 06 · Streaming · SSE 事件流 · Ink 消费 · 下一篇 · iteration 中"调 LLM"的细节
 - [07 · 重试与错误恢复](07-retry-recovery.md) · 与本篇的 recovery transition 直接对应
-- [09 · Sidechain · 子代理 loop](09-sidechain.md) · 共享 loop / agentId 分流
+- 09 · Sidechain · 子代理 loop · 共享 loop / agentId 分流
 
 **Anthropic 官方**:
 - [Messages API — streaming](https://platform.claude.com/docs/en/build-with-claude/streaming) · streaming 协议

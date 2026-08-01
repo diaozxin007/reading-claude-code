@@ -51,6 +51,7 @@
 - [重试与错误恢复 · 8 层恢复叠加](agent-loop/07-retry-recovery.md)
 - [Interrupt · 从 Ctrl-C 到合成 tool_result](agent-loop/08-interrupt.md)
 - [Sidechain · 从子代理到 agentId 分流](agent-loop/09-sidechain.md)
+- [收尾 · 从自动循环到通用 Agent Loop](agent-loop/10-conclusion.md)
 
 ---
 
@@ -64,6 +65,21 @@
 - [CLAUDE.md 家族 · 从一行 "用 pnpm" 到 5 层加载栈](context-management/05-claude-md-family.md)
 - [Sub-agent 隔离 · 从独立 context 到 .output 陷阱](context-management/06-sub-agent.md)
 - [Meta 机制 · 从 system-reminder 到 20+ 种通道](context-management/07-meta-mechanisms.md)
+- [收尾 · 从 200K 账本到 Cache-first 信息系统](context-management/08-conclusion.md)
+
+---
+
+# 第四部分 · Memory 研究
+
+- [CLAUDE.md 家族 · 5 层 hierarchy 与 3 种混装](memory/01-claude-md-family.md)
+- [Auto Memory · 从一次纠正到 MEMORY.md](memory/02-auto-memory.md)
+- [Anthropic API Memory Tool · 客户端记忆原语](memory/03-api-memory-tool.md)
+- [Subagent Memory · 从 agent type 到三层持久目录](memory/04-subagent-memory.md)
+- [Memory Extraction Pipeline · 从一轮结束到受限 fork](memory/05-extraction-pipeline.md)
+- [Team Memory Sync · 从本地双目录到服务端同步](memory/06-team-memory-sync.md)
+- [Managed CLAUDE.md · 企业管控层](memory/07-managed-claude-md.md)
+- [Compaction 之后 · 哪些记忆会自动回来](memory/08-post-compaction.md)
+- [收尾 · 从一条信息到五种记忆载体](memory/09-conclusion.md)
 
 ---
 
