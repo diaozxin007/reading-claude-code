@@ -217,7 +217,7 @@ gh api --method POST /repos/OWNER/REPO/pages -f build_type=workflow
 **IndexNow 是 Bing / Yandex / Seznam 支持的主动通知机制** —— 每次 URL 更新时 POST 一下 URL 列表 · 搜索引擎立刻来抓 · 不用等 sitemap 定期爬。
 
 **当前配置**:
-- **key**:`7fc1636ecc8f7ed11fb3c8547168cd8859a13e66c3cf23643f76e3d3dbfb40ed`
+- **key**:`0fa76633fefe4b8bacbca952a42d6269`
 - **key location**:`https://diaozxin007.github.io/reading-claude-code/{key}.txt`
 - **触发时机**:workflow 里 `deploy` job 完成后 · `indexnow` job 自动跑 · 从 sitemap.xml 提取所有 URL · POST 到 `https://api.indexnow.org/indexnow`
 
