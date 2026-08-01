@@ -60,7 +60,7 @@
     "context-management/08-conclusion.html": "收尾 · 从 200K 账本到 Cache-first 信息系统 — 一同读 Claude Code",
     "memory/01-claude-md-family.html": "CLAUDE.md 家族 · 5 层 hierarchy 与 3 种混装 — 一同读 Claude Code",
     "memory/02-auto-memory.html": "Auto Memory · 从一次纠正到 MEMORY.md — 一同读 Claude Code",
-    "memory/03-api-memory-tool.html": "Anthropic API Memory Tool · 客户端记忆原语 — 一同读 Claude Code",
+    "memory/03-api-memory-tool.html": "Anthropic API Memory Tool · 从日期版本到客户端记忆文件系统 — 一同读 Claude Code",
     "memory/04-subagent-memory.html": "Subagent Memory · 从 agent type 到三层持久目录 — 一同读 Claude Code",
     "memory/05-extraction-pipeline.html": "Memory Extraction Pipeline · 从一轮结束到受限 fork — 一同读 Claude Code",
     "memory/06-team-memory-sync.html": "Team Memory Sync · 从本地双目录到服务端同步 — 一同读 Claude Code",

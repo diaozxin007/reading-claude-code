@@ -73,7 +73,7 @@
 
 - [CLAUDE.md 家族 · 5 层 hierarchy 与 3 种混装](memory/01-claude-md-family.md)
 - [Auto Memory · 从一次纠正到 MEMORY.md](memory/02-auto-memory.md)
-- [Anthropic API Memory Tool · 客户端记忆原语](memory/03-api-memory-tool.md)
+- [Anthropic API Memory Tool · 从日期版本到客户端记忆文件系统](memory/03-api-memory-tool.md)
 - [Subagent Memory · 从 agent type 到三层持久目录](memory/04-subagent-memory.md)
 - [Memory Extraction Pipeline · 从一轮结束到受限 fork](memory/05-extraction-pipeline.md)
 - [Team Memory Sync · 从本地双目录到服务端同步](memory/06-team-memory-sync.md)

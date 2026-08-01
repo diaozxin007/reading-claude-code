@@ -60,7 +60,7 @@
     "context-management/08-conclusion.html": "Context 系列收尾：从 200K 预算、消息不变量到 cache-first 信息组织系统。",
     "memory/01-claude-md-family.html": "Claude Code CLAUDE.md 五层记忆栈：Managed、User、Project、Local、Nested 的作用域、加载与拆分。",
     "memory/02-auto-memory.html": "Claude Code Auto Memory：一次纠正如何沉淀到 MEMORY.md，并在后续 session 中重新生效。",
-    "memory/03-api-memory-tool.html": "Anthropic API Memory Tool：memory_20250818 的六种客户端命令、存储边界与安全约束。",
+    "memory/03-api-memory-tool.html": "拆解 Anthropic API Memory Tool：日期版本、六种文件命令、客户端存储、安全边界，以及它与 Claude Code Auto Memory 的区别。",
     "memory/04-subagent-memory.html": "Claude Code Subagent Memory：Agent 类型如何在 user、project、local 三层目录中持久化记忆。",
     "memory/05-extraction-pipeline.html": "Claude Code Memory Extraction Pipeline：一轮结束后如何通过受限 fork 提取并保存长期记忆。",
     "memory/06-team-memory-sync.html": "Claude Code Team Memory Sync：私人记忆与团队记忆如何分目录保存，并与服务端同步。",
