@@ -54,7 +54,21 @@ jobs:
           cp scripts/og-cover.png _site/og-cover.png
 
       - name: Fix SEO meta tags (canonical, hreflang, per-page description)
+        env:
+          CANONICAL_BASE_URL: https://readingclaude.club
         run: bash scripts/fix-seo.sh
+
+      - name: Redirect root index.html to readingclaude.club
+        # scripts/index.html (the /en/ vs /zh/ language picker) sits outside
+        # _site/en and _site/zh, so fix-seo.sh's placeholder pass never
+        # touches it. Patch this one file directly: point its own
+        # canonical/hreflang/og:url at the new domain and add a client-side
+        # redirect, same consolidation as the per-page redirect above.
+        run: |
+          sed -i \
+            -e 's#https://diaozxin007.github.io/reading-claude-code#https://readingclaude.club#g' \
+            -e '0,/<head>/{s#<head>#<head>\n<meta http-equiv="refresh" content="0;url=https://readingclaude.club/">#}' \
+            _site/index.html
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

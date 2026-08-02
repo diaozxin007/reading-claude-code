@@ -13,6 +13,11 @@ set -euo pipefail
 
 SITE_DIR="${1:-_site}"
 BASE_URL="${BASE_URL:-https://diaozxin007.github.io/reading-claude-code}"
+# CANONICAL_BASE_URL lets a build declare a *different* domain as the
+# authoritative one (e.g. the GitHub Pages build pointing canonical/hreflang
+# at readingclaude.club to avoid duplicate-content across the two hosts).
+# Defaults to BASE_URL, i.e. self-canonical — unchanged behavior when unset.
+CANONICAL_BASE_URL="${CANONICAL_BASE_URL:-$BASE_URL}"
 DESCRIPTIONS_FILE="scripts/descriptions.json"
 TITLES_FILE="scripts/titles.json"
 
@@ -70,12 +75,20 @@ fix_file() {
   fi
 
   # --- 1. Canonical URL ---
-  local canonical_url="${BASE_URL}/${lang}/${page_path}"
+  local canonical_url="${CANONICAL_BASE_URL}/${lang}/${page_path}"
   local canonical_tag="<link rel=\"canonical\" href=\"${canonical_url}\">"
 
+  # --- 1b. Cross-domain redirect (only emitted when this build's canonical
+  # authority lives on a different domain than the one actually being served,
+  # e.g. GitHub Pages redirecting real visitors to readingclaude.club) ---
+  local redirect_tag=""
+  if [[ "$CANONICAL_BASE_URL" != "$BASE_URL" ]]; then
+    redirect_tag="<meta http-equiv=\"refresh\" content=\"0;url=${canonical_url}\">"
+  fi
+
   # --- 2. Hreflang tags (one per line) ---
-  local self_url="${BASE_URL}/${lang}/${page_path}"
-  local alt_url="${BASE_URL}/${alt_lang}/${page_path}"
+  local self_url="${CANONICAL_BASE_URL}/${lang}/${page_path}"
+  local alt_url="${CANONICAL_BASE_URL}/${alt_lang}/${page_path}"
   local alt_file="${SITE_DIR}/${alt_lang}/${page_path}"
   local hreflang_self hreflang_alt hreflang_x
 
@@ -87,7 +100,7 @@ fix_file() {
     hreflang_alt="<link rel=\"alternate\" hreflang=\"en\" href=\"${alt_url}\">"
   fi
   if [[ -f "$alt_file" ]]; then
-    hreflang_x="<link rel=\"alternate\" hreflang=\"x-default\" href=\"${BASE_URL}/en/${page_path}\">"
+    hreflang_x="<link rel=\"alternate\" hreflang=\"x-default\" href=\"${CANONICAL_BASE_URL}/en/${page_path}\">"
   else
     # 尚未翻译的中文章节不应指向不存在的英文页面。
     hreflang_alt=""
@@ -117,6 +130,7 @@ fix_file() {
   local meta_desc_tag="<meta name=\"description\" content=\"${desc_escaped}\">"
 
   # --- Apply replacements (one sed call per placeholder to avoid \n issues) ---
+  sedi "s|<!-- SEO:REDIRECT -->|${redirect_tag}|" "$file"
   sedi "s|<!-- SEO:CANONICAL -->|${canonical_tag}|" "$file"
   sedi "s|<!-- SEO:HREFLANG -->|${hreflang_self}\n${hreflang_alt}\n${hreflang_x}|" "$file"
   sedi "s|<!-- SEO:OG_DESCRIPTION -->|${og_desc_tag}\n${meta_desc_tag}|" "$file"
