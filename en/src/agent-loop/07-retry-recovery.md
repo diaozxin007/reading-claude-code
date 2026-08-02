@@ -201,7 +201,7 @@ The next chapter, 08 · Interrupt · Handling User Interruptions, covers the oth
 - [04 · From Completion to the Seven Meanings of stop_reason](04-stop-reason.md) · recovery triggered by max_tokens / refusal
 - [05 · QueryEngine Main Loop · Complete State-Machine Overview](05-query-engine.md) · recovery as a first-class transition
 - 08 · Interrupt · Handling User Interruptions · next chapter · manual user intervention when self-healing is impossible
-- [04 · The Six Compaction Variants](https://diaozxin007.github.io/reading-claude-code/zh/context-management/04-compaction.html) · reactive-compact in detail
+- [04 · The Six Compaction Variants](https://readingclaude.club/zh/context-management/04-compaction) · reactive-compact in detail
 
 **Official Anthropic documentation**:
 

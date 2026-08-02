@@ -8,7 +8,7 @@ From the product perspective, it is simple: press Ctrl-C. But from the loop's pe
 - Tools are executing in parallel · several are still pending
 - Permission approval · a Promise is being awaited
 
-**Forcibly interrupting any of these states can break the structure of the messages array**. For example, if a tool is interrupted midway through execution, its tool_use is already in messages, but no tool_result has been generated—the **pairing invariant is broken** (see [Context 02](https://diaozxin007.github.io/reading-claude-code/zh/context-management/02-message-invariants.html)). The next LLM call immediately returns a 400.
+**Forcibly interrupting any of these states can break the structure of the messages array**. For example, if a tool is interrupted midway through execution, its tool_use is already in messages, but no tool_result has been generated—the **pairing invariant is broken** (see [Context 02](https://readingclaude.club/zh/context-management/02-message-invariants)). The next LLM call immediately returns a 400.
 
 This chapter explains how to interrupt the loop **without corrupting the messages array**. The core questions are:
 
@@ -201,4 +201,4 @@ The next chapter, 09 · Sidechain · Subagent Loop, covers Claude Code's final m
 - [03 · From Reading Files to Parallel Scheduling](03-parallel-scheduling.md) · the other repair scenario for `ensureToolResultPairing`
 - [04 · From Completing a Response to the Seven Meanings of stop_reason](04-stop-reason.md) · the maxTurns safeguard
 - 09 · Sidechain · Subagent Loop · next chapter · special handling for subagent interruptions
-- [02 · From a Single Message to Three Invariants of the Messages Array](https://diaozxin007.github.io/reading-claude-code/zh/context-management/02-message-invariants.html) · the pairing invariant as a hard constraint
+- [02 · From a Single Message to Three Invariants of the Messages Array](https://readingclaude.club/zh/context-management/02-message-invariants) · the pairing invariant as a hard constraint

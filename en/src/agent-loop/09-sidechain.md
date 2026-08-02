@@ -67,7 +67,7 @@ All main-loop messages are persisted to:
 ~/.claude/projects/<encoded-project-name>/<sessionId>.jsonl
 ```
 
-There is one message per line, and each message carries a `parentUuid` pointing to the previous one (see [Context 02](https://diaozxin007.github.io/reading-claude-code/zh/context-management/02-message-invariants.html)).
+There is one message per line, and each message carries a `parentUuid` pointing to the previous one (see [Context 02](https://readingclaude.club/zh/context-management/02-message-invariants)).
 
 **Sub-agent messages are not written to this file**. They are written to:
 
@@ -128,14 +128,14 @@ These are all forms of **context-level isolation**, not code-level isolation. Th
 
 ## Fork—a Special Form of Sub-agent
 
-In addition to ordinary sub-agents, Claude Code has a mechanism called a **fork** (see [Context 06 · Sub-agent Isolation](https://diaozxin007.github.io/reading-claude-code/zh/context-management/06-sub-agent.html) for details).
+In addition to ordinary sub-agents, Claude Code has a mechanism called a **fork** (see [Context 06 · Sub-agent Isolation](https://readingclaude.club/zh/context-management/06-sub-agent) for details).
 
 The key difference between a fork and an ordinary sub-agent is:
 
 - **Ordinary sub-agent** — Starts with a brand-new context and knows only its subagent-specific prompt and the single instruction provided by the user. It does not know what previously happened in the main loop
 - **Fork** — **Inherits the main loop's complete messages array**, but replaces every tool_result with a placeholder using the fixed string `Fork started — processing in background`
 
-**Why does a fork replace tool_result values?** Forks are typically used to “start multiple similar sub-agents in a batch,” with each fork handling a separate task. If forks retained the complete tool_result values, each fork's history would differ, and **the prompt cache would miss entirely** (see [Context 03 · Prompt Cache](https://diaozxin007.github.io/reading-claude-code/zh/context-management/03-prompt-cache.html)). Replacing them with a placeholder makes every fork's history byte-for-byte identical, producing **large cache hits** and dramatically reducing the cost of batch forks.
+**Why does a fork replace tool_result values?** Forks are typically used to “start multiple similar sub-agents in a batch,” with each fork handling a separate task. If forks retained the complete tool_result values, each fork's history would differ, and **the prompt cache would miss entirely** (see [Context 03 · Prompt Cache](https://readingclaude.club/zh/context-management/03-prompt-cache)). Replacing them with a placeholder makes every fork's history byte-for-byte identical, producing **large cache hits** and dramatically reducing the cost of batch forks.
 
 **How this relates to the loop architecture**: forks are an extreme application of “sharing the queryLoop code.” One invocation can launch 100 forks, each running a complete loop. Because their histories are identical, most requests hit the cache. The loop architecture supports this batch execution without additional code: they are all ordinary sub-agents.
 
@@ -198,9 +198,9 @@ The next chapter, [10 · Conclusion · From an Automatic Loop to a General-Purpo
 - [01 · From Tool Declaration to Pre-execution Approval](01-tool-permission.md) · The rationale behind clearing sub-agent permissions
 - [05 · The QueryEngine Main Loop · A Complete View of the State Machine](05-query-engine.md) · How routing through the agentId flag works
 - [08 · Interrupt · From Ctrl-C to a Synthetic tool_result](08-interrupt.md) · Sub-agents sharing the AbortController
-- [02 · Three Invariants from a Single Message to a Messages Array](https://diaozxin007.github.io/reading-claude-code/zh/context-management/02-message-invariants.html) · The parentUuid tree structure
-- [03 · Prompt Cache as the Backbone · Why the Other Mechanisms Take Their Shape](https://diaozxin007.github.io/reading-claude-code/zh/context-management/03-prompt-cache.html) · Preserving the cache with fork placeholders
-- [06 · Sub-agent Isolation](https://diaozxin007.github.io/reading-claude-code/zh/context-management/06-sub-agent.html) · A complete discussion of sub-agents from the context perspective
+- [02 · Three Invariants from a Single Message to a Messages Array](https://readingclaude.club/zh/context-management/02-message-invariants) · The parentUuid tree structure
+- [03 · Prompt Cache as the Backbone · Why the Other Mechanisms Take Their Shape](https://readingclaude.club/zh/context-management/03-prompt-cache) · Preserving the cache with fork placeholders
+- [06 · Sub-agent Isolation](https://readingclaude.club/zh/context-management/06-sub-agent) · A complete discussion of sub-agents from the context perspective
 
 **Official Anthropic documentation**:
 - [Agent tool](https://code.claude.com/docs/en/sub-agents) · A user-facing explanation of sub-agents

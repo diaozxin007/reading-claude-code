@@ -7,9 +7,9 @@
 **《一同读 Claude Code》** —— 从 Tools、Agent Loop、Context 到 Memory，系统拆解 Claude Code 的内部机制与工程取舍。
 
 - **仓库**:https://github.com/diaozxin007/reading-claude-code
-- **中文在线阅读**:https://diaozxin007.github.io/reading-claude-code/zh/
-- **英文在线阅读**:https://diaozxin007.github.io/reading-claude-code/en/
-- **技术栈**:mdBook + GitHub Pages + GitHub Actions
+- **中文在线阅读**:https://readingclaude.club/zh/
+- **英文在线阅读**:https://readingclaude.club/en/
+- **技术栈**:mdBook + Cloudflare Pages（主站）+ GitHub Pages（跳转镜像）+ GitHub Actions
 
 ## 目录结构
 
@@ -215,7 +215,7 @@ gh api --method POST /repos/OWNER/REPO/pages -f build_type=workflow
 |---|---|---|
 | **Google Search Console** | HTML meta 标签 · verification code 在 head.hbs / scripts/index.html | ✅ 已验证 + sitemap 已提交 |
 | **Bing Webmaster Tools** | 从 GSC 一键导入 · sitemap 自动共享 | ✅ 已验证 |
-| **IndexNow** | key 文件 `{key}.txt` 挂在站点根 · workflow 每次 push 自动 POST URL 列表 | ✅ 集成到 CI |
+| **IndexNow** | key 文件 `{key}.txt` 挂在 Cloudflare 主站根目录 · workflow 每次 push 自动 POST 主站 URL 列表 | ✅ 集成到 CI |
 | **百度** | 不做 | ⏸ |
 
 ### IndexNow
@@ -224,12 +224,12 @@ gh api --method POST /repos/OWNER/REPO/pages -f build_type=workflow
 
 **当前配置**:
 - **key**:`0fa76633fefe4b8bacbca952a42d6269`
-- **key location**:`https://diaozxin007.github.io/reading-claude-code/{key}.txt`
-- **触发时机**:workflow 里 `deploy` job 完成后 · `indexnow` job 自动跑 · 从 sitemap.xml 提取所有 URL · POST 到 `https://api.indexnow.org/indexnow`
+- **key location**:`https://readingclaude.club/{key}.txt`
+- **触发时机**:GitHub Actions 的 `deploy` job 完成后 · `indexnow` job 自动跑 · 从 sitemap.xml 提取 `readingclaude.club` URL · POST 到 `https://api.indexnow.org/indexnow`
 
 **要新增 URL 到 IndexNow 通知**:改 `scripts/sitemap.xml` 加一条 `<url>` · workflow 自动提取并提交。
 
-**脚本**:`scripts/submit-indexnow.sh` · workflow 在部署成功后调用。脚本从 sitemap 提取 URL，并从 `scripts/<key>.txt` 读取 key，避免在 workflow 里重复配置。
+**脚本**:`scripts/submit-indexnow.sh` · workflow 在部署成功后调用。默认主站是 `https://readingclaude.club`；脚本从 sitemap 提取 URL、校验所有 URL 都属于主站，并从 `scripts/<key>.txt` 读取 key。
 
 **本地验证**:`scripts/submit-indexnow.sh --dry-run` · 只生成并显示 payload，不发起网络请求。
 

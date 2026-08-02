@@ -79,7 +79,7 @@ else:
 - It retries at most three times (`MAX_OUTPUT_TOKENS_RECOVERY_LIMIT = 3`); if recovery still fails, it surfaces the error to the user.
 - **From the loop’s perspective, the turn is not over, so it keeps running.**
 
-**`model_context_window_exceeded`**—The context exceeded its limit. The loop starts the [reactive-compact](https://diaozxin007.github.io/reading-claude-code/zh/context-management/04-compaction.html) flow, attempts to compress the history, and retries. This is also a **keep-running** branch.
+**`model_context_window_exceeded`**—The context exceeded its limit. The loop starts the [reactive-compact](https://readingclaude.club/zh/context-management/04-compaction) flow, attempts to compress the history, and retries. This is also a **keep-running** branch.
 
 **`refusal`**—The model triggered a safety policy. The loop generates an error message suggesting that the user try another model with `/model`. It **does not retry**: a refusal is an intentional decision by the model, so automatic retries would serve no purpose. The loop **ends**.
 
@@ -200,7 +200,7 @@ The next chapter, [05 · The QueryEngine Main Loop: A Complete View of the State
 - [02 · Hooks: Programmable Intervention Points in the Loop](02-hooks.md) · Stop hook
 - [03 · From Reading Files to Parallel Scheduling](03-parallel-scheduling.md) · the concrete check for the `tool_use` content criterion
 - [05 · The QueryEngine Main Loop: A Complete View of the State Machine](05-query-engine.md) · next chapter · unifying the recovery branches
-- [04 · The Six Compaction Mechanisms](https://diaozxin007.github.io/reading-claude-code/zh/context-management/04-compaction.html) · a detailed explanation of reactive compacting
+- [04 · The Six Compaction Mechanisms](https://readingclaude.club/zh/context-management/04-compaction) · a detailed explanation of reactive compacting
 
 **Official Anthropic documentation**:
 

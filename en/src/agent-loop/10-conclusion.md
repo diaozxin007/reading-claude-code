@@ -58,7 +58,7 @@ The original five lines of pseudocode were not wrong. They simply omitted the pa
 
 **The loop is the skeleton**. It explains how things happen: when the model is called, when tools are executed, when retries occur, and when execution stops.
 
-What flows through that skeleton is **information**: how messages are assembled, how the prompt cache is reused, how compact shortens history, and how CLAUDE.md is injected. These topics belong to the companion series, [Context Management Research Series](https://diaozxin007.github.io/reading-claude-code/zh/context-management/00-intro.html).
+What flows through that skeleton is **information**: how messages are assembled, how the prompt cache is reused, how compact shortens history, and how CLAUDE.md is injected. These topics belong to the companion series, [Context Management Research Series](https://readingclaude.club/zh/context-management/00-intro).
 
 The division of responsibilities between the two series can be condensed into two sentences:
 
@@ -72,5 +72,5 @@ Together, they provide the complete picture of how the Claude Code Agent operate
 
 ## Related Series
 
-- [Claude Code Context Management Research Series](https://diaozxin007.github.io/reading-claude-code/zh/context-management/00-intro.html) · messages, cache, compaction, and context injection
+- [Claude Code Context Management Research Series](https://readingclaude.club/zh/context-management/00-intro) · messages, cache, compaction, and context injection
 - [Claude Code Tools Research Series](../tool-mechanism.md) · the capabilities and design of each individual tool

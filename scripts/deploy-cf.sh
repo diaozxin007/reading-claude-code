@@ -21,10 +21,10 @@ cp scripts/index.html scripts/sitemap.xml scripts/robots.txt \
    scripts/0fa76633fefe4b8bacbca952a42d6269.txt scripts/og-cover.png _site/
 
 # per-page canonical / hreflang / description (reads BASE_URL from env)
-BASE_URL="$CF_BASE_URL" bash scripts/fix-seo.sh _site
+BASE_URL="$CF_BASE_URL" CLEAN_URLS=true bash scripts/fix-seo.sh _site
 
-# static files (robots.txt / sitemap.xml / index.html) still hardcode the
-# GH Pages domain — rewrite just those copies in _site, source files untouched
+# Compatibility pass: rewrite any legacy GitHub Pages URLs that may remain in
+# static files. Current source assets already use the Cloudflare primary domain.
 for f in _site/index.html _site/sitemap.xml _site/robots.txt; do
   sed -i "s#${GH_BASE_URL}#${CF_BASE_URL}#g" "$f"
 done

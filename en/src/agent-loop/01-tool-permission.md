@@ -196,7 +196,7 @@ The next chapter, 02 · Hooks · Insertion Points on the Loop, covers what happe
 
 **Related series**:
 - Claude Code Tools Research Series — Preliminary Piece (Tool Mechanics) — the 4-layer contract of tool definitions, JSON Schema, system prompt organization
-- [02 · Three Invariants From a Single Message to a Message Array](https://diaozxin007.github.io/reading-claude-code/zh/context-management/02-message-invariants.html) — the position and constraints of tool_use within the message array
+- [02 · Three Invariants From a Single Message to a Message Array](https://readingclaude.club/zh/context-management/02-message-invariants) — the position and constraints of tool_use within the message array
 
 **Anthropic official docs**:
 - [Tool use](https://platform.claude.com/docs/en/build-with-claude/tool-use) — the API format for tool declarations

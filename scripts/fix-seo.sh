@@ -18,6 +18,10 @@ BASE_URL="${BASE_URL:-https://diaozxin007.github.io/reading-claude-code}"
 # at readingclaude.club to avoid duplicate-content across the two hosts).
 # Defaults to BASE_URL, i.e. self-canonical — unchanged behavior when unset.
 CANONICAL_BASE_URL="${CANONICAL_BASE_URL:-$BASE_URL}"
+# Cloudflare Pages serves HTML files at extensionless URLs and redirects
+# `/page.html` to `/page`. Enable this so canonical/og/hreflang URLs point
+# directly at the final 200 response instead of a redirecting URL.
+CLEAN_URLS="${CLEAN_URLS:-false}"
 DESCRIPTIONS_FILE="scripts/descriptions.json"
 TITLES_FILE="scripts/titles.json"
 
@@ -66,6 +70,17 @@ fix_file() {
   # Path within language dir: interaction/ask-user-question.html
   local page_path="${rel_path#${lang}/}"
 
+  # Public path may differ from the generated filename. mdBook still writes
+  # `.html` files, while Cloudflare Pages exposes them as clean URLs.
+  local public_page_path="$page_path"
+  if [[ "$CLEAN_URLS" == "true" ]]; then
+    if [[ "$public_page_path" == "index.html" ]]; then
+      public_page_path=""
+    else
+      public_page_path="${public_page_path%.html}"
+    fi
+  fi
+
   # Compute alternate language
   local alt_lang
   if [[ "$lang" == "en" ]]; then
@@ -75,7 +90,7 @@ fix_file() {
   fi
 
   # --- 1. Canonical URL ---
-  local canonical_url="${CANONICAL_BASE_URL}/${lang}/${page_path}"
+  local canonical_url="${CANONICAL_BASE_URL}/${lang}/${public_page_path}"
   local canonical_tag="<link rel=\"canonical\" href=\"${canonical_url}\">"
 
   # --- 1b. Cross-domain redirect (only emitted when this build's canonical
@@ -87,8 +102,8 @@ fix_file() {
   fi
 
   # --- 2. Hreflang tags (one per line) ---
-  local self_url="${CANONICAL_BASE_URL}/${lang}/${page_path}"
-  local alt_url="${CANONICAL_BASE_URL}/${alt_lang}/${page_path}"
+  local self_url="${CANONICAL_BASE_URL}/${lang}/${public_page_path}"
+  local alt_url="${CANONICAL_BASE_URL}/${alt_lang}/${public_page_path}"
   local alt_file="${SITE_DIR}/${alt_lang}/${page_path}"
   local hreflang_self hreflang_alt hreflang_x
 
@@ -100,7 +115,7 @@ fix_file() {
     hreflang_alt="<link rel=\"alternate\" hreflang=\"en\" href=\"${alt_url}\">"
   fi
   if [[ -f "$alt_file" ]]; then
-    hreflang_x="<link rel=\"alternate\" hreflang=\"x-default\" href=\"${CANONICAL_BASE_URL}/en/${page_path}\">"
+    hreflang_x="<link rel=\"alternate\" hreflang=\"x-default\" href=\"${CANONICAL_BASE_URL}/en/${public_page_path}\">"
   else
     # 尚未翻译的中文章节不应指向不存在的英文页面。
     hreflang_alt=""

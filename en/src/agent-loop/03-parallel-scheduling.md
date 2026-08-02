@@ -2,7 +2,7 @@ The previous two chapters covered the two layers of interception between "the LL
 
 But a single assistant message may declare **multiple tool_use** blocks. The harness faces a decision: **start them all at once, or run one to completion before starting the next?** Parallel is faster — but if two tools both want to modify the same file, running them in parallel can cause them to overwrite each other.
 
-This chapter covers execution scheduling: how multiple tool_use blocks get batched, which can run in parallel, which must run serially, and what happens when a tool crashes. Throughout the discussion, we'll repeatedly reference the second invariant from the Context series' [02 · Three Invariants of the Message Array](https://diaozxin007.github.io/reading-claude-code/zh/context-management/02-message-invariants.html) — **every tool_use must have a corresponding tool_result** — because parallel scheduling, error handling, and interruption all have to operate while preserving this invariant.
+This chapter covers execution scheduling: how multiple tool_use blocks get batched, which can run in parallel, which must run serially, and what happens when a tool crashes. Throughout the discussion, we'll repeatedly reference the second invariant from the Context series' [02 · Three Invariants of the Message Array](https://readingclaude.club/zh/context-management/02-message-invariants) — **every tool_use must have a corresponding tool_result** — because parallel scheduling, error handling, and interruption all have to operate while preserving this invariant.
 
 ## The Simplest Possible Tool Call
 
@@ -165,7 +165,7 @@ The two designs above combined — **crashed tools convert to is_error instead o
 
 **As long as the LLM declares a tool_use, no matter what happens afterward, a corresponding tool_result is guaranteed to be generated.**
 
-This is the tool system's **strongest guarantee** for the second invariant from [Context 02 · Three Invariants of the Message Array](https://diaozxin007.github.io/reading-claude-code/zh/context-management/02-message-invariants.html) — "every tool_use must be paired with a tool_result":
+This is the tool system's **strongest guarantee** for the second invariant from [Context 02 · Three Invariants of the Message Array](https://readingclaude.club/zh/context-management/02-message-invariants) — "every tool_use must be paired with a tool_result":
 
 - Tool crashes → an is_error tool_result
 - Tool not found → an is_error tool_result
@@ -204,7 +204,7 @@ The next chapter, [04 · From "Done Answering" to the 7 Meanings of stop_reason]
 - [04 · From "Done Answering" to the 7 Meanings of stop_reason](04-stop-reason.md) · next chapter · how the loop decides to continue after tool execution
 - [06 · Streaming · From SSE Events to Character-by-Character Display](06-streaming.md) · the complete mechanism of streaming JSON parsing
 - [08 · Interrupt · From Ctrl-C to Synthesized tool_result](08-interrupt.md) · synthesizing an is_error tool_result on user interruption
-- [02 · From a Single Message to the Three Invariants of the Message Array](https://diaozxin007.github.io/reading-claude-code/zh/context-management/02-message-invariants.html) · the definition of the pairing invariant
+- [02 · From a Single Message to the Three Invariants of the Message Array](https://readingclaude.club/zh/context-management/02-message-invariants) · the definition of the pairing invariant
 
 **Anthropic official docs**:
 - [Tool use](https://platform.claude.com/docs/en/build-with-claude/tool-use) · the API contract for tool_use / tool_result
