@@ -2,380 +2,512 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://diaozxin007.github.io/reading-claude-code/</loc>
+    <loc>https://readingclaude.club/</loc>
     <lastmod>2026-08-02</lastmod>
   </url>
   <url>
-    <loc>https://diaozxin007.github.io/reading-claude-code/zh/</loc>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://diaozxin007.github.io/reading-claude-code/en/"/>
+    <loc>https://readingclaude.club/zh/</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://readingclaude.club/zh/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://readingclaude.club/en/"/>
     <lastmod>2026-08-02</lastmod>
   </url>
   <url>
-    <loc>https://diaozxin007.github.io/reading-claude-code/zh/preface.html</loc>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/preface.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://diaozxin007.github.io/reading-claude-code/en/preface.html"/>
+    <loc>https://readingclaude.club/zh/preface</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://readingclaude.club/zh/preface"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://readingclaude.club/en/preface"/>
     <lastmod>2026-08-02</lastmod>
   </url>
   <url>
-    <loc>https://diaozxin007.github.io/reading-claude-code/zh/tool-mechanism.html</loc>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/tool-mechanism.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://diaozxin007.github.io/reading-claude-code/en/tool-mechanism.html"/>
+    <loc>https://readingclaude.club/zh/tool-mechanism</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://readingclaude.club/zh/tool-mechanism"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://readingclaude.club/en/tool-mechanism"/>
     <lastmod>2026-08-02</lastmod>
   </url>
   <url>
-    <loc>https://diaozxin007.github.io/reading-claude-code/zh/interaction/ask-user-question.html</loc>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/interaction/ask-user-question.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://diaozxin007.github.io/reading-claude-code/en/interaction/ask-user-question.html"/>
+    <loc>https://readingclaude.club/zh/interaction/ask-user-question</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://readingclaude.club/zh/interaction/ask-user-question"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://readingclaude.club/en/interaction/ask-user-question"/>
     <lastmod>2026-08-02</lastmod>
   </url>
   <url>
-    <loc>https://diaozxin007.github.io/reading-claude-code/zh/interaction/enter-plan-mode.html</loc>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/interaction/enter-plan-mode.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://diaozxin007.github.io/reading-claude-code/en/interaction/enter-plan-mode.html"/>
+    <loc>https://readingclaude.club/zh/interaction/enter-plan-mode</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://readingclaude.club/zh/interaction/enter-plan-mode"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://readingclaude.club/en/interaction/enter-plan-mode"/>
     <lastmod>2026-08-02</lastmod>
   </url>
   <url>
-    <loc>https://diaozxin007.github.io/reading-claude-code/zh/interaction/exit-plan-mode.html</loc>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/interaction/exit-plan-mode.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://diaozxin007.github.io/reading-claude-code/en/interaction/exit-plan-mode.html"/>
+    <loc>https://readingclaude.club/zh/interaction/exit-plan-mode</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://readingclaude.club/zh/interaction/exit-plan-mode"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://readingclaude.club/en/interaction/exit-plan-mode"/>
     <lastmod>2026-08-02</lastmod>
   </url>
   <url>
-    <loc>https://diaozxin007.github.io/reading-claude-code/zh/execution/grep-glob.html</loc>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/execution/grep-glob.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://diaozxin007.github.io/reading-claude-code/en/execution/grep-glob.html"/>
+    <loc>https://readingclaude.club/zh/execution/grep-glob</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://readingclaude.club/zh/execution/grep-glob"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://readingclaude.club/en/execution/grep-glob"/>
     <lastmod>2026-08-02</lastmod>
   </url>
   <url>
-    <loc>https://diaozxin007.github.io/reading-claude-code/zh/execution/read.html</loc>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/execution/read.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://diaozxin007.github.io/reading-claude-code/en/execution/read.html"/>
+    <loc>https://readingclaude.club/zh/execution/read</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://readingclaude.club/zh/execution/read"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://readingclaude.club/en/execution/read"/>
     <lastmod>2026-08-02</lastmod>
   </url>
   <url>
-    <loc>https://diaozxin007.github.io/reading-claude-code/zh/execution/edit.html</loc>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/execution/edit.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://diaozxin007.github.io/reading-claude-code/en/execution/edit.html"/>
+    <loc>https://readingclaude.club/zh/execution/edit</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://readingclaude.club/zh/execution/edit"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://readingclaude.club/en/execution/edit"/>
     <lastmod>2026-08-02</lastmod>
   </url>
   <url>
-    <loc>https://diaozxin007.github.io/reading-claude-code/zh/execution/write.html</loc>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/execution/write.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://diaozxin007.github.io/reading-claude-code/en/execution/write.html"/>
+    <loc>https://readingclaude.club/zh/execution/write</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://readingclaude.club/zh/execution/write"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://readingclaude.club/en/execution/write"/>
     <lastmod>2026-08-02</lastmod>
   </url>
   <url>
-    <loc>https://diaozxin007.github.io/reading-claude-code/zh/power/bash.html</loc>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/power/bash.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://diaozxin007.github.io/reading-claude-code/en/power/bash.html"/>
+    <loc>https://readingclaude.club/zh/power/bash</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://readingclaude.club/zh/power/bash"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://readingclaude.club/en/power/bash"/>
     <lastmod>2026-08-02</lastmod>
   </url>
   <url>
-    <loc>https://diaozxin007.github.io/reading-claude-code/zh/power/agent.html</loc>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/power/agent.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://diaozxin007.github.io/reading-claude-code/en/power/agent.html"/>
+    <loc>https://readingclaude.club/zh/power/agent</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://readingclaude.club/zh/power/agent"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://readingclaude.club/en/power/agent"/>
     <lastmod>2026-08-02</lastmod>
   </url>
   <url>
-    <loc>https://diaozxin007.github.io/reading-claude-code/zh/state/task-family.html</loc>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/state/task-family.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://diaozxin007.github.io/reading-claude-code/en/state/task-family.html"/>
+    <loc>https://readingclaude.club/zh/state/task-family</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://readingclaude.club/zh/state/task-family"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://readingclaude.club/en/state/task-family"/>
     <lastmod>2026-08-02</lastmod>
   </url>
   <url>
-    <loc>https://diaozxin007.github.io/reading-claude-code/zh/state/background.html</loc>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/state/background.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://diaozxin007.github.io/reading-claude-code/en/state/background.html"/>
+    <loc>https://readingclaude.club/zh/state/background</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://readingclaude.club/zh/state/background"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://readingclaude.club/en/state/background"/>
     <lastmod>2026-08-02</lastmod>
   </url>
   <url>
-    <loc>https://diaozxin007.github.io/reading-claude-code/zh/state/cron-family.html</loc>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/state/cron-family.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://diaozxin007.github.io/reading-claude-code/en/state/cron-family.html"/>
+    <loc>https://readingclaude.club/zh/state/cron-family</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://readingclaude.club/zh/state/cron-family"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://readingclaude.club/en/state/cron-family"/>
     <lastmod>2026-08-02</lastmod>
   </url>
   <url>
-    <loc>https://diaozxin007.github.io/reading-claude-code/zh/state/monitor.html</loc>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/state/monitor.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://diaozxin007.github.io/reading-claude-code/en/state/monitor.html"/>
+    <loc>https://readingclaude.club/zh/state/monitor</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://readingclaude.club/zh/state/monitor"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://readingclaude.club/en/state/monitor"/>
     <lastmod>2026-08-02</lastmod>
   </url>
   <url>
-    <loc>https://diaozxin007.github.io/reading-claude-code/zh/info/web.html</loc>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/info/web.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://diaozxin007.github.io/reading-claude-code/en/info/web.html"/>
+    <loc>https://readingclaude.club/zh/info/web</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://readingclaude.club/zh/info/web"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://readingclaude.club/en/info/web"/>
     <lastmod>2026-08-02</lastmod>
   </url>
   <url>
-    <loc>https://diaozxin007.github.io/reading-claude-code/zh/agent-loop/00-intro.html</loc>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/agent-loop/00-intro.html"/>
+    <loc>https://readingclaude.club/zh/agent-loop/00-intro</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://readingclaude.club/zh/agent-loop/00-intro"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://readingclaude.club/en/agent-loop/00-intro"/>
     <lastmod>2026-08-02</lastmod>
   </url>
   <url>
-    <loc>https://diaozxin007.github.io/reading-claude-code/zh/agent-loop/01-tool-permission.html</loc>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/agent-loop/01-tool-permission.html"/>
+    <loc>https://readingclaude.club/zh/agent-loop/01-tool-permission</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://readingclaude.club/zh/agent-loop/01-tool-permission"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://readingclaude.club/en/agent-loop/01-tool-permission"/>
     <lastmod>2026-08-02</lastmod>
   </url>
   <url>
-    <loc>https://diaozxin007.github.io/reading-claude-code/zh/agent-loop/02-hooks.html</loc>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/agent-loop/02-hooks.html"/>
+    <loc>https://readingclaude.club/zh/agent-loop/02-hooks</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://readingclaude.club/zh/agent-loop/02-hooks"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://readingclaude.club/en/agent-loop/02-hooks"/>
     <lastmod>2026-08-02</lastmod>
   </url>
   <url>
-    <loc>https://diaozxin007.github.io/reading-claude-code/zh/agent-loop/03-parallel-scheduling.html</loc>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/agent-loop/03-parallel-scheduling.html"/>
+    <loc>https://readingclaude.club/zh/agent-loop/03-parallel-scheduling</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://readingclaude.club/zh/agent-loop/03-parallel-scheduling"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://readingclaude.club/en/agent-loop/03-parallel-scheduling"/>
     <lastmod>2026-08-02</lastmod>
   </url>
   <url>
-    <loc>https://diaozxin007.github.io/reading-claude-code/zh/agent-loop/04-stop-reason.html</loc>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/agent-loop/04-stop-reason.html"/>
+    <loc>https://readingclaude.club/zh/agent-loop/04-stop-reason</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://readingclaude.club/zh/agent-loop/04-stop-reason"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://readingclaude.club/en/agent-loop/04-stop-reason"/>
     <lastmod>2026-08-02</lastmod>
   </url>
   <url>
-    <loc>https://diaozxin007.github.io/reading-claude-code/zh/agent-loop/05-query-engine.html</loc>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/agent-loop/05-query-engine.html"/>
+    <loc>https://readingclaude.club/zh/agent-loop/05-query-engine</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://readingclaude.club/zh/agent-loop/05-query-engine"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://readingclaude.club/en/agent-loop/05-query-engine"/>
     <lastmod>2026-08-02</lastmod>
   </url>
   <url>
-    <loc>https://diaozxin007.github.io/reading-claude-code/zh/agent-loop/06-streaming.html</loc>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/agent-loop/06-streaming.html"/>
+    <loc>https://readingclaude.club/zh/agent-loop/06-streaming</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://readingclaude.club/zh/agent-loop/06-streaming"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://readingclaude.club/en/agent-loop/06-streaming"/>
     <lastmod>2026-08-02</lastmod>
   </url>
   <url>
-    <loc>https://diaozxin007.github.io/reading-claude-code/zh/agent-loop/07-retry-recovery.html</loc>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/agent-loop/07-retry-recovery.html"/>
+    <loc>https://readingclaude.club/zh/agent-loop/07-retry-recovery</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://readingclaude.club/zh/agent-loop/07-retry-recovery"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://readingclaude.club/en/agent-loop/07-retry-recovery"/>
     <lastmod>2026-08-02</lastmod>
   </url>
   <url>
-    <loc>https://diaozxin007.github.io/reading-claude-code/zh/agent-loop/08-interrupt.html</loc>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/agent-loop/08-interrupt.html"/>
+    <loc>https://readingclaude.club/zh/agent-loop/08-interrupt</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://readingclaude.club/zh/agent-loop/08-interrupt"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://readingclaude.club/en/agent-loop/08-interrupt"/>
     <lastmod>2026-08-02</lastmod>
   </url>
   <url>
-    <loc>https://diaozxin007.github.io/reading-claude-code/zh/agent-loop/09-sidechain.html</loc>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/agent-loop/09-sidechain.html"/>
+    <loc>https://readingclaude.club/zh/agent-loop/09-sidechain</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://readingclaude.club/zh/agent-loop/09-sidechain"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://readingclaude.club/en/agent-loop/09-sidechain"/>
     <lastmod>2026-08-02</lastmod>
   </url>
   <url>
-    <loc>https://diaozxin007.github.io/reading-claude-code/zh/agent-loop/10-conclusion.html</loc>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/agent-loop/10-conclusion.html"/>
+    <loc>https://readingclaude.club/zh/agent-loop/10-conclusion</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://readingclaude.club/zh/agent-loop/10-conclusion"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://readingclaude.club/en/agent-loop/10-conclusion"/>
     <lastmod>2026-08-02</lastmod>
   </url>
   <url>
-    <loc>https://diaozxin007.github.io/reading-claude-code/zh/context-management/00-intro.html</loc>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/context-management/00-intro.html"/>
+    <loc>https://readingclaude.club/zh/context-management/00-intro</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://readingclaude.club/zh/context-management/00-intro"/>
     <lastmod>2026-08-02</lastmod>
   </url>
   <url>
-    <loc>https://diaozxin007.github.io/reading-claude-code/zh/context-management/01-agent-loop.html</loc>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/context-management/01-agent-loop.html"/>
+    <loc>https://readingclaude.club/zh/context-management/01-agent-loop</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://readingclaude.club/zh/context-management/01-agent-loop"/>
     <lastmod>2026-08-02</lastmod>
   </url>
   <url>
-    <loc>https://diaozxin007.github.io/reading-claude-code/zh/context-management/02-message-invariants.html</loc>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/context-management/02-message-invariants.html"/>
+    <loc>https://readingclaude.club/zh/context-management/02-message-invariants</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://readingclaude.club/zh/context-management/02-message-invariants"/>
     <lastmod>2026-08-02</lastmod>
   </url>
   <url>
-    <loc>https://diaozxin007.github.io/reading-claude-code/zh/context-management/03-prompt-cache.html</loc>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/context-management/03-prompt-cache.html"/>
+    <loc>https://readingclaude.club/zh/context-management/03-prompt-cache</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://readingclaude.club/zh/context-management/03-prompt-cache"/>
     <lastmod>2026-08-02</lastmod>
   </url>
   <url>
-    <loc>https://diaozxin007.github.io/reading-claude-code/zh/context-management/04-compaction.html</loc>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/context-management/04-compaction.html"/>
+    <loc>https://readingclaude.club/zh/context-management/04-compaction</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://readingclaude.club/zh/context-management/04-compaction"/>
     <lastmod>2026-08-02</lastmod>
   </url>
   <url>
-    <loc>https://diaozxin007.github.io/reading-claude-code/zh/context-management/05-claude-md-family.html</loc>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/context-management/05-claude-md-family.html"/>
+    <loc>https://readingclaude.club/zh/context-management/05-claude-md-family</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://readingclaude.club/zh/context-management/05-claude-md-family"/>
     <lastmod>2026-08-02</lastmod>
   </url>
   <url>
-    <loc>https://diaozxin007.github.io/reading-claude-code/zh/context-management/06-sub-agent.html</loc>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/context-management/06-sub-agent.html"/>
+    <loc>https://readingclaude.club/zh/context-management/06-sub-agent</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://readingclaude.club/zh/context-management/06-sub-agent"/>
     <lastmod>2026-08-02</lastmod>
   </url>
   <url>
-    <loc>https://diaozxin007.github.io/reading-claude-code/zh/context-management/07-meta-mechanisms.html</loc>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/context-management/07-meta-mechanisms.html"/>
+    <loc>https://readingclaude.club/zh/context-management/07-meta-mechanisms</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://readingclaude.club/zh/context-management/07-meta-mechanisms"/>
     <lastmod>2026-08-02</lastmod>
   </url>
   <url>
-    <loc>https://diaozxin007.github.io/reading-claude-code/zh/context-management/08-conclusion.html</loc>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/context-management/08-conclusion.html"/>
+    <loc>https://readingclaude.club/zh/context-management/08-conclusion</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://readingclaude.club/zh/context-management/08-conclusion"/>
     <lastmod>2026-08-02</lastmod>
   </url>
   <url>
-    <loc>https://diaozxin007.github.io/reading-claude-code/zh/memory/01-claude-md-family.html</loc>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/memory/01-claude-md-family.html"/>
+    <loc>https://readingclaude.club/zh/memory/01-claude-md-family</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://readingclaude.club/zh/memory/01-claude-md-family"/>
     <lastmod>2026-08-02</lastmod>
   </url>
   <url>
-    <loc>https://diaozxin007.github.io/reading-claude-code/zh/memory/02-auto-memory.html</loc>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/memory/02-auto-memory.html"/>
+    <loc>https://readingclaude.club/zh/memory/02-auto-memory</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://readingclaude.club/zh/memory/02-auto-memory"/>
     <lastmod>2026-08-02</lastmod>
   </url>
   <url>
-    <loc>https://diaozxin007.github.io/reading-claude-code/zh/memory/03-api-memory-tool.html</loc>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/memory/03-api-memory-tool.html"/>
+    <loc>https://readingclaude.club/zh/memory/03-api-memory-tool</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://readingclaude.club/zh/memory/03-api-memory-tool"/>
     <lastmod>2026-08-02</lastmod>
   </url>
   <url>
-    <loc>https://diaozxin007.github.io/reading-claude-code/zh/memory/04-subagent-memory.html</loc>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/memory/04-subagent-memory.html"/>
+    <loc>https://readingclaude.club/zh/memory/04-subagent-memory</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://readingclaude.club/zh/memory/04-subagent-memory"/>
     <lastmod>2026-08-02</lastmod>
   </url>
   <url>
-    <loc>https://diaozxin007.github.io/reading-claude-code/zh/memory/05-extraction-pipeline.html</loc>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/memory/05-extraction-pipeline.html"/>
+    <loc>https://readingclaude.club/zh/memory/05-extraction-pipeline</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://readingclaude.club/zh/memory/05-extraction-pipeline"/>
     <lastmod>2026-08-02</lastmod>
   </url>
   <url>
-    <loc>https://diaozxin007.github.io/reading-claude-code/zh/memory/06-team-memory-sync.html</loc>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/memory/06-team-memory-sync.html"/>
+    <loc>https://readingclaude.club/zh/memory/06-team-memory-sync</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://readingclaude.club/zh/memory/06-team-memory-sync"/>
     <lastmod>2026-08-02</lastmod>
   </url>
   <url>
-    <loc>https://diaozxin007.github.io/reading-claude-code/zh/memory/07-managed-claude-md.html</loc>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/memory/07-managed-claude-md.html"/>
+    <loc>https://readingclaude.club/zh/memory/07-managed-claude-md</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://readingclaude.club/zh/memory/07-managed-claude-md"/>
     <lastmod>2026-08-02</lastmod>
   </url>
   <url>
-    <loc>https://diaozxin007.github.io/reading-claude-code/zh/memory/08-post-compaction.html</loc>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/memory/08-post-compaction.html"/>
+    <loc>https://readingclaude.club/zh/memory/08-post-compaction</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://readingclaude.club/zh/memory/08-post-compaction"/>
     <lastmod>2026-08-02</lastmod>
   </url>
   <url>
-    <loc>https://diaozxin007.github.io/reading-claude-code/zh/memory/09-conclusion.html</loc>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/memory/09-conclusion.html"/>
+    <loc>https://readingclaude.club/zh/memory/09-conclusion</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://readingclaude.club/zh/memory/09-conclusion"/>
     <lastmod>2026-08-02</lastmod>
   </url>
   <url>
-    <loc>https://diaozxin007.github.io/reading-claude-code/zh/appendix-index.html</loc>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/appendix-index.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://diaozxin007.github.io/reading-claude-code/en/appendix-index.html"/>
+    <loc>https://readingclaude.club/zh/appendix-index</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://readingclaude.club/zh/appendix-index"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://readingclaude.club/en/appendix-index"/>
     <lastmod>2026-08-02</lastmod>
   </url>
   <url>
-    <loc>https://diaozxin007.github.io/reading-claude-code/zh/about.html</loc>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/about.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://diaozxin007.github.io/reading-claude-code/en/about.html"/>
+    <loc>https://readingclaude.club/zh/about</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://readingclaude.club/zh/about"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://readingclaude.club/en/about"/>
     <lastmod>2026-08-02</lastmod>
   </url>
   <url>
-    <loc>https://diaozxin007.github.io/reading-claude-code/en/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://diaozxin007.github.io/reading-claude-code/en/"/>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/"/>
+    <loc>https://readingclaude.club/en/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://readingclaude.club/en/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://readingclaude.club/zh/"/>
     <lastmod>2026-08-02</lastmod>
   </url>
   <url>
-    <loc>https://diaozxin007.github.io/reading-claude-code/en/preface.html</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://diaozxin007.github.io/reading-claude-code/en/preface.html"/>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/preface.html"/>
+    <loc>https://readingclaude.club/en/preface</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://readingclaude.club/en/preface"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://readingclaude.club/zh/preface"/>
     <lastmod>2026-08-02</lastmod>
   </url>
   <url>
-    <loc>https://diaozxin007.github.io/reading-claude-code/en/tool-mechanism.html</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://diaozxin007.github.io/reading-claude-code/en/tool-mechanism.html"/>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/tool-mechanism.html"/>
+    <loc>https://readingclaude.club/en/tool-mechanism</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://readingclaude.club/en/tool-mechanism"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://readingclaude.club/zh/tool-mechanism"/>
     <lastmod>2026-08-02</lastmod>
   </url>
   <url>
-    <loc>https://diaozxin007.github.io/reading-claude-code/en/interaction/ask-user-question.html</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://diaozxin007.github.io/reading-claude-code/en/interaction/ask-user-question.html"/>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/interaction/ask-user-question.html"/>
+    <loc>https://readingclaude.club/en/interaction/ask-user-question</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://readingclaude.club/en/interaction/ask-user-question"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://readingclaude.club/zh/interaction/ask-user-question"/>
     <lastmod>2026-08-02</lastmod>
   </url>
   <url>
-    <loc>https://diaozxin007.github.io/reading-claude-code/en/interaction/enter-plan-mode.html</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://diaozxin007.github.io/reading-claude-code/en/interaction/enter-plan-mode.html"/>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/interaction/enter-plan-mode.html"/>
+    <loc>https://readingclaude.club/en/interaction/enter-plan-mode</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://readingclaude.club/en/interaction/enter-plan-mode"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://readingclaude.club/zh/interaction/enter-plan-mode"/>
     <lastmod>2026-08-02</lastmod>
   </url>
   <url>
-    <loc>https://diaozxin007.github.io/reading-claude-code/en/interaction/exit-plan-mode.html</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://diaozxin007.github.io/reading-claude-code/en/interaction/exit-plan-mode.html"/>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/interaction/exit-plan-mode.html"/>
+    <loc>https://readingclaude.club/en/interaction/exit-plan-mode</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://readingclaude.club/en/interaction/exit-plan-mode"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://readingclaude.club/zh/interaction/exit-plan-mode"/>
     <lastmod>2026-08-02</lastmod>
   </url>
   <url>
-    <loc>https://diaozxin007.github.io/reading-claude-code/en/execution/grep-glob.html</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://diaozxin007.github.io/reading-claude-code/en/execution/grep-glob.html"/>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/execution/grep-glob.html"/>
+    <loc>https://readingclaude.club/en/execution/grep-glob</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://readingclaude.club/en/execution/grep-glob"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://readingclaude.club/zh/execution/grep-glob"/>
     <lastmod>2026-08-02</lastmod>
   </url>
   <url>
-    <loc>https://diaozxin007.github.io/reading-claude-code/en/execution/read.html</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://diaozxin007.github.io/reading-claude-code/en/execution/read.html"/>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/execution/read.html"/>
+    <loc>https://readingclaude.club/en/execution/read</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://readingclaude.club/en/execution/read"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://readingclaude.club/zh/execution/read"/>
     <lastmod>2026-08-02</lastmod>
   </url>
   <url>
-    <loc>https://diaozxin007.github.io/reading-claude-code/en/execution/edit.html</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://diaozxin007.github.io/reading-claude-code/en/execution/edit.html"/>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/execution/edit.html"/>
+    <loc>https://readingclaude.club/en/execution/edit</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://readingclaude.club/en/execution/edit"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://readingclaude.club/zh/execution/edit"/>
     <lastmod>2026-08-02</lastmod>
   </url>
   <url>
-    <loc>https://diaozxin007.github.io/reading-claude-code/en/execution/write.html</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://diaozxin007.github.io/reading-claude-code/en/execution/write.html"/>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/execution/write.html"/>
+    <loc>https://readingclaude.club/en/execution/write</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://readingclaude.club/en/execution/write"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://readingclaude.club/zh/execution/write"/>
     <lastmod>2026-08-02</lastmod>
   </url>
   <url>
-    <loc>https://diaozxin007.github.io/reading-claude-code/en/power/bash.html</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://diaozxin007.github.io/reading-claude-code/en/power/bash.html"/>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/power/bash.html"/>
+    <loc>https://readingclaude.club/en/power/bash</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://readingclaude.club/en/power/bash"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://readingclaude.club/zh/power/bash"/>
     <lastmod>2026-08-02</lastmod>
   </url>
   <url>
-    <loc>https://diaozxin007.github.io/reading-claude-code/en/power/agent.html</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://diaozxin007.github.io/reading-claude-code/en/power/agent.html"/>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/power/agent.html"/>
+    <loc>https://readingclaude.club/en/power/agent</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://readingclaude.club/en/power/agent"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://readingclaude.club/zh/power/agent"/>
     <lastmod>2026-08-02</lastmod>
   </url>
   <url>
-    <loc>https://diaozxin007.github.io/reading-claude-code/en/state/task-family.html</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://diaozxin007.github.io/reading-claude-code/en/state/task-family.html"/>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/state/task-family.html"/>
+    <loc>https://readingclaude.club/en/state/task-family</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://readingclaude.club/en/state/task-family"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://readingclaude.club/zh/state/task-family"/>
     <lastmod>2026-08-02</lastmod>
   </url>
   <url>
-    <loc>https://diaozxin007.github.io/reading-claude-code/en/state/background.html</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://diaozxin007.github.io/reading-claude-code/en/state/background.html"/>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/state/background.html"/>
+    <loc>https://readingclaude.club/en/state/background</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://readingclaude.club/en/state/background"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://readingclaude.club/zh/state/background"/>
     <lastmod>2026-08-02</lastmod>
   </url>
   <url>
-    <loc>https://diaozxin007.github.io/reading-claude-code/en/state/cron-family.html</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://diaozxin007.github.io/reading-claude-code/en/state/cron-family.html"/>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/state/cron-family.html"/>
+    <loc>https://readingclaude.club/en/state/cron-family</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://readingclaude.club/en/state/cron-family"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://readingclaude.club/zh/state/cron-family"/>
     <lastmod>2026-08-02</lastmod>
   </url>
   <url>
-    <loc>https://diaozxin007.github.io/reading-claude-code/en/state/monitor.html</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://diaozxin007.github.io/reading-claude-code/en/state/monitor.html"/>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/state/monitor.html"/>
+    <loc>https://readingclaude.club/en/state/monitor</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://readingclaude.club/en/state/monitor"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://readingclaude.club/zh/state/monitor"/>
     <lastmod>2026-08-02</lastmod>
   </url>
   <url>
-    <loc>https://diaozxin007.github.io/reading-claude-code/en/info/web.html</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://diaozxin007.github.io/reading-claude-code/en/info/web.html"/>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/info/web.html"/>
+    <loc>https://readingclaude.club/en/info/web</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://readingclaude.club/en/info/web"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://readingclaude.club/zh/info/web"/>
     <lastmod>2026-08-02</lastmod>
   </url>
   <url>
-    <loc>https://diaozxin007.github.io/reading-claude-code/en/appendix-index.html</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://diaozxin007.github.io/reading-claude-code/en/appendix-index.html"/>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/appendix-index.html"/>
+    <loc>https://readingclaude.club/en/appendix-index</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://readingclaude.club/en/appendix-index"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://readingclaude.club/zh/appendix-index"/>
     <lastmod>2026-08-02</lastmod>
   </url>
   <url>
-    <loc>https://diaozxin007.github.io/reading-claude-code/en/about.html</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://diaozxin007.github.io/reading-claude-code/en/about.html"/>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/about.html"/>
+    <loc>https://readingclaude.club/en/about</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://readingclaude.club/en/about"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://readingclaude.club/zh/about"/>
     <lastmod>2026-08-02</lastmod>
+  </url>
+  <url>
+    <loc>https://readingclaude.club/en/agent-loop/00-intro</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://readingclaude.club/en/agent-loop/00-intro"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://readingclaude.club/zh/agent-loop/00-intro"/>
+    <lastmod>2026-08-03</lastmod>
+  </url>
+  <url>
+    <loc>https://readingclaude.club/en/agent-loop/01-tool-permission</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://readingclaude.club/en/agent-loop/01-tool-permission"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://readingclaude.club/zh/agent-loop/01-tool-permission"/>
+    <lastmod>2026-08-03</lastmod>
+  </url>
+  <url>
+    <loc>https://readingclaude.club/en/agent-loop/02-hooks</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://readingclaude.club/en/agent-loop/02-hooks"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://readingclaude.club/zh/agent-loop/02-hooks"/>
+    <lastmod>2026-08-03</lastmod>
+  </url>
+  <url>
+    <loc>https://readingclaude.club/en/agent-loop/03-parallel-scheduling</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://readingclaude.club/en/agent-loop/03-parallel-scheduling"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://readingclaude.club/zh/agent-loop/03-parallel-scheduling"/>
+    <lastmod>2026-08-03</lastmod>
+  </url>
+  <url>
+    <loc>https://readingclaude.club/en/agent-loop/04-stop-reason</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://readingclaude.club/en/agent-loop/04-stop-reason"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://readingclaude.club/zh/agent-loop/04-stop-reason"/>
+    <lastmod>2026-08-03</lastmod>
+  </url>
+  <url>
+    <loc>https://readingclaude.club/en/agent-loop/05-query-engine</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://readingclaude.club/en/agent-loop/05-query-engine"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://readingclaude.club/zh/agent-loop/05-query-engine"/>
+    <lastmod>2026-08-03</lastmod>
+  </url>
+  <url>
+    <loc>https://readingclaude.club/en/agent-loop/06-streaming</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://readingclaude.club/en/agent-loop/06-streaming"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://readingclaude.club/zh/agent-loop/06-streaming"/>
+    <lastmod>2026-08-03</lastmod>
+  </url>
+  <url>
+    <loc>https://readingclaude.club/en/agent-loop/07-retry-recovery</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://readingclaude.club/en/agent-loop/07-retry-recovery"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://readingclaude.club/zh/agent-loop/07-retry-recovery"/>
+    <lastmod>2026-08-03</lastmod>
+  </url>
+  <url>
+    <loc>https://readingclaude.club/en/agent-loop/08-interrupt</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://readingclaude.club/en/agent-loop/08-interrupt"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://readingclaude.club/zh/agent-loop/08-interrupt"/>
+    <lastmod>2026-08-03</lastmod>
+  </url>
+  <url>
+    <loc>https://readingclaude.club/en/agent-loop/09-sidechain</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://readingclaude.club/en/agent-loop/09-sidechain"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://readingclaude.club/zh/agent-loop/09-sidechain"/>
+    <lastmod>2026-08-03</lastmod>
+  </url>
+  <url>
+    <loc>https://readingclaude.club/en/agent-loop/10-conclusion</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://readingclaude.club/en/agent-loop/10-conclusion"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://readingclaude.club/zh/agent-loop/10-conclusion"/>
+    <lastmod>2026-08-03</lastmod>
+  </url>
+  <url>
+    <loc>https://readingclaude.club/zh/skills/00-intro</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://readingclaude.club/zh/skills/00-intro"/>
+    <lastmod>2026-08-03</lastmod>
+  </url>
+  <url>
+    <loc>https://readingclaude.club/zh/skills/01-format</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://readingclaude.club/zh/skills/01-format"/>
+    <lastmod>2026-08-03</lastmod>
+  </url>
+  <url>
+    <loc>https://readingclaude.club/zh/skills/02-progressive-disclosure</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://readingclaude.club/zh/skills/02-progressive-disclosure"/>
+    <lastmod>2026-08-03</lastmod>
+  </url>
+  <url>
+    <loc>https://readingclaude.club/zh/skills/03-discovery</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://readingclaude.club/zh/skills/03-discovery"/>
+    <lastmod>2026-08-03</lastmod>
+  </url>
+  <url>
+    <loc>https://readingclaude.club/zh/skills/04-invocation</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://readingclaude.club/zh/skills/04-invocation"/>
+    <lastmod>2026-08-03</lastmod>
+  </url>
+  <url>
+    <loc>https://readingclaude.club/zh/skills/05-prompt-rendering</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://readingclaude.club/zh/skills/05-prompt-rendering"/>
+    <lastmod>2026-08-03</lastmod>
+  </url>
+  <url>
+    <loc>https://readingclaude.club/zh/skills/06-execution-boundary</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://readingclaude.club/zh/skills/06-execution-boundary"/>
+    <lastmod>2026-08-03</lastmod>
+  </url>
+  <url>
+    <loc>https://readingclaude.club/zh/skills/07-permissions</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://readingclaude.club/zh/skills/07-permissions"/>
+    <lastmod>2026-08-03</lastmod>
+  </url>
+  <url>
+    <loc>https://readingclaude.club/zh/skills/08-lifecycle</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://readingclaude.club/zh/skills/08-lifecycle"/>
+    <lastmod>2026-08-03</lastmod>
+  </url>
+  <url>
+    <loc>https://readingclaude.club/zh/skills/09-distribution</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://readingclaude.club/zh/skills/09-distribution"/>
+    <lastmod>2026-08-03</lastmod>
+  </url>
+  <url>
+    <loc>https://readingclaude.club/zh/skills/10-conclusion</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://readingclaude.club/zh/skills/10-conclusion"/>
+    <lastmod>2026-08-03</lastmod>
   </url>
 </urlset>

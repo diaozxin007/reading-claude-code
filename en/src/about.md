@@ -43,7 +43,7 @@ From zero to 16 chapters + preface + appendix, the effort took about two days en
 | **Static site generator** | [mdBook](https://rust-lang.github.io/mdBook/) (from the Rust ecosystem) |
 | **Continuous build & deploy** | GitHub Actions — push to `main` auto-builds and deploys |
 | **Hosting** | GitHub Pages |
-| **Domain** | `diaozxin007.github.io/reading-claude-code/` (GitHub subdomain for now) |
+| **Domain** | `readingclaude.club` (primary site on Cloudflare Pages) |
 | **Bilingual** | Chinese + English dual sites, each a standalone mdBook project, linked via hreflang |
 
 ### License

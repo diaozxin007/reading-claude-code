@@ -17,7 +17,18 @@
     "state/monitor.html": "Claude Code Monitor Tool Deep Dive — Reading Claude Code, Together",
     "info/web.html": "Claude Code WebFetch and WebSearch Deep Dive — Reading Claude Code, Together",
     "appendix-index.html": "Tool Index — Reading Claude Code, Together",
-    "about.html": "About — Reading Claude Code, Together"
+    "about.html": "About — Reading Claude Code, Together",
+    "agent-loop/00-intro.html": "Claude Code Agent Loop — From a Chat Window to the Loop — Reading Claude Code, Together",
+    "agent-loop/01-tool-permission.html": "From Tool Declaration to Pre-Execution Approval — Reading Claude Code, Together",
+    "agent-loop/02-hooks.html": "Hooks: Programmable Intervention Points in the Loop — Reading Claude Code, Together",
+    "agent-loop/03-parallel-scheduling.html": "From Reading Files to Parallel Scheduling — Reading Claude Code, Together",
+    "agent-loop/04-stop-reason.html": "The Seven Meanings of stop_reason — Reading Claude Code, Together",
+    "agent-loop/05-query-engine.html": "QueryEngine Main Loop and State Machine — Reading Claude Code, Together",
+    "agent-loop/06-streaming.html": "Streaming: From SSE Events to Terminal Output — Reading Claude Code, Together",
+    "agent-loop/07-retry-recovery.html": "Eight Layers of Retry and Error Recovery — Reading Claude Code, Together",
+    "agent-loop/08-interrupt.html": "Interrupt: From Ctrl-C to Synthetic tool_result — Reading Claude Code, Together",
+    "agent-loop/09-sidechain.html": "Sidechain: Subagents and agentId Routing — Reading Claude Code, Together",
+    "agent-loop/10-conclusion.html": "From Automatic Loops to a General-Purpose Agent Loop — Reading Claude Code, Together"
   },
   "zh": {
     "preface.html": "前言 — 一同读 Claude Code",

@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap 位置
-Sitemap: https://diaozxin007.github.io/reading-claude-code/sitemap.xml
+Sitemap: https://readingclaude.club/sitemap.xml
 
 # 打印页面不要索引
 Disallow: /*/print.html

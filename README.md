@@ -4,8 +4,8 @@
 
 ## 在线阅读
 
-- **中文版**:[https://diaozxin007.github.io/reading-claude-code/zh/](https://diaozxin007.github.io/reading-claude-code/zh/)
-- **English**(仅第一部分):[https://diaozxin007.github.io/reading-claude-code/en/](https://diaozxin007.github.io/reading-claude-code/en/)
+- **中文版**:[https://readingclaude.club/zh/](https://readingclaude.club/zh/)
+- **English**(第一、二部分):[https://readingclaude.club/en/](https://readingclaude.club/en/)
 
 ## 这本书讲什么
 
@@ -60,14 +60,14 @@ Claude Code 是当前生产级 AI coding agent 的标杆。 它的源码里藏�
 ## 阅读顺序建议
 
 **没读过任何 Claude Code 源码的读者**:
-1. 先看 [前言](https://diaozxin007.github.io/reading-claude-code/zh/preface.html) 和 [Tool 机制](https://diaozxin007.github.io/reading-claude-code/zh/tool-mechanism.html)
+1. 先看 [前言](https://readingclaude.club/zh/preface) 和 [Tool 机制](https://readingclaude.club/zh/tool-mechanism)
 2. 选一个感兴趣的原语切入 · 一路读第一部分
 3. 有兴趣继续 · 进第二部分(Agent Loop) —— 从 00 开篇起 · 顺序读
 4. 再读第三部分(Context 管理) —— 理解每次调用的信息如何组织
 5. 最后进入第四部分(Memory) —— 把时间尺度从当前 session 延伸到跨 session
 
 **已经用过 Claude Code · 想理解为什么这样设计**:
-- 直接从 [Context 管理 · 开篇](https://diaozxin007.github.io/reading-claude-code/zh/context-management/00-intro.html) 起 —— 先看 Cache 是底座这个立主线
+- 直接从 [Context 管理 · 开篇](https://readingclaude.club/zh/context-management/00-intro) 起 —— 先看 Cache 是底座这个立主线
 - 然后按兴趣穿插读第二/第一部分
 
 ## 本地阅读
@@ -78,7 +78,7 @@ Claude Code 是当前生产级 AI coding agent 的标杆。 它的源码里藏�
 # 中文版
 cd zh && mdbook serve --open
 
-# English(仅第一部分 · 二/三/四部分未翻译)
+# English(第一、二部分 · 三/四部分未翻译)
 cd en && mdbook serve --open
 ```
 

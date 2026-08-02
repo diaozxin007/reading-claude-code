@@ -4,7 +4,7 @@ set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 SITEMAP_PATH="${SITEMAP_PATH:-${SCRIPT_DIR}/sitemap.xml}"
-SITE_URL="${SITE_URL:-https://diaozxin007.github.io/reading-claude-code}"
+SITE_URL="${SITE_URL:-https://readingclaude.club}"
 INDEXNOW_ENDPOINT="${INDEXNOW_ENDPOINT:-https://api.indexnow.org/indexnow}"
 
 usage() {
@@ -78,6 +78,20 @@ URL_COUNT="$(jq 'length' <<<"$URL_JSON")"
 
 if [[ "$URL_COUNT" -eq 0 ]]; then
   echo "No <loc> URLs found in $SITEMAP_PATH" >&2
+  exit 1
+fi
+
+# IndexNow requires every submitted URL to belong to the declared host.
+# Fail loudly rather than accidentally submitting a legacy mirror domain.
+SITE_ROOT="${SITE_URL%/}"
+MISMATCHED_URLS="$(
+  jq -r --arg root "$SITE_ROOT" \
+    '.[] | select(. != $root and (startswith($root + "/") | not))' \
+    <<<"$URL_JSON"
+)"
+if [[ -n "$MISMATCHED_URLS" ]]; then
+  echo "Sitemap contains URLs outside SITE_URL ($SITE_ROOT):" >&2
+  printf '%s\n' "$MISMATCHED_URLS" >&2
   exit 1
 fi
 

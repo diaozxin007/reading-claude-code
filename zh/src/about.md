@@ -43,7 +43,7 @@
 | **静态站生成** | [mdBook](https://rust-lang.github.io/mdBook/)(Rust 生态 · 官方支持) |
 | **持续构建 & 部署** | GitHub Actions · 每次 push 到 main 自动 build + 部署 |
 | **托管** | GitHub Pages |
-| **域名** | `diaozxin007.github.io/reading-claude-code/`(暂用 GitHub 子域) |
+| **域名** | `readingclaude.club`（Cloudflare Pages 主站） |
 | **双语** | 中英双站 · 各自独立 mdBook 项目 · 通过 hreflang 关联 |
 
 ### 版权 & 授权
