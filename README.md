@@ -5,7 +5,7 @@
 ## 在线阅读
 
 - **中文版**:[https://diaozxin007.github.io/reading-claude-code/zh/](https://diaozxin007.github.io/reading-claude-code/zh/)
-- **English**(仅第一部分):[https://diaozxin007.github.io/reading-claude-code/en/](https://diaozxin007.github.io/reading-claude-code/en/)
+- **English**(第一、二部分):[https://diaozxin007.github.io/reading-claude-code/en/](https://diaozxin007.github.io/reading-claude-code/en/)
 
 ## 这本书讲什么
 
@@ -78,7 +78,7 @@ Claude Code 是当前生产级 AI coding agent 的标杆。 它的源码里藏�
 # 中文版
 cd zh && mdbook serve --open
 
-# English(仅第一部分 · 二/三/四部分未翻译)
+# English(第一、二部分 · 三/四部分未翻译)
 cd en && mdbook serve --open
 ```
 

@@ -17,7 +17,18 @@
     "state/monitor.html": "Claude Code Monitor tool: event-stream watching with stdout-as-notification — real-time log tailing, file watching, and CI polling without sleep loops.",
     "info/web.html": "Claude Code WebFetch and WebSearch: breaking beyond local boundaries with AI-processed web content — why Bash + curl isn't enough.",
     "appendix-index.html": "Claude Code tool index: lookup tables organized by problem-to-solve and by design philosophy — a quick reference for all 17 tools.",
-    "about.html": "About Reading Claude Code Together — the open-source book dissecting Claude Code's tool primitives."
+    "about.html": "About Reading Claude Code Together — the open-source book dissecting Claude Code's tool primitives.",
+    "agent-loop/00-intro.html": "How Claude Code turns one user prompt into an autonomous loop of LLM calls, tool execution, message updates, and stop conditions.",
+    "agent-loop/01-tool-permission.html": "How tool schemas, permission rules, user approval, hooks, and classifiers determine whether a Claude Code tool call may execute.",
+    "agent-loop/02-hooks.html": "How Claude Code hooks inject programmable logic at key points in the Agent Loop without destabilizing the main execution flow.",
+    "agent-loop/03-parallel-scheduling.html": "How Claude Code batches tool calls, decides concurrency safety, schedules parallel execution, and converts tool failures into LLM feedback.",
+    "agent-loop/04-stop-reason.html": "What each Claude API stop_reason means and how the Agent Loop decides whether to finish, continue, or enter recovery.",
+    "agent-loop/05-query-engine.html": "A complete view of the Claude Code queryLoop state machine, where normal turns, retries, compaction, and recovery are peer transitions.",
+    "agent-loop/06-streaming.html": "How Claude Code consumes SSE events, reconstructs messages, persists results, and renders incremental terminal output.",
+    "agent-loop/07-retry-recovery.html": "Eight stacked recovery layers for network errors, rate limits, output limits, overloaded services, and exhausted context windows.",
+    "agent-loop/08-interrupt.html": "How Ctrl-C propagates through the Claude Code Agent Loop and how synthetic tool_result blocks preserve message invariants after interruption.",
+    "agent-loop/09-sidechain.html": "How the main agent and subagents reuse the same queryLoop implementation while agentId routes lifecycle behavior and output.",
+    "agent-loop/10-conclusion.html": "The complete Claude Code Agent Loop: an automatic execution engine, explicit state machine, recovery system, and reusable subagent runtime."
   },
   "zh": {
     "preface.html": "《一同读 Claude Code》前言：从 Tools、Agent Loop、Context 到 Memory，说明全书的四条研究主线与阅读方式。",

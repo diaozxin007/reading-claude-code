@@ -110,56 +110,67 @@
   <url>
     <loc>https://diaozxin007.github.io/reading-claude-code/zh/agent-loop/00-intro.html</loc>
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/agent-loop/00-intro.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://diaozxin007.github.io/reading-claude-code/en/agent-loop/00-intro.html"/>
     <lastmod>2026-08-02</lastmod>
   </url>
   <url>
     <loc>https://diaozxin007.github.io/reading-claude-code/zh/agent-loop/01-tool-permission.html</loc>
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/agent-loop/01-tool-permission.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://diaozxin007.github.io/reading-claude-code/en/agent-loop/01-tool-permission.html"/>
     <lastmod>2026-08-02</lastmod>
   </url>
   <url>
     <loc>https://diaozxin007.github.io/reading-claude-code/zh/agent-loop/02-hooks.html</loc>
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/agent-loop/02-hooks.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://diaozxin007.github.io/reading-claude-code/en/agent-loop/02-hooks.html"/>
     <lastmod>2026-08-02</lastmod>
   </url>
   <url>
     <loc>https://diaozxin007.github.io/reading-claude-code/zh/agent-loop/03-parallel-scheduling.html</loc>
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/agent-loop/03-parallel-scheduling.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://diaozxin007.github.io/reading-claude-code/en/agent-loop/03-parallel-scheduling.html"/>
     <lastmod>2026-08-02</lastmod>
   </url>
   <url>
     <loc>https://diaozxin007.github.io/reading-claude-code/zh/agent-loop/04-stop-reason.html</loc>
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/agent-loop/04-stop-reason.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://diaozxin007.github.io/reading-claude-code/en/agent-loop/04-stop-reason.html"/>
     <lastmod>2026-08-02</lastmod>
   </url>
   <url>
     <loc>https://diaozxin007.github.io/reading-claude-code/zh/agent-loop/05-query-engine.html</loc>
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/agent-loop/05-query-engine.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://diaozxin007.github.io/reading-claude-code/en/agent-loop/05-query-engine.html"/>
     <lastmod>2026-08-02</lastmod>
   </url>
   <url>
     <loc>https://diaozxin007.github.io/reading-claude-code/zh/agent-loop/06-streaming.html</loc>
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/agent-loop/06-streaming.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://diaozxin007.github.io/reading-claude-code/en/agent-loop/06-streaming.html"/>
     <lastmod>2026-08-02</lastmod>
   </url>
   <url>
     <loc>https://diaozxin007.github.io/reading-claude-code/zh/agent-loop/07-retry-recovery.html</loc>
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/agent-loop/07-retry-recovery.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://diaozxin007.github.io/reading-claude-code/en/agent-loop/07-retry-recovery.html"/>
     <lastmod>2026-08-02</lastmod>
   </url>
   <url>
     <loc>https://diaozxin007.github.io/reading-claude-code/zh/agent-loop/08-interrupt.html</loc>
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/agent-loop/08-interrupt.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://diaozxin007.github.io/reading-claude-code/en/agent-loop/08-interrupt.html"/>
     <lastmod>2026-08-02</lastmod>
   </url>
   <url>
     <loc>https://diaozxin007.github.io/reading-claude-code/zh/agent-loop/09-sidechain.html</loc>
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/agent-loop/09-sidechain.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://diaozxin007.github.io/reading-claude-code/en/agent-loop/09-sidechain.html"/>
     <lastmod>2026-08-02</lastmod>
   </url>
   <url>
     <loc>https://diaozxin007.github.io/reading-claude-code/zh/agent-loop/10-conclusion.html</loc>
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://diaozxin007.github.io/reading-claude-code/zh/agent-loop/10-conclusion.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://diaozxin007.github.io/reading-claude-code/en/agent-loop/10-conclusion.html"/>
     <lastmod>2026-08-02</lastmod>
   </url>
   <url>
