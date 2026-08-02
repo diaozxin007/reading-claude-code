@@ -83,5 +83,21 @@
 
 ---
 
+# 第五部分 · Skills 研究
+
+- [开篇 · 从重复粘贴到可调用能力](skills/00-intro.md)
+- [能力格式 · 从一个 Markdown 文件到可移植文件夹](skills/01-format.md)
+- [渐进披露 · 从 description 到完整 instructions](skills/02-progressive-disclosure.md)
+- [能力发现 · 从一个目录到 Claude 的候选清单](skills/03-discovery.md)
+- [能力调用 · 从用户请求到 Skill 激活](skills/04-invocation.md)
+- [Prompt 渲染 · 从参数到动态上下文](skills/05-prompt-rendering.md)
+- [执行边界 · 从 inline 到 forked subagent](skills/06-execution-boundary.md)
+- [权限治理 · 从可调用到可安全执行](skills/07-permissions.md)
+- [生命周期 · 从一次加载到 compaction](skills/08-lifecycle.md)
+- [分发 · 从个人文件夹到团队 Plugin](skills/09-distribution.md)
+- [收尾 · 一项能力应该放到哪里](skills/10-conclusion.md)
+
+---
+
 [附录 · 工具索引](appendix-index.md)
 [关于](about.md)
