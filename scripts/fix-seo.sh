@@ -12,7 +12,7 @@
 set -euo pipefail
 
 SITE_DIR="${1:-_site}"
-BASE_URL="https://diaozxin007.github.io/reading-claude-code"
+BASE_URL="${BASE_URL:-https://diaozxin007.github.io/reading-claude-code}"
 DESCRIPTIONS_FILE="scripts/descriptions.json"
 TITLES_FILE="scripts/titles.json"
 
