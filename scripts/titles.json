@@ -18,7 +18,7 @@
     "info/web.html": "Claude Code WebFetch and WebSearch Deep Dive — Reading Claude Code, Together",
     "appendix-index.html": "Tool Index — Reading Claude Code, Together",
     "about.html": "About — Reading Claude Code, Together",
-    "agent-loop/00-intro.html": "Introduction: From a Chat Window to the Loop — Reading Claude Code, Together",
+    "agent-loop/00-intro.html": "Claude Code Agent Loop — From a Chat Window to the Loop — Reading Claude Code, Together",
     "agent-loop/01-tool-permission.html": "From Tool Declaration to Pre-Execution Approval — Reading Claude Code, Together",
     "agent-loop/02-hooks.html": "Hooks: Programmable Intervention Points in the Loop — Reading Claude Code, Together",
     "agent-loop/03-parallel-scheduling.html": "From Reading Files to Parallel Scheduling — Reading Claude Code, Together",
