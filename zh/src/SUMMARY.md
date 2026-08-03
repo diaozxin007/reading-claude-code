@@ -99,7 +99,20 @@
 
 ---
 
-# 第六部分 · MCP 研究
+# 第六部分 · 多 Agent 协作研究
+
+- [开篇 · 从一个 agent 到一支队伍](multi-agent/00-intro.md)
+- [上下文怎么来 · 从零继承到续接](multi-agent/01-context-inheritance.md)
+- [工具权限怎么定 · 从 subagent_type 到按需 MCP](multi-agent/02-tool-permissions.md)
+- [前台还是后台 · 从默认反转到并发上限](multi-agent/03-foreground-background.md)
+- [怎么算完成 · 从一段话到固定格式](multi-agent/04-completion-reporting.md)
+- [谁去做哪份活 · 共享任务板 vs 写死脚本](multi-agent/05-task-assignment.md)
+- [隔离与共享的边界 · 从 worktree 到 token 账本](multi-agent/06-isolation-sharing.md)
+- [收尾 · 什么时候该多 agent、什么时候不该](multi-agent/07-conclusion.md)
+
+---
+
+# 第七部分 · MCP 研究
 
 - [开篇 · 从"只有内置工具"到"可以外接工具"](mcp/01-intro.md)
 - [连接 · 从一行配置到一次握手](mcp/02-connection.md)
