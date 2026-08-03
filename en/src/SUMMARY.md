@@ -37,6 +37,22 @@
 
 ---
 
+# Part 2 · Agent Loop Research
+
+- [00 · Opening · From Chat Window to Loop](agent-loop/00-intro.md)
+- [01 · From Tool Declaration to Pre-Execution Approval](agent-loop/01-tool-permission.md)
+- [02 · Hooks · Programmable Intervention Points on the Loop](agent-loop/02-hooks.md)
+- [03 · From Reading Files to Parallel Scheduling](agent-loop/03-parallel-scheduling.md)
+- [04 · From "Done Answering" to the 7 Meanings of stop_reason](agent-loop/04-stop-reason.md)
+- [05 · QueryEngine Main Loop · The Full State Machine](agent-loop/05-query-engine.md)
+- [06 · Streaming · From SSE Events to Character-by-Character Display](agent-loop/06-streaming.md)
+- [07 · Retry and Error Recovery · 8 Layers of Recovery Stacked Together](agent-loop/07-retry-recovery.md)
+- [08 · Interrupt · From Ctrl-C to a Synthetic tool_result](agent-loop/08-interrupt.md)
+- [09 · Sidechain · From Sub-agents to agentId Routing](agent-loop/09-sidechain.md)
+- [10 · Closing · From an Automatic Loop to a General-Purpose Agent Loop](agent-loop/10-conclusion.md)
+
+---
+
 # Part 3 · Context Management Research
 
 - [00 · Intro · Claude Code's 200K Ledger](context-management/00-intro.md)
