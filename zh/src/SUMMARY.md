@@ -99,5 +99,19 @@
 
 ---
 
+# 第六部分 · MCP 研究
+
+- [开篇 · 从"只有内置工具"到"可以外接工具"](mcp/01-intro.md)
+- [连接 · 从一行配置到一次握手](mcp/02-connection.md)
+- [Transport · 从子进程到远程服务](mcp/03-transport.md)
+- [工具暴露 · 从 tools list 到 Tool 列表里的一条](mcp/04-tool-exposure.md)
+- [权限 · 从工具名匹配到服务器级授权](mcp/05-permissions.md)
+- [认证 · 从一次授权到多服务器免登录](mcp/06-authentication.md)
+- [Resources & Elicitation · 从只能调用到能读能问](mcp/07-resources-elicitation.md)
+- [反向角色 · 从 MCP client 到 MCP server](mcp/08-reverse-role.md)
+- [收尾 · 与 Skills、Tool、Plugin 的边界收束](mcp/09-conclusion.md)
+
+---
+
 [附录 · 工具索引](appendix-index.md)
 [关于](about.md)
