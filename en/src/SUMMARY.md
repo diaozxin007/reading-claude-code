@@ -67,5 +67,19 @@
 
 ---
 
+# Part 4 · Memory Research
+
+- [01 · The CLAUDE.md Family · 5-Layer Hierarchy and 3 Mixing Patterns](memory/01-claude-md-family.md)
+- [02 · Auto Memory · From One Correction to MEMORY.md](memory/02-auto-memory.md)
+- [03 · Anthropic API Memory Tool · From Date-Versioned to a Client-Side Memory Filesystem](memory/03-api-memory-tool.md)
+- [04 · Subagent Memory · From Agent Type to a 3-Layer Persistent Directory](memory/04-subagent-memory.md)
+- [05 · Memory Extraction Pipeline · From End-of-Turn to a Restricted Fork](memory/05-extraction-pipeline.md)
+- [06 · Team Memory Sync · From Local Dual Directories to Server-Side Sync](memory/06-team-memory-sync.md)
+- [07 · Managed CLAUDE.md · The Enterprise Control Layer](memory/07-managed-claude-md.md)
+- [08 · After Compaction · Which Memories Come Back Automatically](memory/08-post-compaction.md)
+- [09 · Closing · From a Single Piece of Information to Five Memory Carriers](memory/09-conclusion.md)
+
+---
+
 [Appendix: Tool Index](appendix-index.md)
 [About](about.md)
