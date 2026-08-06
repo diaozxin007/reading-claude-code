@@ -81,5 +81,48 @@
 
 ---
 
+# Part 5 · Skills Research
+
+- [00 · Introduction · From Repeated Pasting to a Callable Capability](skills/00-intro.md)
+- [01 · Capability Format · From a Single Markdown File to a Portable Folder](skills/01-format.md)
+- [02 · Progressive Disclosure · From description to Full Instructions](skills/02-progressive-disclosure.md)
+- [03 · Capability Discovery · From a Directory to Claude's Candidate List](skills/03-discovery.md)
+- [04 · Capability Invocation · From User Request to Skill Activation](skills/04-invocation.md)
+- [05 · Prompt Rendering · From Arguments to Dynamic Context](skills/05-prompt-rendering.md)
+- [06 · Execution Boundaries · From Inline to Forked Subagent](skills/06-execution-boundary.md)
+- [07 · Permission Governance · From Callable to Safely Executable](skills/07-permissions.md)
+- [08 · Lifecycle · From a Single Load to Compaction](skills/08-lifecycle.md)
+- [09 · Distribution · From Personal Folder to Team Plugin](skills/09-distribution.md)
+- [10 · Wrap-up · Where Should a Capability Live](skills/10-conclusion.md)
+
+---
+
+# Part 6 · Multi-Agent Collaboration Research
+
+- [Introduction · From One Agent to a Team](multi-agent/00-intro.md)
+- [Where Context Comes From · From a Blank Slate to Continuation](multi-agent/01-context-inheritance.md)
+- [How Tool Permissions Are Set · From subagent_type to On-Demand MCP](multi-agent/02-tool-permissions.md)
+- [Foreground or Background · From Reversed Defaults to Concurrency Limits](multi-agent/03-foreground-background.md)
+- [What Counts as Done · From a Paragraph to a Fixed Format](multi-agent/04-completion-reporting.md)
+- [Who Does Which Work · Shared Task Board vs. Hard-Coded Script](multi-agent/05-task-assignment.md)
+- [The Boundary Between Isolation and Sharing · From Worktrees to the Token Ledger](multi-agent/06-isolation-sharing.md)
+- [Wrap-up · When to Use Multiple Agents—and When Not To](multi-agent/07-conclusion.md)
+
+---
+
+# Part 7 · MCP Research
+
+- [Introduction · From "Only Built-in Tools" to "Externally Attachable Tools"](mcp/01-intro.md)
+- [Connection · From a Single Config Line to a Handshake](mcp/02-connection.md)
+- [Transport · From Subprocess to Remote Service](mcp/03-transport.md)
+- [Tool Exposure · From tools list to an Entry in the Tool List](mcp/04-tool-exposure.md)
+- [Permissions · From Tool-Name Matching to Server-Level Authorization](mcp/05-permissions.md)
+- [Authentication · From a Single Authorization to Login-Free Access Across Servers](mcp/06-authentication.md)
+- [Resources & Elicitation · From Callable to Readable and Askable](mcp/07-resources-elicitation.md)
+- [Reversed Roles · From MCP Client to MCP Server](mcp/08-reverse-role.md)
+- [Wrap-up · Where MCP Sits Relative to Skills, Tool, and Plugin](mcp/09-conclusion.md)
+
+---
+
 [Appendix: Tool Index](appendix-index.md)
 [About](about.md)

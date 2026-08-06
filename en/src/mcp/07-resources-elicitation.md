@@ -1,0 +1,39 @@
+# 07 · Resources & Elicitation · From Callable to Readable and Askable
+
+> **TL;DR**: An MCP server can offer more than "callable actions." It can also declare a set of read-only data that can be read directly — resources — without needing to build a separate reading tool for every server; Claude Code shares one set globally. It can also, midway through a call, turn around and ask the user for a bit more information before it can continue — elicitation, a part of the protocol that's still evolving quickly.
+
+The first six posts have mostly been about the same thing: the model calls a tool, the server executes it, and returns a result. That's the most commonly used category among the three kinds of capability mentioned in the [opening post](01-intro.md) — tools. This post covers the other two: data that can be read directly, and the mechanism by which a server turns around and asks the user for information.
+
+## Resources: Not a "Call," but a "Read"
+
+A list of Jira tickets, an internal document, a snapshot of a monitoring dashboard right now — none of these need the model to carefully craft a tool call's parameters every single time just to fetch them. They're more like things that are just sitting there, ready to be read whenever needed. That's exactly what **resources** are meant to solve: a server declares a set of read-only data that can be read, and instead of Claude Code passing parameters and waiting for execution the way it does with tools, it simply fetches the content back using an identifier.
+
+As mentioned in [Post 04](04-tool-exposure.md), the entry point for handling resources consists of two globally shared tools — one responsible for "listing what resources are currently readable from a given server (or all servers)," and one responsible for "reading a specific piece of content by its identifier." Rather than registering a new set of read logic every time a new server is connected, these two general-purpose tools handle every server that supports resources. This design takes a different approach from what [Post 04](04-tool-exposure.md) described for tools — "keep each tool as-is, just rename it." Tools emphasize "each one is different, so keep it as it is"; resources emphasize "the act of reading is itself generic, so there's no need to reinvent it." This difference reflects a deeper distinction between the two: the value of a tool lies in each one doing something different, while the value of a resource lies in the content itself — the act of reading is standardized.
+
+What gets read isn't always plain text. If a resource turns out to be binary content like an image or a PDF, Claude Code doesn't stuff it directly into the context the model sees — even a modest-sized PDF, once encoded as text, would eat up a huge number of tokens. Instead, it saves the binary content as a separate file and returns to the model a short message saying "the content has been saved to this path," along with a brief description. If that content is actually needed later, it's accessed via file reading rather than being dropped straight into the conversation. This extends the same preference repeatedly emphasized throughout the [Context series](../context-management/00-intro.md): whichever path saves more context gets priority.
+
+## Elicitation: Turning Around to Ask, Mid-Call
+
+Some work can't be fully prepared with all the necessary information gathered up front before making a call. For example, a form that needs to be filled out, a jump to the browser to complete identity verification, or simply a required parameter the model isn't sure how to fill in during this particular turn — in these cases, the server needs a way to turn around, mid-call, and ask the user for something, then continue running the call to completion once it gets an answer. This capability is called **elicitation**.
+
+Supporting this requires first being explicit during the handshake phase that "this client supports being asked back" — the capability negotiation covered in [Post 02](02-connection.md) shows up here again: when Claude Code connects, it proactively declares that it has elicitation capability. Without that declaration, a server has nowhere to direct its question even if it wants to ask one. Once declared, the actual form the question takes when presented to the user comes in two flavors: one is a form that expands directly in the interface for the user to fill out; the other is a link given to the user to open in a browser to complete something (say, an identity confirmation that requires a graphical interface), after which the flow picks back up.
+
+It's worth calling out separately that before Claude Code actually pops up a UI, it first checks whether the user has already configured a programmatic rule that can directly supply the answer — if so, the elicitation is answered silently, and the user never sees a prompt at all. This layer isn't something mandated by the protocol; it's a shortcut Claude Code adds on its own, following the principle of "don't bother the user if it can be automated" — consistent with a theme that's come up repeatedly across this series: anything that can be settled ahead of time with a rule doesn't need to be asked of a person every single time.
+
+## This Part of the Protocol Is Still Taking Shape
+
+Elicitation is a relatively young part of the MCP protocol — it wasn't in the earliest protocol versions and was only added in a later one. And it hasn't stayed still since being added, either: a subsequent version reworked how elicitation actually works, changing it from a model where "the server issues a request and holds a connection open the whole time waiting for the user's response" to something better suited to stateless scenarios — "the server returns what additional information is still needed along with a piece of state, the client collects the answers, and then re-issues the call carrying that state along with it." This way, any server instance can pick up and handle the request midway, without needing to keep holding the same connection open the whole time.
+
+The point of raising this is to note that elicitation isn't a capability that's been settled and stable for a long time — the "two presentation forms + programmatic shortcut" described in this post reflects what the protocol version Claude Code's current implementation is based on looks like. The protocol itself is still being adjusted toward something better suited for large-scale deployment, and its specific interaction details are more likely to change in future versions than the mechanisms covered elsewhere in this series.
+
+## Coming Up Next
+
+The first seven posts have all been about Claude Code's role as an MCP client — connecting to others, using others' capabilities. But Claude Code can also flip that around and become an MCP server itself, exposing its internal Tools for other MCP clients to call. The next post, [Reversing Roles · From MCP Client to MCP Server](08-reverse-role.md), picks up from this role swap.
+
+## References
+
+- Model Context Protocol official documentation: [Introduction](https://modelcontextprotocol.io/introduction)
+- Model Context Protocol specification evolution: [The 2026-07-28 MCP Specification Release Candidate](https://blog.modelcontextprotocol.io/posts/2026-07-28-release-candidate/)
+- Source code (internal research material, not a public link): `/Users/zhengxindiao/Documents/claude-code-haha` · `src/tools/ListMcpResourcesTool/`, `src/tools/ReadMcpResourceTool/`, `src/utils/mcpOutputStorage.ts` (persisting binary content to disk), `src/services/mcp/elicitationHandler.ts`, `src/utils/mcp/elicitationValidation.ts`
+- [Tool Exposure · From tools list to an Entry in the Tool List](04-tool-exposure.md)
+- [Connection · From One Line of Config to One Handshake](02-connection.md)
