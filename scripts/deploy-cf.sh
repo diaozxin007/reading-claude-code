@@ -18,7 +18,7 @@ mkdir -p _site
 cp -r zh/book _site/zh
 cp -r en/book _site/en
 cp scripts/index.html scripts/sitemap.xml scripts/robots.txt \
-   scripts/a78c8fbaccd842f6ad0a84ea8217ebc4.txt scripts/og-cover.png _site/
+   scripts/e287e26c0d5c420d8281dd1e98f2863f.txt scripts/og-cover.png _site/
 
 # per-page canonical / hreflang / description (reads BASE_URL from env)
 BASE_URL="$CF_BASE_URL" bash scripts/fix-seo.sh _site

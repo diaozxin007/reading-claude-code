@@ -49,7 +49,7 @@ jobs:
           cp scripts/sitemap.xml _site/sitemap.xml
           cp scripts/robots.txt _site/robots.txt
           # IndexNow key file
-          cp scripts/a78c8fbaccd842f6ad0a84ea8217ebc4.txt _site/
+          cp scripts/e287e26c0d5c420d8281dd1e98f2863f.txt _site/
           # OG share card image
           cp scripts/og-cover.png _site/og-cover.png
 
