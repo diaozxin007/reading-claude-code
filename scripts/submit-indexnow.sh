@@ -5,7 +5,7 @@ set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 SITEMAP_PATH="${SITEMAP_PATH:-${SCRIPT_DIR}/sitemap.xml}"
 SITE_URL="${SITE_URL:-https://readingclaude.club}"
-INDEXNOW_ENDPOINT="${INDEXNOW_ENDPOINT:-https://api.indexnow.org/indexnow}"
+INDEXNOW_ENDPOINT="${INDEXNOW_ENDPOINT:-https://www.bing.com/indexnow}"
 
 usage() {
   cat <<'EOF'
@@ -17,7 +17,7 @@ Environment variables:
   INDEXNOW_KEY       IndexNow key. By default it is read from scripts/<key>.txt.
   SITEMAP_PATH       Sitemap path. Defaults to scripts/sitemap.xml.
   SITE_URL           Public site root used for keyLocation.
-  INDEXNOW_ENDPOINT  API endpoint. Defaults to https://api.indexnow.org/indexnow.
+  INDEXNOW_ENDPOINT  API endpoint. Defaults to https://www.bing.com/indexnow.
 EOF
 }
 
